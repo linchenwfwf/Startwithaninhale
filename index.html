@@ -29,7 +29,12 @@
 
     body {
       font-family: 'Jost', sans-serif;
-      background: var(--ivory);
+      background:
+        radial-gradient(ellipse at 15% 25%, rgba(212,146,111,0.32) 0%, rgba(184,107,74,0.1) 30%, transparent 55%),
+        radial-gradient(ellipse at 75% 35%, rgba(212,146,111,0.22) 0%, transparent 45%),
+        radial-gradient(ellipse at 40% 65%, rgba(212,146,111,0.15) 0%, transparent 40%),
+        var(--ivory);
+      background-attachment: fixed;
       color: var(--brown);
       font-weight: 300;
       line-height: 1.7;
@@ -74,13 +79,13 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
+      min-height: auto;
+      padding-bottom: 1rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       padding-top: 80px;
       position: relative;
-      overflow: hidden;
-      background: radial-gradient(ellipse at 35% 55%, rgba(212,146,111,0.22) 0%, rgba(184,107,74,0.08) 35%, transparent 60%), var(--ivory);
+      background: transparent;
     }
 
     /* organic background blobs */
@@ -185,6 +190,27 @@
     }
     .btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
 
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--terra);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.6rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--terra);
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1s forwards;
+    }
+    .btn-secondary:hover { background: var(--terra); color: #fff; transform: translateY(-2px); }
+
+    .hero-btns { display: flex; flex-direction: row; gap: 1rem; align-items: center; flex-wrap: nowrap; }
+
     .hero-visual {
       position: relative;
       display: flex;
@@ -218,6 +244,18 @@
       width: 380px;
       height: 480px;
       z-index: 1;
+    }
+    .photo-frame img {
+      filter: sepia(0.12) saturate(0.9) brightness(1.03);
+    }
+    .photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(184,107,74,0.18) 100%);
+      pointer-events: none;
+      z-index: 2;
     }
     .photo-placeholder {
       width: 100%;
@@ -337,8 +375,54 @@
       color: var(--brown-mid);
     }
 
+    /* ── CREDENTIALS ── */
+    #credentials { background: transparent; padding-top: 2rem; padding-bottom: 2rem; }
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 2.5rem;
+    }
+    .cred-block { }
+    .cred-block-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid rgba(160,135,110,0.3);
+    }
+    .cred-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+    .cred-list li {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .cred-list li strong {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--brown);
+      letter-spacing: 0.02em;
+    }
+    .cred-list li span {
+      font-size: 0.78rem;
+      color: var(--brown-light);
+      letter-spacing: 0.03em;
+    }
+    .cred-divider {
+      width: 2rem;
+      height: 1.5px;
+      background: var(--terra);
+      margin-bottom: 0.5rem;
+      opacity: 0.6;
+    }
+    @media (max-width: 900px) {
+      .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
     /* ── SERVICES ── */
-    #services { background: var(--ivory); padding-top: 4rem; }
+    #services { background: transparent; padding-top: 2rem; }
 
     .services-grid {
       display: grid;
@@ -415,7 +499,7 @@
     }
 
     .service-card {
-      background: var(--ivory-dark);
+      background: #F5EBE0;
       padding: 2.5rem 2rem;
       border-radius: 4px;
       border-top: 3px solid var(--sage-light);
@@ -531,7 +615,7 @@
     }
 
     /* ── RATES ── */
-    #rates { background: var(--ivory-dark); }
+    #rates { background: radial-gradient(ellipse at 20% 30%, rgba(212,146,111,0.22) 0%, rgba(184,107,74,0.08) 40%, transparent 65%), var(--ivory); }
 
     .rates-layout {
       display: grid;
@@ -668,6 +752,12 @@
       transition: background 0.25s, border-color 0.25s;
     }
     .btn-light:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+    .btn-cream {
+      background: var(--ivory-dark);
+      color: var(--brown);
+      border-color: var(--ivory-dark);
+    }
+    .btn-cream:hover { background: var(--ivory); border-color: var(--ivory); }
     .btn-terra {
       background: var(--terra);
       border-color: var(--terra);
@@ -724,7 +814,8 @@
   <nav id="nav">
     <a href="#hero" class="nav-name">Start with an Inhale</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="#about">Intro</a></li>
+      <li><a href="#credentials">Background</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#emdr">EMDR</a></li>
       <li><a href="#rates">Rates</a></li>
@@ -757,26 +848,74 @@
     </div>
 
     <div class="hero-visual">
-      <!-- Arc accents -->
-      <svg class="leaf leaf-1" width="120" height="120" viewBox="0 0 120 120" fill="none">
-        <path d="M10 110 A85 85 0 0 1 110 10" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.22"/>
-        <path d="M22 110 A68 68 0 0 1 110 22" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
-        <path d="M38 110 A50 50 0 0 1 110 38" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.1"/>
-      </svg>
-      <svg class="leaf leaf-2" width="100" height="100" viewBox="0 0 100 100" fill="none">
-        <path d="M5 95 A75 75 0 0 1 95 5" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
-        <path d="M18 95 A58 58 0 0 1 95 18" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.12"/>
-      </svg>
-      <svg class="leaf leaf-3" width="80" height="80" viewBox="0 0 80 80" fill="none">
-        <path d="M5 75 A55 55 0 0 1 75 5" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
-      </svg>
-
-      <div class="photo-frame" style="width:380px; height:380px; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(60,42,30,0.18); border: 6px solid var(--ivory-dark);">
+      <div class="photo-frame" style="width:380px; height:380px; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(60,42,30,0.18);">
         <img src="Picture2.png" alt="Lin Chen, LCSW" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
       </div>
     </div>
   </section>
 
+
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <p class="section-label">Background</p>
+    <div class="divider"></div>
+    <h2 class="section-heading">Training &amp; <em>Experience</em></h2>
+    <div class="credentials-grid">
+
+      <div class="cred-block">
+        <p class="cred-block-title">Certifications &amp; Training</p>
+        <ul class="cred-list">
+          <li>
+            <div class="cred-divider"></div>
+            <strong>EMDRIA Certified</strong>
+            <span>Certificate #CMAPCQ-CE000024</span>
+          </li>
+          <li>
+            <div class="cred-divider"></div>
+            <strong>Somatic Embodiment &amp; Regulation (SER)</strong>
+            <span>Certificate — Body-based trauma approach</span>
+          </li>
+          <li>
+            <div class="cred-divider"></div>
+            <strong>Gestalt Approach to Psychotherapy (GAP)</strong>
+            <span>Two-year post-graduate training</span>
+          </li>
+          <li>
+            <div class="cred-divider"></div>
+            <strong>Licensed Clinical Social Worker (LCSW)</strong>
+            <span>New York State</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cred-block">
+        <p class="cred-block-title">Clinical &amp; Professional Experience</p>
+        <ul class="cred-list">
+          <li>
+            <div class="cred-divider"></div>
+            <strong>5 Years Clinical Experience</strong>
+            <span>Inpatient hospital, children &amp; adolescents, adults in tech &amp; healthcare, neurodivergent clients</span>
+          </li>
+          <li>
+            <div class="cred-divider"></div>
+            <strong>Specialty Populations</strong>
+            <span>Immigrant families, C-PTSD, autistic adults, ADHD, OCD</span>
+          </li>
+          <li>
+            <div class="cred-divider"></div>
+            <strong>Technology Consultant — IBM</strong>
+            <span>Prior career in enterprise technology consulting</span>
+          </li>
+          <li>
+            <div class="cred-divider"></div>
+            <strong>Google</strong>
+            <span>Professional experience in tech industry</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
 
   <!-- SERVICES -->
   <section id="services">
@@ -812,7 +951,7 @@
         <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M5 7Q5 3 9 3H29Q33 3 33 7V21Q33 25 29 25H15L7 33L9 25Q5 25 5 21Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="service-title">Bilingual Therapy</div>
         <p class="service-desc">
-          Offering sessions fully in Mandarin (普通话) or English — because healing in your first language is not a luxury, it's a right.
+          Offering sessions fully in Mandarin (普通话) or English — because language shapes how we think and how we are.
         </p>
       </div>
       <div class="service-card">
@@ -936,7 +1075,7 @@
 
   <!-- RATES -->
   <section id="rates">
-    <p class="section-label">Investment</p>
+    <p class="section-label">Rates</p>
     <div class="divider"></div>
     <h2 class="section-heading"><em>Pricing</em></h2>
     <p class="section-body">
@@ -985,6 +1124,7 @@
     <div>
       <a href="mailto:startwithaninhale@gmail.com" class="btn-light btn-terra">Request a Consultation</a>
       <a href="tel:+13477358420" class="btn-light">Call or Text (347) 735-8420</a>
+      <a href="mailto:startwithaninhale@gmail.com" class="btn-light btn-cream">Book Initial Session</a>
     </div>
     <p style="margin-top: 2.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em;">
       Currently accepting new clients · In-Person in Brooklyn Heights · Telehealth · New York State
