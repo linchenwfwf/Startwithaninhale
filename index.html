@@ -12,9 +12,9 @@
     :root {
       --ivory:       #F7F2E9;
       --ivory-dark:  #EDE7D8;
-      --sage:        #7D9B78;
-      --sage-light:  #C4D4BF;
-      --sage-pale:   #EBF0E8;
+      --sage:        #A0876E;
+      --sage-light:  #C4B5A0;
+      --sage-pale:   #F0E8DF;
       --terra:       #B86B4A;
       --terra-light: #D4926F;
       --brown:       #3C2A1E;
@@ -47,7 +47,7 @@
       padding: 1.2rem 4rem;
       background: rgba(247,242,233,0.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(124,155,120,0.15);
+      border-bottom: 1px solid rgba(160,135,110,0.2);
       transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(60,42,30,0.08); }
@@ -80,6 +80,7 @@
       padding-top: 80px;
       position: relative;
       overflow: hidden;
+      background: radial-gradient(ellipse at 35% 55%, rgba(212,146,111,0.22) 0%, rgba(184,107,74,0.08) 35%, transparent 60%), var(--ivory);
     }
 
     /* organic background blobs */
@@ -87,17 +88,17 @@
       content: '';
       position: absolute;
       width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(196,212,191,0.45) 0%, transparent 70%);
-      top: -100px; right: -150px;
+      background: radial-gradient(ellipse, rgba(212,146,111,0.18) 0%, transparent 65%);
+      top: -50px; right: -100px;
       border-radius: 50%;
       pointer-events: none;
     }
     #hero::after {
       content: '';
       position: absolute;
-      width: 500px; height: 500px;
-      background: radial-gradient(ellipse, rgba(184,107,74,0.12) 0%, transparent 70%);
-      bottom: 0; left: 100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(184,107,74,0.15) 0%, transparent 65%);
+      bottom: -100px; left: 0;
       border-radius: 50%;
       pointer-events: none;
     }
@@ -192,12 +193,31 @@
       opacity: 0;
       animation: fadeIn 1.2s ease 0.5s forwards;
     }
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      width: 620px; height: 620px;
+      background: radial-gradient(ellipse, rgba(184,107,74,0.28) 0%, rgba(212,146,111,0.14) 40%, transparent 68%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      background: radial-gradient(ellipse, rgba(212,146,111,0.32) 0%, rgba(184,107,74,0.1) 50%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
 
     /* decorative botanical SVG frame */
     .photo-frame {
       position: relative;
       width: 380px;
       height: 480px;
+      z-index: 1;
     }
     .photo-placeholder {
       width: 100%;
@@ -278,7 +298,7 @@
     .about-img-box {
       width: 100%;
       aspect-ratio: 4/5;
-      background: linear-gradient(145deg, var(--sage-pale) 0%, #dce8d4 100%);
+      background: linear-gradient(145deg, var(--sage-pale) 0%, #e2d5c8 100%);
       border-radius: 4px;
       display: flex;
       align-items: center;
@@ -318,7 +338,7 @@
     }
 
     /* ── SERVICES ── */
-    #services { background: var(--ivory); }
+    #services { background: var(--ivory); padding-top: 4rem; }
 
     .services-grid {
       display: grid;
@@ -450,7 +470,7 @@
     .emdr-faq { margin-top: 1.5rem; }
 
     .faq-item {
-      border-bottom: 1px solid rgba(125,155,120,0.3);
+      border-bottom: 1px solid rgba(160,135,110,0.25);
       padding: 1.2rem 0;
     }
     .faq-q {
@@ -524,7 +544,7 @@
       background: var(--ivory);
       padding: 2.5rem;
       border-radius: 4px;
-      border: 1px solid rgba(125,155,120,0.2);
+      border: 1px solid rgba(160,135,110,0.2);
     }
     .rate-card.featured {
       background: var(--brown);
@@ -581,12 +601,12 @@
     .rates-note {
       margin-top: 2.5rem;
       padding: 1.5rem 2rem;
-      background: rgba(125,155,120,0.1);
+      background: rgba(160,135,110,0.1);
       border-radius: 4px;
       font-size: 0.9rem;
       color: var(--cream-text);
       line-height: 1.7;
-      max-width: 640px;
+      width: 100%;
     }
 
     /* ── CTA ── */
@@ -601,7 +621,7 @@
       content: '';
       position: absolute;
       width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(125,155,120,0.15) 0%, transparent 60%);
+      background: radial-gradient(ellipse, rgba(184,107,74,0.1) 0%, transparent 60%);
       top: -200px; left: 50%;
       transform: translateX(-50%);
       border-radius: 50%;
@@ -737,21 +757,22 @@
     </div>
 
     <div class="hero-visual">
-      <!-- Leaf SVG accents -->
-      <svg class="leaf leaf-1" width="80" height="120" viewBox="0 0 80 120" fill="none">
-        <path d="M40 110 C10 80, 5 40, 40 10 C75 40, 70 80, 40 110Z" fill="#7D9B78" opacity="0.35"/>
-        <line x1="40" y1="10" x2="40" y2="110" stroke="#7D9B78" stroke-width="1" opacity="0.5"/>
+      <!-- Arc accents -->
+      <svg class="leaf leaf-1" width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <path d="M10 110 A85 85 0 0 1 110 10" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.22"/>
+        <path d="M22 110 A68 68 0 0 1 110 22" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
+        <path d="M38 110 A50 50 0 0 1 110 38" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.1"/>
       </svg>
-      <svg class="leaf leaf-2" width="100" height="70" viewBox="0 0 100 70" fill="none">
-        <path d="M5 35 C30 5, 75 5, 95 35 C75 65, 30 65, 5 35Z" fill="#B86B4A" opacity="0.2"/>
-        <line x1="5" y1="35" x2="95" y2="35" stroke="#B86B4A" stroke-width="1" opacity="0.35"/>
+      <svg class="leaf leaf-2" width="100" height="100" viewBox="0 0 100 100" fill="none">
+        <path d="M5 95 A75 75 0 0 1 95 5" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.18"/>
+        <path d="M18 95 A58 58 0 0 1 95 18" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.12"/>
       </svg>
-      <svg class="leaf leaf-3" width="60" height="90" viewBox="0 0 60 90" fill="none">
-        <path d="M30 85 C5 65, 5 25, 30 5 C55 25, 55 65, 30 85Z" fill="#7D9B78" opacity="0.25"/>
+      <svg class="leaf leaf-3" width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <path d="M5 75 A55 55 0 0 1 75 5" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" opacity="0.15"/>
       </svg>
 
       <div class="photo-frame" style="width:380px; height:380px; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(60,42,30,0.18); border: 6px solid var(--ivory-dark);">
-        <img src="Picture.png" alt="Lin Chen, LCSW" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+        <img src="Picture2.png" alt="Lin Chen, LCSW" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
       </div>
     </div>
   </section>
@@ -767,42 +788,42 @@
     </p>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon">🌿</div>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 34C7 26 5 12 19 4C33 12 31 26 19 34Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 4L19 34" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
         <div class="service-title">Trauma &amp; PTSD</div>
         <p class="service-desc">
           Using EMDR and trauma-informed approaches, I help you process and integrate difficult experiences so they no longer hold power over your present life.
         </p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🍃</div>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 19C13 13 3 9 5 17C7 25 15 23 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 19C25 13 35 9 33 17C31 25 23 23 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 19C15 23 9 27 11 33C13 37 17 33 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 19C23 23 29 27 27 33C25 37 21 33 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="service-title">Life Transitions</div>
         <p class="service-desc">
           Navigating change — career shifts, relationship milestones, immigration, cultural identity — with curiosity, compassion, and a sense of what's possible.
         </p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🧘</div>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M4 13C7 13 8 10 11 10C14 10 15 13 18 13C21 13 22 10 25 10C28 10 29 13 32 13C35 13 36 10 38 10" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20C7 20 8 17 11 17C14 17 15 20 18 20C21 20 22 17 25 17C28 17 29 20 32 20C35 20 36 17 38 17" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 27C7 27 8 24 11 24C14 24 15 27 18 27C21 27 22 24 25 24C28 24 29 27 32 27C35 27 36 24 38 24" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="service-title">Anxiety &amp; Depression</div>
         <p class="service-desc">
           Moving beyond symptom management to understand the roots of your anxiety or low mood, using evidence-based and somatic approaches tailored to you.
         </p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🌏</div>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M5 7Q5 3 9 3H29Q33 3 33 7V21Q33 25 29 25H15L7 33L9 25Q5 25 5 21Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="service-title">Bilingual Therapy</div>
         <p class="service-desc">
           Offering sessions fully in Mandarin (普通话) or English — because healing in your first language is not a luxury, it's a right.
         </p>
       </div>
       <div class="service-card">
-        <div class="service-icon">💻</div>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M5 17L19 5L33 17" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 15V33H29V15" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="23" width="8" height="10" rx="1" stroke="var(--terra)" stroke-width="1.5"/></svg></div>
         <div class="service-title">In-Person &amp; Telehealth</div>
         <p class="service-desc">
           I offer in-person sessions in Brooklyn Heights, as well as secure, HIPAA-compliant telehealth for residents of New York State — wherever you feel most comfortable.
         </p>
       </div>
       <div class="service-card">
-        <div class="service-icon">🧩</div>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="7" y="5" width="24" height="28" rx="2" stroke="var(--terra)" stroke-width="1.5"/><line x1="14" y1="13" x2="26" y2="13" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="19" x2="26" y2="19" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="25" x2="22" y2="25" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><path d="M9 13L10.5 14.5L13 11" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19L10.5 20.5L13 17" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="25" r="1.2" stroke="var(--terra)" stroke-width="1.2"/></svg></div>
         <div class="service-title">Neurodivergent &amp; OCD</div>
         <p class="service-desc">
           Supporting autistic adults, ADHDers, and those with OCD in understanding how their minds work — and building a life that fits them, not the other way around. I bring a non-pathologizing, affirming lens to all of this work.
@@ -812,7 +833,7 @@
       <!-- Featured specialty: CPTSD & immigrant family -->
       <div class="service-card featured-specialty">
         <div class="specialty-left">
-          <div class="service-icon">🪴</div>
+          <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 33C19 33 4 23 4 13C4 7 8 4 13 4C16 4 18 6 19 8C20 6 22 4 25 4C30 4 34 7 34 13C34 23 19 33 19 33Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="service-title">C-PTSD &amp; the <em>Immigrant Family</em> Experience</div>
           <p class="service-desc">
             For those who grew up in families where love was expressed through achievement — where your worth felt conditional on how well you performed, how little you needed, and how seamlessly you translated a world your parents couldn't fully navigate.
@@ -841,7 +862,7 @@
       <!-- Featured specialty: Neurodivergent -->
       <div class="service-card featured-specialty" style="margin-top: 2rem;">
         <div class="specialty-left">
-          <div class="service-icon">🧠</div>
+          <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 31V34" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><path d="M19 7C17 5 14 5 12 7C10 7 8 9 8 12C6 13 5 15 6 17C5 19 6 22 8 23C8 26 10 28 13 29C15 30 17 31 19 31" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 7C21 5 24 5 26 7C28 7 30 9 30 12C32 13 33 15 32 17C33 19 32 22 30 23C30 26 28 28 25 29C23 30 21 31 19 31" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="19" y1="7" x2="19" y2="31" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><path d="M9 14C11 12 13 14 12 16" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M29 14C27 12 25 14 26 16" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M9 21C11 20 12 22 11 24" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M29 21C27 20 26 22 27 24" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M14 26C15 24 17 25 16 27" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M24 26C23 24 21 25 22 27" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
           <div class="service-title">Neurodivergent <em>Adults</em></div>
           <p class="service-desc">
             For those who have spent a lifetime adapting to a world that wasn't built for the way they think, feel, and experience — and are ready to stop apologizing for it.
@@ -917,7 +938,7 @@
   <section id="rates">
     <p class="section-label">Investment</p>
     <div class="divider"></div>
-    <h2 class="section-heading">Transparent <em>pricing</em></h2>
+    <h2 class="section-heading"><em>Pricing</em></h2>
     <p class="section-body">
       I believe quality mental healthcare should be clear and accessible. Below is my current fee structure for private pay clients.
     </p>
@@ -932,6 +953,7 @@
           <li>Telehealth sessions available</li>
           <li>Sessions in English or Mandarin</li>
           <li>Superbill provided for out-of-network reimbursement</li>
+          <li>Ask for sliding scale availability</li>
         </ul>
       </div>
       <div class="rate-card">
@@ -946,9 +968,11 @@
         </ul>
       </div>
     </div>
-    <p class="rates-note">
-      <strong>Out-of-network benefits:</strong> I am a private pay provider. I provide a monthly superbill that you can submit to your insurance for potential reimbursement. Many clients receive 40–80% reimbursement. I can also help you submit claims upon request.
-    </p>
+    <div class="rates-note">
+      <strong>Out of Network</strong>
+      <p style="margin-top: 0.6rem;">I accept most out-of-network insurance. If you are unsure whether you have out-of-network benefits, you can call the member services number on the back of your insurance card and ask.</p>
+      <p style="margin-top: 0.8rem;">If you wish to submit to your insurance company for reimbursement, I will provide you with a detailed superbill with all of the required information. I am also happy to call your insurance provider on your behalf if this feels too complicated.</p>
+    </div>
   </section>
 
   <!-- CTA -->
