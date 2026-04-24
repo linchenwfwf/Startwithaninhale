@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start with an Inhale | Lin Chen, LCSW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ivory:       #F7F2E9;
+      --ivory-dark:  #EDE7D8;
+      --sage:        #7D9B78;
+      --sage-light:  #C4D4BF;
+      --sage-pale:   #EBF0E8;
+      --terra:       #B86B4A;
+      --terra-light: #D4926F;
+      --brown:       #3C2A1E;
+      --brown-mid:   #6B4D38;
+      --brown-light: #9C7B68;
+      --cream-text:  #6B5C50;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--ivory);
+      color: var(--brown);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(247,242,233,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(124,155,120,0.15);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(60,42,30,0.08); }
+
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--brown);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--terra); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* organic background blobs */
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, rgba(196,212,191,0.45) 0%, transparent 70%);
+      top: -100px; right: -150px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse, rgba(184,107,74,0.12) 0%, transparent 70%);
+      bottom: 0; left: 100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 3rem 6rem 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .hero-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--brown);
+      margin-bottom: 1.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+    .hero-heading em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--cream-text);
+      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.8rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.7s forwards;
+    }
+    .tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid var(--sage-light);
+      border-radius: 50px;
+      color: var(--sage);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--terra);
+      color: #fff;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.2s;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.85s forwards;
+      align-self: flex-start;
+    }
+    .btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 1.2s ease 0.5s forwards;
+    }
+
+    /* decorative botanical SVG frame */
+    .photo-frame {
+      position: relative;
+      width: 380px;
+      height: 480px;
+    }
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--sage-pale) 0%, var(--ivory-dark) 100%);
+      border-radius: 50% 50% 45% 45% / 40% 40% 60% 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--brown-light);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      gap: 0.5rem;
+      overflow: hidden;
+    }
+    .photo-placeholder svg { opacity: 0.4; }
+
+    /* floating botanical accents */
+    .leaf {
+      position: absolute;
+      opacity: 0.55;
+    }
+    .leaf-1 { top: 30px; left: -30px; transform: rotate(-25deg); }
+    .leaf-2 { bottom: 60px; right: -40px; transform: rotate(15deg); }
+    .leaf-3 { top: 50%; left: -50px; transform: rotate(200deg); }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 7rem 5rem; }
+
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+    .section-heading em { font-style: italic; color: var(--terra); }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--cream-text);
+      line-height: 1.85;
+      max-width: 640px;
+    }
+
+    /* divider */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--terra);
+      margin-bottom: 2rem;
+      opacity: 0.6;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--ivory-dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+    .about-img-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--sage-pale) 0%, #dce8d4 100%);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .about-img-box span { opacity: 0.5; }
+
+    .about-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      background: var(--terra);
+      opacity: 0.12;
+      border-radius: 50%;
+    }
+
+    .credentials {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .cred-chip {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.85rem;
+      background: var(--ivory);
+      border: 1px solid var(--brown-light);
+      border-radius: 2px;
+      color: var(--brown-mid);
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--ivory); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .service-card.featured-specialty {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      background: var(--brown);
+      color: #fff;
+      border-top: 3px solid var(--terra);
+      padding: 3rem;
+    }
+    .service-card.featured-specialty:hover {
+      border-color: var(--terra-light);
+      transform: translateY(-4px);
+    }
+    .service-card.featured-specialty .service-title {
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-card.featured-specialty .service-title em {
+      font-style: italic;
+      color: var(--terra-light);
+    }
+    .service-card.featured-specialty .service-desc {
+      color: rgba(255,255,255,0.7);
+    }
+    .specialty-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+    .specialty-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      color: rgba(255,255,255,0.55);
+    }
+    .specialty-right {
+      border-left: 1px solid rgba(255,255,255,0.12);
+      padding-left: 3rem;
+    }
+    .specialty-right p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .specialty-right p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 900px) {
+      .service-card.featured-specialty {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .specialty-right {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        padding-top: 1.5rem;
+      }
+    }
+
+    .service-card {
+      background: var(--ivory-dark);
+      padding: 2.5rem 2rem;
+      border-radius: 4px;
+      border-top: 3px solid var(--sage-light);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .service-card:hover {
+      border-color: var(--terra);
+      transform: translateY(-4px);
+    }
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--brown);
+      margin-bottom: 0.8rem;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--cream-text);
+      line-height: 1.75;
+    }
+
+    /* ── EMDR ── */
+    #emdr {
+      background: var(--sage-pale);
+      position: relative;
+      overflow: hidden;
+    }
+    #emdr::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(ellipse, rgba(184,107,74,0.08) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .emdr-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .emdr-faq { margin-top: 1.5rem; }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(125,155,120,0.3);
+      padding: 1.2rem 0;
+    }
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--brown);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--terra);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--cream-text);
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding-top 0.25s;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-top: 0.8rem;
+    }
+
+    .emdr-quote {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.6);
+      border-left: 3px solid var(--terra);
+      border-radius: 0 4px 4px 0;
+    }
+    .emdr-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--brown);
+      line-height: 1.6;
+    }
+    .emdr-quote cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--terra);
+      font-style: normal;
+    }
+
+    /* ── RATES ── */
+    #rates { background: var(--ivory-dark); }
+
+    .rates-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .rate-card {
+      background: var(--ivory);
+      padding: 2.5rem;
+      border-radius: 4px;
+      border: 1px solid rgba(125,155,120,0.2);
+    }
+    .rate-card.featured {
+      background: var(--brown);
+      color: #fff;
+      border-color: transparent;
+    }
+    .rate-card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .rate-card.featured .rate-card-label { color: var(--sage-light); }
+    .rate-card:not(.featured) .rate-card-label { color: var(--terra); }
+
+    .rate-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .rate-card.featured .rate-price { color: #fff; }
+    .rate-card:not(.featured) .rate-price { color: var(--brown); }
+
+    .rate-unit {
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      margin-bottom: 1.5rem;
+    }
+    .rate-card.featured .rate-unit { color: rgba(255,255,255,0.55); }
+
+    .rate-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .rate-details li {
+      font-size: 0.9rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .rate-card.featured .rate-details li { color: rgba(255,255,255,0.8); }
+    .rate-card:not(.featured) .rate-details li { color: var(--cream-text); }
+    .rate-details li::before {
+      content: '—';
+      color: var(--terra);
+      flex-shrink: 0;
+    }
+    .rate-card.featured .rate-details li::before { color: var(--sage-light); }
+
+    .rates-note {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      background: rgba(125,155,120,0.1);
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: var(--cream-text);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    /* ── CTA ── */
+    #consult {
+      background: var(--brown);
+      text-align: center;
+      padding: 8rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #consult::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse, rgba(125,155,120,0.15) 0%, transparent 60%);
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .cta-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sage-light);
+      margin-bottom: 1.2rem;
+    }
+    .cta-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .cta-heading em { font-style: italic; color: var(--terra-light); }
+    .cta-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .btn-light {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.9rem 2.4rem;
+      border-radius: 2px;
+      text-decoration: none;
+      margin: 0.4rem;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn-light:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
+    .btn-terra {
+      background: var(--terra);
+      border-color: var(--terra);
+    }
+    .btn-terra:hover { background: var(--terra-light); border-color: var(--terra-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #2A1D14;
+      color: rgba(255,255,255,0.45);
+      padding: 2.5rem 5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+      #hero { grid-template-columns: 1fr; min-height: auto; padding: 120px 2rem 4rem; }
+      .hero-text { padding: 0; }
+      .hero-visual { display: none; }
+      section { padding: 5rem 2rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .emdr-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .rates-layout { grid-template-columns: 1fr; }
+      #consult { padding: 5rem 2rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-name">Start with an Inhale</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#emdr">EMDR</a></li>
+      <li><a href="#rates">Rates</a></li>
+      <li><a href="#consult">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Psychotherapy · New York City</p>
+      <h1 class="hero-heading">
+        You deserve a space<br>to <em>finally</em> feel<br>held.
+      </h1>
+      <p class="hero-sub">
+        I offer EMDR and trauma-informed therapy for individuals navigating life's most tender transitions — including grief, identity shifts, and life transitions. Sessions in English and Mandarin.
+      </p>
+      <p class="hero-sub" style="animation-delay: 0.75s;">
+        I am also passionate about working with neurodivergent individuals, including autistic adults and those with ADHD. I bring a neurodiversity-affirming lens to my work — supporting you in finding how your mind can feel more rested in a world designed for neurotypical individuals.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">EMDR Certified</span>
+        <span class="tag">Trauma</span>
+        <span class="tag">Neurodivergence</span>
+        <span class="tag">English &amp; Mandarin</span>
+        <span class="tag">Meditation Practitioner</span>
+        <span class="tag">In-Person · Brooklyn Heights</span>
+      </div>
+      <a href="#consult" class="btn-primary">Request a Free Consultation</a>
+    </div>
+
+    <div class="hero-visual">
+      <!-- Leaf SVG accents -->
+      <svg class="leaf leaf-1" width="80" height="120" viewBox="0 0 80 120" fill="none">
+        <path d="M40 110 C10 80, 5 40, 40 10 C75 40, 70 80, 40 110Z" fill="#7D9B78" opacity="0.35"/>
+        <line x1="40" y1="10" x2="40" y2="110" stroke="#7D9B78" stroke-width="1" opacity="0.5"/>
+      </svg>
+      <svg class="leaf leaf-2" width="100" height="70" viewBox="0 0 100 70" fill="none">
+        <path d="M5 35 C30 5, 75 5, 95 35 C75 65, 30 65, 5 35Z" fill="#B86B4A" opacity="0.2"/>
+        <line x1="5" y1="35" x2="95" y2="35" stroke="#B86B4A" stroke-width="1" opacity="0.35"/>
+      </svg>
+      <svg class="leaf leaf-3" width="60" height="90" viewBox="0 0 60 90" fill="none">
+        <path d="M30 85 C5 65, 5 25, 30 5 C55 25, 55 65, 30 85Z" fill="#7D9B78" opacity="0.25"/>
+      </svg>
+
+      <div class="photo-frame" style="width:380px; height:380px; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(60,42,30,0.18); border: 6px solid var(--ivory-dark);">
+        <img src="Picture.png" alt="Lin Chen, LCSW" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label">What I Offer</p>
+    <div class="divider"></div>
+    <h2 class="section-heading">Areas of <em>specialization</em></h2>
+    <p class="section-body">
+      Each area of my work reflects a deep commitment to meeting you where you are — not just symptom-focused, but person-centered.
+    </p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <div class="service-title">Trauma &amp; PTSD</div>
+        <p class="service-desc">
+          Using EMDR and trauma-informed approaches, I help you process and integrate difficult experiences so they no longer hold power over your present life.
+        </p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🍃</div>
+        <div class="service-title">Life Transitions</div>
+        <p class="service-desc">
+          Navigating change — career shifts, relationship milestones, immigration, cultural identity — with curiosity, compassion, and a sense of what's possible.
+        </p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧘</div>
+        <div class="service-title">Anxiety &amp; Depression</div>
+        <p class="service-desc">
+          Moving beyond symptom management to understand the roots of your anxiety or low mood, using evidence-based and somatic approaches tailored to you.
+        </p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌏</div>
+        <div class="service-title">Bilingual Therapy</div>
+        <p class="service-desc">
+          Offering sessions fully in Mandarin (普通话) or English — because healing in your first language is not a luxury, it's a right.
+        </p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💻</div>
+        <div class="service-title">In-Person &amp; Telehealth</div>
+        <p class="service-desc">
+          I offer in-person sessions in Brooklyn Heights, as well as secure, HIPAA-compliant telehealth for residents of New York State — wherever you feel most comfortable.
+        </p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧩</div>
+        <div class="service-title">Neurodivergent &amp; OCD</div>
+        <p class="service-desc">
+          Supporting autistic adults, ADHDers, and those with OCD in understanding how their minds work — and building a life that fits them, not the other way around. I bring a non-pathologizing, affirming lens to all of this work.
+        </p>
+      </div>
+
+      <!-- Featured specialty: CPTSD & immigrant family -->
+      <div class="service-card featured-specialty">
+        <div class="specialty-left">
+          <div class="service-icon">🪴</div>
+          <div class="service-title">C-PTSD &amp; the <em>Immigrant Family</em> Experience</div>
+          <p class="service-desc">
+            For those who grew up in families where love was expressed through achievement — where your worth felt conditional on how well you performed, how little you needed, and how seamlessly you translated a world your parents couldn't fully navigate.
+          </p>
+          <div class="specialty-tags">
+            <span class="specialty-tag">C-PTSD</span>
+            <span class="specialty-tag">Parentified Child</span>
+            <span class="specialty-tag">Immigrant Families</span>
+            <span class="specialty-tag">Emotional Neglect</span>
+            <span class="specialty-tag">Identity &amp; Belonging</span>
+            <span class="specialty-tag">Intergenerational Trauma</span>
+          </div>
+        </div>
+        <div class="specialty-right">
+          <p>
+            Growing up as the child of immigrants often means carrying weight that was never yours to hold. You may have served as a language broker, cultural interpreter, or emotional anchor for your parents — all before you had the language to name your own needs.
+          </p>
+          <p>
+            In families where survival was the primary focus, emotional attunement wasn't always available. Love arrived through sacrifice and provision, not through being truly seen. Over time, this shapes how you see yourself: someone who earns connection, who performs their worth, who doesn't quite know how to simply <em>exist</em>.
+          </p>
+          <p>
+            Complex PTSD from this kind of chronic relational environment can look like perfectionism, people-pleasing, difficulty trusting your own emotions, or a persistent sense of not belonging anywhere — not fully here, not fully there. Therapy offers a space to grieve what wasn't given, understand what was inherited, and slowly build a relationship with yourself that isn't conditional.
+          </p>
+        </div>
+
+      <!-- Featured specialty: Neurodivergent -->
+      <div class="service-card featured-specialty" style="margin-top: 2rem;">
+        <div class="specialty-left">
+          <div class="service-icon">🧠</div>
+          <div class="service-title">Neurodivergent <em>Adults</em></div>
+          <p class="service-desc">
+            For those who have spent a lifetime adapting to a world that wasn't built for the way they think, feel, and experience — and are ready to stop apologizing for it.
+          </p>
+          <div class="specialty-tags">
+            <span class="specialty-tag">ADHD</span>
+            <span class="specialty-tag">Autism</span>
+            <span class="specialty-tag">Twice Exceptional</span>
+            <span class="specialty-tag">Sensory Processing</span>
+            <span class="specialty-tag">Identity &amp; Self-Acceptance</span>
+            <span class="specialty-tag">Burnout</span>
+          </div>
+        </div>
+        <div class="specialty-right">
+          <p>
+            Many neurodivergent clients describe their experience as trying to fit a square peg into a round hole. Adapting to a predominantly neurotypical world can take enormous effort — and over time, that effort accumulates. Chronic stress, self-doubt, and a sense of being fundamentally different are not character flaws. They are the natural result of navigating a culture not designed with you in mind.
+          </p>
+          <p>
+            I hold a non-pathologizing, deeply respectful stance toward neurodivergence. My work supports clients in building clarity, self-trust, and sustainable ways of relating — to themselves and to others. I stay curious about each person's unique experience, because while certain traits may form recognizable patterns, every individual's relationship with their own neurodivergence is distinct.
+          </p>
+          <p>
+            I integrate somatic approaches into this work, recognizing that language can sometimes be limiting. The body and felt sense often offer a more grounded way to track experience — particularly for clients who process at a high cognitive level but struggle to access or articulate their inner world. My goal is never to help you fit in more. It's to help you understand yourself more fully, and decide for yourself how you want to move through the world.
+          </p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMDR -->
+  <section id="emdr">
+    <div class="emdr-layout">
+      <div>
+        <p class="section-label">EMDR Therapy</p>
+        <div class="divider"></div>
+        <h2 class="section-heading">Healing the nervous system<br>at its <em>roots</em></h2>
+        <p class="section-body">
+          Eye Movement Desensitization and Reprocessing (EMDR) is a well-researched, evidence-based therapy that helps the brain complete its natural processing of traumatic memories — memories that have become "stuck" and continue to cause distress.
+        </p>
+        <div class="emdr-quote">
+          <p>"EMDR therapy doesn't require you to talk in detail about a distressing event — it works with the body's own healing mechanisms."</p>
+          <cite>— EMDR International Association</cite>
+        </div>
+      </div>
+      <div>
+        <div class="emdr-faq">
+          <div class="faq-item">
+            <div class="faq-q">What does EMDR treat?</div>
+            <div class="faq-a">EMDR is effective for PTSD, complex trauma, anxiety, phobias, grief, performance anxiety, and more. It is recognized by the APA, WHO, and VA as a first-line treatment for trauma.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What does a session feel like?</div>
+            <div class="faq-a">Sessions begin with establishing safety and understanding your history. During processing, you'll hold a distressing memory in mind while engaging in bilateral stimulation (eye movements or tapping). Many people describe sessions as surprisingly gentle.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">How many sessions will I need?</div>
+            <div class="faq-a">Single-incident traumas often resolve in 8–12 sessions. Complex or developmental trauma may take longer. We'll move at a pace that feels safe and supportive for you.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do I have to talk about the trauma in detail?</div>
+            <div class="faq-a">No. EMDR is unique in that it does not require detailed verbal processing of the traumatic event. This makes it accessible for people who find talk therapy re-traumatizing.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Is EMDR only for trauma?</div>
+            <div class="faq-a">Not at all. EMDR can be used for anxiety, depression, negative self-beliefs, grief, and any experience that left an emotional imprint. It works wherever the nervous system is holding distress.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RATES -->
+  <section id="rates">
+    <p class="section-label">Investment</p>
+    <div class="divider"></div>
+    <h2 class="section-heading">Transparent <em>pricing</em></h2>
+    <p class="section-body">
+      I believe quality mental healthcare should be clear and accessible. Below is my current fee structure for private pay clients.
+    </p>
+    <div class="rates-layout">
+      <div class="rate-card featured">
+        <p class="rate-card-label">Individual Therapy</p>
+        <p class="rate-price">$250</p>
+        <p class="rate-unit">per 50-minute session</p>
+        <ul class="rate-details">
+          <li>EMDR &amp; trauma-informed care</li>
+          <li>In-person sessions in Brooklyn Heights</li>
+          <li>Telehealth sessions available</li>
+          <li>Sessions in English or Mandarin</li>
+          <li>Superbill provided for out-of-network reimbursement</li>
+        </ul>
+      </div>
+      <div class="rate-card">
+        <p class="rate-card-label">Free Consultation</p>
+        <p class="rate-price">$0</p>
+        <p class="rate-unit">15-minute intro call</p>
+        <ul class="rate-details">
+          <li>Discuss your needs and goals</li>
+          <li>Ask questions about my approach</li>
+          <li>Determine if we're a good fit</li>
+          <li>No commitment required</li>
+        </ul>
+      </div>
+    </div>
+    <p class="rates-note">
+      <strong>Out-of-network benefits:</strong> I am a private pay provider. I provide a monthly superbill that you can submit to your insurance for potential reimbursement. Many clients receive 40–80% reimbursement. I can also help you submit claims upon request.
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <section id="consult">
+    <p class="cta-eyebrow">Ready to begin?</p>
+    <h2 class="cta-heading">The first step is<br>often the <em>hardest</em>.</h2>
+    <p class="cta-sub">
+      Reaching out takes courage. I offer a free 15-minute consultation so you can ask questions and see if we're a good fit — no pressure, no commitment.
+    </p>
+    <div>
+      <a href="mailto:startwithaninhale@gmail.com" class="btn-light btn-terra">Request a Consultation</a>
+      <a href="tel:+13477358420" class="btn-light">Call or Text (347) 735-8420</a>
+    </div>
+    <p style="margin-top: 2.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em;">
+      Currently accepting new clients · In-Person in Brooklyn Heights · Telehealth · New York State
+    </p>
+    <p style="margin-top: 0.8rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em;">
+      26 Court Street, Brooklyn Heights, NY
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Start with an Inhale <span class="footer-name">Start with an Inhale &nbsp;·&nbsp; Lin Chen, LCSW</span>nbsp;·<span class="footer-name">Start with an Inhale &nbsp;·&nbsp; Lin Chen, LCSW</span>nbsp; Lin Chen, LCSW</span>
+    <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; Mandarin &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
+    <span>© 2025 · All rights reserved</span>
+  </footer>
+
+  <script>
+    // Nav shadow on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .rate-card, .faq-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
