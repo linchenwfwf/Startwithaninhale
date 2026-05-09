@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Start with an Inhale | Lin Chen, LCSW</title>
+  <title>Start with an Inhale Psychotherapy | Lin Chen, LCSW</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -65,7 +65,7 @@
       color: var(--brown);
       text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; list-style: none; }
     .nav-links a {
       font-size: 0.8rem;
       font-weight: 400;
@@ -76,6 +76,17 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--terra); }
+    .nav-cta {
+      font-size: 0.72rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.1em !important;
+      color: var(--ivory) !important;
+      background: var(--brown);
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--brown-mid); color: var(--ivory) !important; }
 
     /* ── HERO ── */
     #hero {
@@ -526,6 +537,41 @@
       line-height: 1.75;
     }
 
+    /* ── APPROACH ── */
+    #approach { background: transparent; padding-top: 1rem; }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(160,135,110,0.2);
+    }
+    .approach-item {
+      padding: 2.5rem 2rem 2.5rem 0;
+      border-right: 1px solid rgba(160,135,110,0.15);
+    }
+    .approach-item:last-child { border-right: none; padding-right: 0; }
+    .approach-item:not(:first-child) { padding-left: 2rem; }
+    .approach-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--brown);
+      margin-bottom: 0.7rem;
+    }
+    .approach-desc {
+      font-size: 0.875rem;
+      color: var(--cream-text);
+      line-height: 1.75;
+    }
+    @media (max-width: 900px) {
+      .approach-grid { grid-template-columns: 1fr 1fr; }
+      .approach-item { border-right: none; border-bottom: 1px solid rgba(160,135,110,0.15); padding: 2rem; }
+      .approach-item:last-child { border-bottom: none; }
+    }
+
     /* ── EMDR ── */
     #emdr {
       background: var(--sage-pale);
@@ -697,9 +743,37 @@
     #consult {
       background: var(--brown);
       text-align: center;
-      padding: 8rem 5rem;
+      padding: 7rem 2rem 6rem;
       position: relative;
       overflow: hidden;
+    }
+    .consult-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .consult-intro {
+      max-width: 560px;
+      margin: 0 auto 3rem;
+    }
+    .consult-calendar {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      background: var(--ivory);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .consult-calendar iframe {
+      width: 100%;
+      height: 820px;
+      border: 0;
+      display: block;
+    }
+    @media (max-width: 860px) {
+      #consult { padding: 5rem 1.25rem; }
+      .consult-calendar iframe { height: 780px; }
     }
     #consult::before {
       content: '';
@@ -793,18 +867,53 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 2rem; }
-      .nav-links { gap: 1.5rem; }
-      #hero { grid-template-columns: 1fr; min-height: auto; padding: 120px 2rem 4rem; }
+      nav { padding: 1rem 1.5rem; flex-wrap: wrap; }
+      .nav-name { font-size: 0.95rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; justify-content: flex-end; }
+      .nav-links li:not(:last-child) { display: none; }
+      #hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 110px 1.5rem 3rem;
+        text-align: center;
+        gap: 2.5rem;
+      }
       .hero-text { padding: 0; }
-      .hero-visual { display: none; }
-      section { padding: 5rem 2rem; }
+      .hero-visual { display: flex; justify-content: center; order: -1; }
+      .hero-visual .photo-frame { width: 220px !important; height: 220px !important; }
+      .hero-heading { font-size: clamp(2rem, 8vw, 3rem) !important; }
+      .hero-tags { justify-content: center; }
+      section { padding: 4.5rem 1.5rem; }
       #about { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid { grid-template-columns: 1fr; }
       .emdr-layout { grid-template-columns: 1fr; gap: 3rem; }
       .rates-layout { grid-template-columns: 1fr; }
-      #consult { padding: 5rem 2rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem; }
+      .section-heading { font-size: clamp(1.8rem, 6vw, 2.5rem) !important; }
+      #consult { padding: 4.5rem 1.25rem; }
+      .cta-heading { font-size: clamp(2rem, 7vw, 3rem) !important; }
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        font-size: 0.75rem;
+      }
+    }
+    @media (max-width: 560px) {
+      nav { padding: 0.85rem 1rem; }
+      .nav-name { font-size: 0.85rem; }
+      .nav-cta { padding: 0.45rem 0.9rem !important; font-size: 0.65rem !important; }
+      #hero { padding: 100px 1.25rem 2.5rem; }
+      .hero-eyebrow { font-size: 0.65rem !important; }
+      .hero-sub { font-size: 0.95rem !important; }
+      .tag { font-size: 0.7rem !important; padding: 0.35rem 0.75rem !important; }
+      section { padding: 3.5rem 1.25rem; }
+      .approach-grid { grid-template-columns: 1fr !important; }
+      .approach-item { padding: 1.5rem 0 !important; border-right: none !important; border-bottom: 1px solid rgba(160,135,110,0.15); }
+      .approach-item:last-child { border-bottom: none; }
+      .cred-list { grid-template-columns: 1fr !important; gap: 1rem !important; }
+      .btn-light, .btn-primary, .btn-terra { font-size: 0.75rem !important; padding: 0.85rem 1.4rem !important; display: block; margin: 0.5rem auto; max-width: 280px; }
+      .consult-calendar iframe { height: 720px !important; }
     }
   </style>
 </head>
@@ -812,39 +921,43 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#hero" class="nav-name">Start with an Inhale</a>
+    <a href="#hero" class="nav-name">Start with an <em style="font-style:italic; font-family:'Cormorant Garamond', serif; font-weight:400; color:var(--brown); text-decoration:underline; text-decoration-thickness:0.5px; text-underline-offset:3px;">Inhale</em> Psychotherapy</a>
     <ul class="nav-links">
-      <li><a href="#about">Intro</a></li>
-      <li><a href="#credentials">Background</a></li>
+      <li><a href="#hero">Welcome</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#emdr">EMDR</a></li>
-      <li><a href="#rates">Rates</a></li>
+      <li><a href="#approach">Approach</a></li>
       <li><a href="#consult">Contact</a></li>
+      <li><a href="https://calendar.app.google/rjBXJLGBdFhi2mGL9" target="_blank" class="nav-cta">Book a Free Consultation</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
     <div class="hero-text">
-      <p class="hero-eyebrow">Psychotherapy · New York City</p>
+      <p class="hero-eyebrow">Somatic Psychotherapy · New York &amp; New Jersey</p>
       <h1 class="hero-heading">
         You deserve a space<br>to <em>finally</em> feel<br>held.
       </h1>
       <p class="hero-sub">
-        I offer EMDR and trauma-informed therapy for individuals navigating life's most tender transitions — including grief, identity shifts, and life transitions. Sessions in English and Mandarin.
+        Meaningful therapy allows vitality, authenticity, and a sense of freedom to emerge. I help clients experience more of these vivid feelings of aliveness.
       </p>
       <p class="hero-sub" style="animation-delay: 0.75s;">
-        I am also passionate about working with neurodivergent individuals, including autistic adults and those with ADHD. I bring a neurodiversity-affirming lens to my work — supporting you in finding how your mind can feel more rested in a world designed for neurotypical individuals.
+        Humans are wired for survival, protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking, can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
       </p>
       <div class="hero-tags">
-        <span class="tag">EMDR Certified</span>
-        <span class="tag">Trauma</span>
+        <span class="tag">Somatic IFS</span>
+        <span class="tag">Mandarin &amp; English</span>
+        <span class="tag">Brooklyn Heights</span>
+        <span class="tag">Virtual</span>
+        <span class="tag">Immigrant Experience</span>
+        <span class="tag">Immigrant Family Dynamics</span>
+        <span class="tag">ND-Affirming</span>
+        <span class="tag">LGBTQ+ Affirming</span>
         <span class="tag">Neurodivergence</span>
-        <span class="tag">English &amp; Mandarin</span>
-        <span class="tag">Meditation Practitioner</span>
-        <span class="tag">In-Person · Brooklyn Heights</span>
+        <span class="tag">ADHD</span>
+        <span class="tag">Autism</span>
+        <span class="tag">NY &amp; NJ Licensed</span>
       </div>
-      <a href="#consult" class="btn-primary">Request a Free Consultation</a>
     </div>
 
     <div class="hero-visual">
@@ -855,67 +968,11 @@
   </section>
 
 
-  <!-- CREDENTIALS -->
-  <section id="credentials">
-    <p class="section-label">Background</p>
-    <div class="divider"></div>
-    <h2 class="section-heading">Training &amp; <em>Experience</em></h2>
-    <div class="credentials-grid">
+  <!-- APPROACH CTA -->
+  <div style="text-align:center; padding: 0 4rem 4rem;">
+    <a href="https://calendar.app.google/rjBXJLGBdFhi2mGL9" target="_blank" class="btn-primary">Book a Free Consultation</a>
+  </div>
 
-      <div class="cred-block">
-        <p class="cred-block-title">Certifications &amp; Training</p>
-        <ul class="cred-list">
-          <li>
-            <div class="cred-divider"></div>
-            <strong>EMDRIA Certified</strong>
-            <span>Certificate #CMAPCQ-CE000024</span>
-          </li>
-          <li>
-            <div class="cred-divider"></div>
-            <strong>Somatic Embodiment &amp; Regulation (SER)</strong>
-            <span>Certificate — Body-based trauma approach</span>
-          </li>
-          <li>
-            <div class="cred-divider"></div>
-            <strong>Gestalt Approach to Psychotherapy (GAP)</strong>
-            <span>Two-year post-graduate training</span>
-          </li>
-          <li>
-            <div class="cred-divider"></div>
-            <strong>Licensed Clinical Social Worker (LCSW)</strong>
-            <span>New York State</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="cred-block">
-        <p class="cred-block-title">Clinical &amp; Professional Experience</p>
-        <ul class="cred-list">
-          <li>
-            <div class="cred-divider"></div>
-            <strong>5 Years Clinical Experience</strong>
-            <span>Inpatient hospital, children &amp; adolescents, adults in tech &amp; healthcare, neurodivergent clients</span>
-          </li>
-          <li>
-            <div class="cred-divider"></div>
-            <strong>Specialty Populations</strong>
-            <span>Immigrant families, C-PTSD, autistic adults, ADHD, OCD</span>
-          </li>
-          <li>
-            <div class="cred-divider"></div>
-            <strong>Technology Consultant — IBM</strong>
-            <span>Prior career in enterprise technology consulting</span>
-          </li>
-          <li>
-            <div class="cred-divider"></div>
-            <strong>Google</strong>
-            <span>Professional experience in tech industry</span>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
 
   <!-- SERVICES -->
   <section id="services">
@@ -923,60 +980,35 @@
     <div class="divider"></div>
     <h2 class="section-heading">Areas of <em>specialization</em></h2>
     <p class="section-body">
-      Each area of my work reflects a deep commitment to meeting you where you are — not just symptom-focused, but person-centered.
+      I specialize in working with individuals from diverse backgrounds, integrating somatic and depth-oriented approaches to support holistic healing.
     </p>
     <div class="services-grid">
+
       <div class="service-card">
-        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 34C7 26 5 12 19 4C33 12 31 26 19 34Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 4L19 34" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div class="service-title">Trauma &amp; PTSD</div>
-        <p class="service-desc">
-          Using EMDR and trauma-informed approaches, I help you process and integrate difficult experiences so they no longer hold power over your present life.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 19C13 13 3 9 5 17C7 25 15 23 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 19C25 13 35 9 33 17C31 25 23 23 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 19C15 23 9 27 11 33C13 37 17 33 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 19C23 23 29 27 27 33C25 37 21 33 19 19Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="service-title">Life Transitions</div>
-        <p class="service-desc">
-          Navigating change — career shifts, relationship milestones, immigration, cultural identity — with curiosity, compassion, and a sense of what's possible.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M4 13C7 13 8 10 11 10C14 10 15 13 18 13C21 13 22 10 25 10C28 10 29 13 32 13C35 13 36 10 38 10" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 20C7 20 8 17 11 17C14 17 15 20 18 20C21 20 22 17 25 17C28 17 29 20 32 20C35 20 36 17 38 17" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 27C7 27 8 24 11 24C14 24 15 27 18 27C21 27 22 24 25 24C28 24 29 27 32 27C35 27 36 24 38 24" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="service-title">Anxiety &amp; Depression</div>
-        <p class="service-desc">
-          Moving beyond symptom management to understand the roots of your anxiety or low mood, using evidence-based and somatic approaches tailored to you.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M5 7Q5 3 9 3H29Q33 3 33 7V21Q33 25 29 25H15L7 33L9 25Q5 25 5 21Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="service-title">Bilingual Therapy</div>
-        <p class="service-desc">
-          Offering sessions fully in Mandarin (普通话) or English — because language shapes how we think and how we are.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M5 17L19 5L33 17" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 15V33H29V15" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="15" y="23" width="8" height="10" rx="1" stroke="var(--terra)" stroke-width="1.5"/></svg></div>
-        <div class="service-title">In-Person &amp; Telehealth</div>
-        <p class="service-desc">
-          I offer in-person sessions in Brooklyn Heights, as well as secure, HIPAA-compliant telehealth for residents of New York State — wherever you feel most comfortable.
-        </p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><rect x="7" y="5" width="24" height="28" rx="2" stroke="var(--terra)" stroke-width="1.5"/><line x1="14" y1="13" x2="26" y2="13" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="19" x2="26" y2="19" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="25" x2="22" y2="25" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><path d="M9 13L10.5 14.5L13 11" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19L10.5 20.5L13 17" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="25" r="1.2" stroke="var(--terra)" stroke-width="1.2"/></svg></div>
-        <div class="service-title">Neurodivergent &amp; OCD</div>
-        <p class="service-desc">
-          Supporting autistic adults, ADHDers, and those with OCD in understanding how their minds work — and building a life that fits them, not the other way around. I bring a non-pathologizing, affirming lens to all of this work.
-        </p>
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="11" r="5" stroke="var(--terra)" stroke-width="1.5" fill="none"/><path d="M8 33C8 26 13 22 19 22C25 22 30 26 30 33" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="service-title">Psychodynamic Depth Therapy</div>
+        <p class="service-desc">A reflective space to listen inward, to the thoughts, feelings, and patterns that shape who you are. Grounded in a Gestalt modality, this work explores what lives beneath the surface with curiosity and care.</p>
       </div>
 
-      <!-- Featured specialty: CPTSD & immigrant family -->
+      <div class="service-card">
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><ellipse cx="19" cy="19" rx="14" ry="8" stroke="var(--terra)" stroke-width="1.5" fill="none"/><circle cx="19" cy="19" r="3" stroke="var(--terra)" stroke-width="1.5" fill="none"/><path d="M5 19 C8 13 13 9 19 9 C25 9 30 13 33 19" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.5"/></svg></div>
+        <div class="service-title">EMDR Therapy</div>
+        <p class="service-desc">A trauma therapy designed to integrate fragmented experiences, bringing together body, mind, and memory, without requiring you to retell your story in detail.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 34 C8 34 4 26 4 19 C4 11 9 5 15 4" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M19 34 C30 34 34 26 34 19 C34 11 29 5 23 4" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M15 4 Q19 2 23 4" stroke="var(--terra)" stroke-width="1.4" stroke-linecap="round" fill="none"/><circle cx="19" cy="36" r="1.4" fill="var(--terra)" opacity="0.5"/></svg></div>
+        <div class="service-title">Somatic Therapy</div>
+        <p class="service-desc">Body-based work that helps you notice, understand, and gently shift the patterns held in your nervous system. This includes Somatic IFS, connecting with the different parts of yourself through the felt sense of the body.</p>
+      </div>
+
+
+      <!-- Featured specialty: C-PTSD & Immigrant Family -->
       <div class="service-card featured-specialty">
         <div class="specialty-left">
           <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 33C19 33 4 23 4 13C4 7 8 4 13 4C16 4 18 6 19 8C20 6 22 4 25 4C30 4 34 7 34 13C34 23 19 33 19 33Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="service-title">C-PTSD &amp; the <em>Immigrant Family</em> Experience</div>
-          <p class="service-desc">
-            For those who grew up in families where love was expressed through achievement — where your worth felt conditional on how well you performed, how little you needed, and how seamlessly you translated a world your parents couldn't fully navigate.
-          </p>
+          <p class="service-desc">For those who grew up in families where love was expressed through achievement, where your worth felt conditional on how well you performed, how little you needed, and how seamlessly you translated a world your parents couldn't fully navigate.</p>
           <div class="specialty-tags">
             <span class="specialty-tag">C-PTSD</span>
             <span class="specialty-tag">Parentified Child</span>
@@ -987,47 +1019,85 @@
           </div>
         </div>
         <div class="specialty-right">
-          <p>
-            Growing up as the child of immigrants often means carrying weight that was never yours to hold. You may have served as a language broker, cultural interpreter, or emotional anchor for your parents — all before you had the language to name your own needs.
-          </p>
-          <p>
-            In families where survival was the primary focus, emotional attunement wasn't always available. Love arrived through sacrifice and provision, not through being truly seen. Over time, this shapes how you see yourself: someone who earns connection, who performs their worth, who doesn't quite know how to simply <em>exist</em>.
-          </p>
-          <p>
-            Complex PTSD from this kind of chronic relational environment can look like perfectionism, people-pleasing, difficulty trusting your own emotions, or a persistent sense of not belonging anywhere — not fully here, not fully there. Therapy offers a space to grieve what wasn't given, understand what was inherited, and slowly build a relationship with yourself that isn't conditional.
-          </p>
+          <p>Growing up as the child of immigrants often means carrying weight that was never yours to hold. You may have served as a language broker, cultural interpreter, or emotional anchor for your parents, all before you had the language to name your own needs.</p>
+          <p>In families where survival was the primary focus, emotional attunement wasn't always available. Love arrived through sacrifice and provision, not through being truly seen. Over time, this shapes how you see yourself: someone who earns connection, who performs their worth, who doesn't quite know how to simply <em>exist</em>.</p>
+          <p>Complex PTSD from this kind of chronic relational environment can look like perfectionism, people-pleasing, difficulty trusting your own emotions, or a persistent sense of not belonging anywhere, not fully here, not fully there. Therapy offers a space to grieve what wasn't given, understand what was inherited, and slowly build a relationship with yourself that isn't conditional.</p>
         </div>
+      </div>
 
-      <!-- Featured specialty: Neurodivergent -->
+      <!-- Featured specialty: Somatic IFS -->
       <div class="service-card featured-specialty" style="margin-top: 2rem;">
         <div class="specialty-left">
-          <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 31V34" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><path d="M19 7C17 5 14 5 12 7C10 7 8 9 8 12C6 13 5 15 6 17C5 19 6 22 8 23C8 26 10 28 13 29C15 30 17 31 19 31" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 7C21 5 24 5 26 7C28 7 30 9 30 12C32 13 33 15 32 17C33 19 32 22 30 23C30 26 28 28 25 29C23 30 21 31 19 31" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="19" y1="7" x2="19" y2="31" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round"/><path d="M9 14C11 12 13 14 12 16" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M29 14C27 12 25 14 26 16" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M9 21C11 20 12 22 11 24" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M29 21C27 20 26 22 27 24" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M14 26C15 24 17 25 16 27" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/><path d="M24 26C23 24 21 25 22 27" stroke="var(--terra)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-          <div class="service-title">Neurodivergent <em>Adults</em></div>
-          <p class="service-desc">
-            For those who have spent a lifetime adapting to a world that wasn't built for the way they think, feel, and experience — and are ready to stop apologizing for it.
-          </p>
+          <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="14" stroke="var(--terra)" stroke-width="1.5" fill="none"/></svg></div>
+          <div class="service-title">Somatic IFS &amp; <em>Parts Work</em></div>
+          <p class="service-desc">For those who sense different parts of themselves in conflict: the part that wants to rest and the part that never stops pushing; the part that longs for closeness and the part that always pulls away.</p>
           <div class="specialty-tags">
-            <span class="specialty-tag">ADHD</span>
-            <span class="specialty-tag">Autism</span>
-            <span class="specialty-tag">Twice Exceptional</span>
-            <span class="specialty-tag">Sensory Processing</span>
-            <span class="specialty-tag">Identity &amp; Self-Acceptance</span>
-            <span class="specialty-tag">Burnout</span>
+            <span class="specialty-tag">Parts Work</span>
+            <span class="specialty-tag">Self Leadership</span>
+            <span class="specialty-tag">Inner Critic</span>
+            <span class="specialty-tag">Protectors &amp; Exiles</span>
+            <span class="specialty-tag">Nervous System</span>
+            <span class="specialty-tag">Embodied Healing</span>
           </div>
         </div>
         <div class="specialty-right">
-          <p>
-            Many neurodivergent clients describe their experience as trying to fit a square peg into a round hole. Adapting to a predominantly neurotypical world can take enormous effort — and over time, that effort accumulates. Chronic stress, self-doubt, and a sense of being fundamentally different are not character flaws. They are the natural result of navigating a culture not designed with you in mind.
-          </p>
-          <p>
-            I hold a non-pathologizing, deeply respectful stance toward neurodivergence. My work supports clients in building clarity, self-trust, and sustainable ways of relating — to themselves and to others. I stay curious about each person's unique experience, because while certain traits may form recognizable patterns, every individual's relationship with their own neurodivergence is distinct.
-          </p>
-          <p>
-            I integrate somatic approaches into this work, recognizing that language can sometimes be limiting. The body and felt sense often offer a more grounded way to track experience — particularly for clients who process at a high cognitive level but struggle to access or articulate their inner world. My goal is never to help you fit in more. It's to help you understand yourself more fully, and decide for yourself how you want to move through the world.
-          </p>
+          <p>Internal Family Systems understands the psyche as made up of many parts, each with its own perspective, its own history, and its own role it learned to play to keep you safe. The part that criticizes you harshly. The part that shuts down when things get too close. The part that still carries the pain of something that happened long ago. None of these parts are your enemy. They are trying to protect something tender.</p>
+          <p>Somatic IFS adds the dimension of the body to this work. We don't just think about your parts; we notice where they live in you. A tightness in the chest. A heaviness in the shoulders. A held breath. The body holds what the mind sometimes can't articulate, and learning to listen to it is one of the most profound forms of self-knowledge there is.</p>
+          <p>This work invites the deepest part of you, what IFS calls the Self, to lead. Not by suppressing or managing your parts, but by turning toward them with genuine curiosity and care. Over time, this shifts the entire inner landscape: less internal war, more spaciousness. Less performing, more simply being.</p>
         </div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <p class="section-label">My Approach</p>
+    <div class="divider"></div>
+    <h2 class="section-heading">How I <em>work</em></h2>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <p class="approach-label">Somatic</p>
+        <p class="approach-desc">Listening to the body as much as the mind, grounding insight in felt, embodied experience.</p>
       </div>
+      <div class="approach-item">
+        <p class="approach-label">Depth</p>
+        <p class="approach-desc">Looking beneath symptoms to uncover the emotional truths and protective patterns that drive them.</p>
+      </div>
+      <div class="approach-item">
+        <p class="approach-label">Relational</p>
+        <p class="approach-desc">Healing as co-created, warm, real, and built on genuine human connection.</p>
+      </div>
+      <div class="approach-item">
+        <p class="approach-label">Integrative</p>
+        <p class="approach-desc">Drawing from Somatic IFS, EMDR, and somatic therapy to meet you exactly where you are.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(160,135,110,0.2);">
+      <p class="cred-block-title" style="margin-bottom: 1.5rem;">Certifications &amp; Training</p>
+      <ul class="cred-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 3rem;">
+        <li>
+          <div class="cred-divider"></div>
+          <strong>EMDRIA Certified</strong>
+          <span>Certificate #CMAPCQ-CE000024</span>
+        </li>
+        <li>
+          <div class="cred-divider"></div>
+          <strong>Somatic Embodiment &amp; Regulation (SER)</strong>
+          <span>Certificate, body-based trauma approach</span>
+        </li>
+        <li>
+          <div class="cred-divider"></div>
+          <strong>Psychodynamic Gestalt Training</strong>
+          <span>Two-year post-graduate training</span>
+        </li>
+        <li>
+          <div class="cred-divider"></div>
+          <strong>Licensed Clinical Social Worker (LCSW)</strong>
+          <span>New York &amp; New Jersey</span>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -1039,10 +1109,10 @@
         <div class="divider"></div>
         <h2 class="section-heading">Healing the nervous system<br>at its <em>roots</em></h2>
         <p class="section-body">
-          Eye Movement Desensitization and Reprocessing (EMDR) is a well-researched, evidence-based therapy that helps the brain complete its natural processing of traumatic memories — memories that have become "stuck" and continue to cause distress.
+          Eye Movement Desensitization and Reprocessing (EMDR) is a well-researched, evidence-based therapy that helps the brain complete its natural processing of traumatic memories that have become "stuck" and continue to cause distress.
         </p>
         <div class="emdr-quote">
-          <p>"EMDR therapy doesn't require you to talk in detail about a distressing event — it works with the body's own healing mechanisms."</p>
+          <p>"EMDR therapy doesn't require you to talk in detail about a distressing event; it works with the body's own healing mechanisms."</p>
           <cite>— EMDR International Association</cite>
         </div>
       </div>
@@ -1073,70 +1143,31 @@
     </div>
   </section>
 
-  <!-- RATES -->
-  <section id="rates">
-    <p class="section-label">Rates</p>
-    <div class="divider"></div>
-    <h2 class="section-heading"><em>Pricing</em></h2>
-    <p class="section-body">
-      I believe quality mental healthcare should be clear and accessible. Below is my current fee structure for private pay clients.
-    </p>
-    <div class="rates-layout">
-      <div class="rate-card featured">
-        <p class="rate-card-label">Individual Therapy</p>
-        <p class="rate-price">$250</p>
-        <p class="rate-unit">per 50-minute session</p>
-        <ul class="rate-details">
-          <li>EMDR &amp; trauma-informed care</li>
-          <li>In-person sessions in Brooklyn Heights</li>
-          <li>Telehealth sessions available</li>
-          <li>Sessions in English or Mandarin</li>
-          <li>Superbill provided for out-of-network reimbursement</li>
-          <li>Ask for sliding scale availability</li>
-        </ul>
-      </div>
-      <div class="rate-card">
-        <p class="rate-card-label">Free Consultation</p>
-        <p class="rate-price">$0</p>
-        <p class="rate-unit">15-minute intro call</p>
-        <ul class="rate-details">
-          <li>Discuss your needs and goals</li>
-          <li>Ask questions about my approach</li>
-          <li>Determine if we're a good fit</li>
-          <li>No commitment required</li>
-        </ul>
-      </div>
-    </div>
-    <div class="rates-note">
-      <strong>Out of Network</strong>
-      <p style="margin-top: 0.6rem;">I accept most out-of-network insurance. If you are unsure whether you have out-of-network benefits, you can call the member services number on the back of your insurance card and ask.</p>
-      <p style="margin-top: 0.8rem;">If you wish to submit to your insurance company for reimbursement, I will provide you with a detailed superbill with all of the required information. I am also happy to call your insurance provider on your behalf if this feels too complicated.</p>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section id="consult">
-    <p class="cta-eyebrow">Ready to begin?</p>
-    <h2 class="cta-heading">The first step is<br>often the <em>hardest</em>.</h2>
-    <p class="cta-sub">
-      Reaching out takes courage. I offer a free 15-minute consultation so you can ask questions and see if we're a good fit — no pressure, no commitment.
-    </p>
-    <div>
-      <a href="mailto:startwithaninhale@gmail.com" class="btn-light btn-terra">Request a Consultation</a>
-      <a href="tel:+13477358420" class="btn-light">Call or Text (347) 735-8420</a>
-      <a href="mailto:startwithaninhale@gmail.com" class="btn-light btn-cream">Book Initial Session</a>
+    <div class="consult-inner">
+      <div class="consult-intro">
+        <p class="cta-eyebrow">Ready to begin?</p>
+        <h2 class="cta-heading">Ready to finally feel <em>connected</em>.</h2>
+        <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; margin-top:1rem;">
+          Pick a time below for a free 15-minute consultation, a chance to see if we're a good fit, with no pressure or obligation.
+        </p>
+      </div>
+      <div class="consult-calendar">
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Wenhv5khRFqn-_DGjPcgZ8ejuX7VeYHRDhBPaCXYKypR2bZBgmtk2MtrxceSVPWD6q3628tJi?gv=true" frameborder="0" scrolling="yes"></iframe>
+      </div>
+      <div style="margin-top:2.5rem;">
+        <a href="tel:+13477358420" class="btn-light" style="display:inline-block;">Or Call/Text (347) 735-8420</a>
+        <p style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em;">
+          Brooklyn Heights · Virtual · NY &amp; NJ
+        </p>
+      </div>
     </div>
-    <p style="margin-top: 2.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em;">
-      Currently accepting new clients · In-Person in Brooklyn Heights · Telehealth · New York State
-    </p>
-    <p style="margin-top: 0.8rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.08em;">
-      26 Court Street, Brooklyn Heights, NY
-    </p>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-name">Start with an Inhale &nbsp;·&nbsp; Lin Chen, LCSW</span>
+    <span class="footer-name">Start with an Inhale Psychotherapy &nbsp;·&nbsp; Lin Chen, LCSW</span>
     <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; Mandarin &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
     <span>© 2025 · All rights reserved</span>
   </footer>
@@ -1167,7 +1198,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.service-card, .rate-card, .faq-item').forEach(el => {
+    document.querySelectorAll('.service-card, .faq-item').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
