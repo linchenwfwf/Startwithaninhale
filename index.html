@@ -21,6 +21,7 @@
       --brown-mid:   #6B4D38;
       --brown-light: #9C7B68;
       --cream-text:  #6B5C50;
+      --h-pad:       clamp(2rem, 8vw, 10rem);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -49,7 +50,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 4rem;
+      padding: 1.2rem var(--h-pad);
       background: rgba(247,242,233,0.92);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(160,135,110,0.2);
@@ -122,9 +123,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 5rem 3rem 4rem;
+      padding: 5rem var(--h-pad) 4rem;
       position: relative;
       z-index: 2;
     }
@@ -297,7 +296,7 @@
     .leaf-3 { top: 50%; left: -50px; transform: rotate(200deg); }
 
     /* ── SECTION SHARED ── */
-    section { padding: 7rem 5rem; }
+    section { padding: 7rem var(--h-pad); }
 
     .section-label {
       font-size: 0.68rem;
@@ -436,13 +435,12 @@
     /* ── ABOUT ── */
     #about {
       background: transparent;
-      padding: 5rem 5rem 3rem;
+      padding: 5rem var(--h-pad) 3rem;
     }
     .about-inner {
-      max-width: 880px;
-      margin: 0 auto;
+      max-width: 100%;
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
@@ -902,7 +900,7 @@
     footer {
       background: #2A1D14;
       color: rgba(255,255,255,0.45);
-      padding: 2.5rem 5rem;
+      padding: 2.5rem var(--h-pad);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1028,8 +1026,8 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="about-inner">
-      <div class="about-photo">
+    <div style="max-width:100%; overflow:hidden;">
+      <div class="about-photo" style="float:right; width:320px; height:320px; margin: 0 0 2rem 3rem;">
         <img src="Picture1.png" alt="Lin Chen, LCSW" />
       </div>
       <div class="about-text">
@@ -1039,7 +1037,8 @@
           I'm a licensed clinical social worker (LCSW) based in Brooklyn Heights, offering somatic psychotherapy in English and 普通话 to clients across New York and New Jersey.
         </p>
         <p>
-          My work weaves together Somatic IFS, EMDR, and Psychodynamic Gestalt approaches. I sit with adults navigating the long echoes of trauma, the weight of immigrant family dynamics, and the quiet exhaustion of moving through a world that wasn't built for every kind of mind.        </p>
+          My work weaves together Somatic IFS, EMDR, and Psychodynamic Gestalt approaches. I sit with adults navigating the long echoes of trauma, the weight of immigrant family dynamics, and the quiet exhaustion of moving through a world that wasn't built for every kind of mind.
+        </p>
         <p>
           I believe therapy works best when both people in the room are honored to be there. We are all only human; I invite you to come be human with me.
         </p>
@@ -1049,7 +1048,7 @@
   </section>
 
   <!-- APPROACH CTA -->
-  <div style="text-align:center; padding: 0 4rem 4rem;">
+  <div style="text-align:center; padding: 0 var(--h-pad) 4rem;">
     <a href="https://calendar.app.google/rjBXJLGBdFhi2mGL9" target="_blank" class="btn-primary">Book a Free Consultation</a>
   </div>
 
