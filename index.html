@@ -92,8 +92,7 @@
     #hero {
       min-height: auto;
       padding-bottom: 1rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: block;
       padding-top: 80px;
       position: relative;
       background: transparent;
@@ -123,7 +122,9 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 6rem 3rem 6rem 5rem;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 3rem 4rem;
       position: relative;
       z-index: 2;
     }
@@ -157,7 +158,7 @@
       font-size: 1rem;
       font-weight: 300;
       color: var(--cream-text);
-      max-width: 440px;
+      max-width: 100%;
       line-height: 1.8;
       margin-bottom: 2.5rem;
       opacity: 0;
@@ -432,6 +433,55 @@
       .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
+    /* ── ABOUT ── */
+    #about {
+      background: transparent;
+      padding: 5rem 5rem 3rem;
+    }
+    .about-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(60,42,30,0.15);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .about-greeting {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--brown);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .about-greeting em { font-style: italic; color: var(--terra); }
+    .about-text p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--cream-text);
+      margin-bottom: 1.2rem;
+    }
+    .about-sig {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--brown-mid);
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 860px) {
+      #about { padding: 4rem 1.5rem 2rem; }
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .about-photo { max-width: 220px; margin: 0 auto; }
+    }
+
     /* ── SERVICES ── */
     #services { background: transparent; padding-top: 2rem; }
 
@@ -539,6 +589,16 @@
 
     /* ── APPROACH ── */
     #approach { background: transparent; padding-top: 1rem; }
+
+    .approach-intro {
+      max-width: 760px;
+      margin: 1.5rem auto 0;
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--cream-text);
+      text-align: left;
+    }
+    .approach-intro + .approach-intro { margin-top: 1.2rem; }
 
     .approach-grid {
       display: grid;
@@ -924,6 +984,7 @@
     <a href="#hero" class="nav-name">Start with an <em style="font-style:italic; font-family:'Cormorant Garamond', serif; font-weight:400; color:var(--brown); text-decoration:underline; text-decoration-thickness:0.5px; text-underline-offset:3px;">Inhale</em> Psychotherapy</a>
     <ul class="nav-links">
       <li><a href="#hero">Welcome</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#approach">Approach</a></li>
       <li><a href="#consult">Contact</a></li>
@@ -939,14 +1000,14 @@
         You deserve a space<br>to <em>finally</em> feel<br>held.
       </h1>
       <p class="hero-sub">
-        Meaningful therapy allows vitality, authenticity, and a sense of freedom to emerge. I help clients experience more of these vivid feelings of aliveness.
+        Humans are wired for survival, protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking, can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
       </p>
       <p class="hero-sub" style="animation-delay: 0.75s;">
-        Humans are wired for survival, protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking, can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
+        Meaningful therapy allows vitality, authenticity, and a sense of freedom to emerge. I help clients experience more of these vivid feelings of aliveness.
       </p>
       <div class="hero-tags">
         <span class="tag">Somatic IFS</span>
-        <span class="tag">Mandarin &amp; English</span>
+        <span class="tag">普通话 &amp; English</span>
         <span class="tag">Brooklyn Heights</span>
         <span class="tag">Virtual</span>
         <span class="tag">Immigrant Experience</span>
@@ -956,17 +1017,36 @@
         <span class="tag">Neurodivergence</span>
         <span class="tag">ADHD</span>
         <span class="tag">Autism</span>
+        <span class="tag">OCD</span>
+        <span class="tag">CPTSD</span>
         <span class="tag">NY &amp; NJ Licensed</span>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="photo-frame" style="width:380px; height:380px; border-radius:50%; overflow:hidden; box-shadow: 0 20px 60px rgba(60,42,30,0.18);">
-        <img src="Picture2.png" alt="Lin Chen, LCSW" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-photo">
+        <img src="Picture1.png" alt="Lin Chen, LCSW" />
+      </div>
+      <div class="about-text">
+        <p class="section-label" style="margin-bottom:1rem;">About</p>
+        <h2 class="about-greeting">Hi, I'm <em>Lin</em>.</h2>
+        <p>
+          I'm a licensed clinical social worker (LCSW) based in Brooklyn Heights, offering somatic psychotherapy in English and 普通话 to clients across New York and New Jersey.
+        </p>
+        <p>
+          My work weaves together Somatic IFS, EMDR, and Psychodynamic Gestalt approaches. I sit with adults navigating the long echoes of trauma, the weight of immigrant family dynamics, and the quiet exhaustion of moving through a world that wasn't built for every kind of mind.        </p>
+        <p>
+          I believe therapy works best when both people in the room are honored to be there. We are all only human; I invite you to come be human with me.
+        </p>
+        <p class="about-sig">— Lin Chen, LCSW</p>
       </div>
     </div>
   </section>
-
 
   <!-- APPROACH CTA -->
   <div style="text-align:center; padding: 0 4rem 4rem;">
@@ -1055,6 +1135,15 @@
     <p class="section-label">My Approach</p>
     <div class="divider"></div>
     <h2 class="section-heading">How I <em>work</em></h2>
+    <p class="approach-intro">
+      I hold as fundamental that every person deserves to feel genuinely met. My approach to psychotherapy is rooted in presence: the belief that healing unfolds in the quality of the space between therapist and client. I practice with a deep attunement to the body, drawing on somatic awareness to help clients reconnect with the wisdom held in their nervous systems, not just their narratives.
+    </p>
+    <p class="approach-intro">
+      Alongside this, I bring a profound commitment to deep listening, not simply hearing words, but attending to the subtle rhythms of affect, silence, and sensation that often carry what language cannot. I approach each person with the conviction that being truly seen and accepted is itself transformative; I strive to meet each client with warmth, curiosity, and an unwavering sense of their inherent worth.
+    </p>
+    <p class="approach-intro">
+      I also hold cultural context as an essential lens, recognizing that our histories, identities, and communities shape how we experience ourselves, our pain, and what healing can look like. Whether working across language, culture, or lived experience, I create a therapeutic relationship that feels genuinely safe, attuned, and affirming of the whole person.
+    </p>
     <div class="approach-grid">
       <div class="approach-item">
         <p class="approach-label">Somatic</p>
@@ -1168,7 +1257,7 @@
   <!-- FOOTER -->
   <footer>
     <span class="footer-name">Start with an Inhale Psychotherapy &nbsp;·&nbsp; Lin Chen, LCSW</span>
-    <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; Mandarin &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
+    <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; 普通话 &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
     <span>© 2025 · All rights reserved</span>
   </footer>
 
