@@ -1137,6 +1137,15 @@
     .fee-item { flex: 1 1 180px; max-width: 230px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 12px; padding: 1.3rem 1rem; }
     .fee-value { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--terra); line-height: 1.2; margin-bottom: 0.4rem; }
     .fee-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-mid); line-height: 1.5; }
+    /* insurance questions */
+    .ins-questions { text-align: left; margin: 3rem auto 0; max-width: 680px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 14px; padding: 2rem 2.2rem; }
+    .ins-questions h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--brown); margin-bottom: 0.8rem; line-height: 1.3; }
+    .ins-questions p, .ins-questions li { font-size: 0.92rem; color: var(--brown-mid); line-height: 1.8; }
+    .ins-questions ol { margin: 1rem 0 1rem 1.3rem; }
+    .ins-questions li { margin-bottom: 0.45rem; padding-left: 0.3rem; }
+    .ins-questions li::marker { color: var(--terra); }
+    .ins-questions .ins-tip { font-style: italic; font-size: 0.85rem; }
+    @media (max-width: 560px) { .ins-questions { padding: 1.5rem 1.3rem; } }
   </style>
 </head>
 <body>
@@ -1444,6 +1453,25 @@
       <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--brown-light); letter-spacing: 0.04em;">
         Powered by Thrizer · Secure &amp; takes about a minute
       </p>
+      <p class="section-body" style="margin: 1.8rem auto 0;">
+        For some insurance plans, Thrizer can also <strong>submit your reimbursement claims to insurance for you</strong>, so you don't have to file superbills yourself. And for a small fee, you can pay only your expected share upfront instead of the full session fee, with Thrizer collecting the rest from your insurance.
+      </p>
+
+      <div class="ins-questions">
+        <h3>Prefer to call? Questions to ask your insurance</h3>
+        <p class="ins-intro">Call the member services number on the back of your insurance card and ask about your <strong>out-of-network outpatient mental health</strong> benefits. It helps to have a pen ready.</p>
+        <ol>
+          <li>Do I have out-of-network benefits for outpatient mental health (psychotherapy)?</li>
+          <li>What is my out-of-network deductible, and how much of it have I already met this year?</li>
+          <li>After my deductible, what percentage of each session do you reimburse?</li>
+          <li>Is reimbursement based on the provider's fee, or on an &ldquo;allowed amount&rdquo;? What is the allowed amount for CPT code 90834 (individual psychotherapy)?</li>
+          <li>Is there a limit on the number of sessions per year?</li>
+          <li>Do I need pre-authorization or a referral?</li>
+          <li>Are telehealth (video) sessions covered at the same rate?</li>
+          <li>How do I submit a superbill, and how long does reimbursement usually take?</li>
+        </ol>
+        <p class="ins-tip">Tip: write down the date, the representative's name, and the call reference number, in case you need it later.</p>
+      </div>
     </div>
   </section>
 
