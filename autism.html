@@ -1116,6 +1116,10 @@
       .btn-light, .btn-primary, .btn-terra { font-size: 0.75rem !important; padding: 0.85rem 1.4rem !important; display: block; margin: 0.5rem auto; max-width: 280px; }
       .consult-calendar iframe { height: 720px !important; }
     }
+    /* dark brown content cards */
+    .card [style*="var(--terra)"], .card a { color: #F2C9A8 !important; }
+    .card [style*="var(--cream-text)"], .card [style*="var(--brown-mid)"] { color: #F3EBDD !important; }
+    .card [style*="var(--brown-light)"] { color: #D8C2AC !important; }
   </style>
 </head>
 <body>
@@ -1164,13 +1168,13 @@
       </p>
 
       <div class="autism-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem;">
-        <div style="background: var(--ivory-dark); border-radius: 14px; padding: 2.2rem; border: 1px solid rgba(160,135,110,0.2);">
+        <div class="card" style="background: var(--brown-mid); border-radius: 14px; padding: 2.2rem; border: none;">
           <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--terra); margin-bottom: 0.8rem;">Monotropism</p>
           <p style="font-size: 0.95rem; color: var(--cream-text); line-height: 1.85;">
             A monotropic mind pours its attention into a single channel at a time. <em>Mono</em> means one; <em>tropism</em> means a turning toward. When something genuinely sparks our interest, that one interest can take over the whole of our attention, leaving little to spare for anything outside it.
           </p>
         </div>
-        <div style="background: var(--ivory-dark); border-radius: 14px; padding: 2.2rem; border: 1px solid rgba(160,135,110,0.2);">
+        <div class="card" style="background: var(--brown-mid); border-radius: 14px; padding: 2.2rem; border: none;">
           <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--brown-mid); margin-bottom: 0.8rem;">Polytropism</p>
           <p style="font-size: 0.95rem; color: var(--cream-text); line-height: 1.85;">
             A polytropic mind spreads attention across several channels at once. <em>Poly</em> means many. It can hold its own interest while keeping some attention free to notice what's around it, including the interests and cues of other people, which is what most everyday socialising quietly asks of us.
