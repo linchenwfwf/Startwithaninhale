@@ -1120,6 +1120,10 @@
     .card [style*="var(--terra)"], .card a { color: #F2C9A8 !important; }
     .card [style*="var(--cream-text)"], .card [style*="var(--brown-mid)"] { color: #F3EBDD !important; }
     .card [style*="var(--brown-light)"] { color: #D8C2AC !important; }
+    /* keep the full desktop menu on one line on mid-size screens */
+    @media (min-width: 1401px) and (max-width: 1700px) {
+      nav { padding-left: 2.5rem; padding-right: 2.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -1152,6 +1156,7 @@
         </ul>
       </li>
       <li><a href="resourcing.html" style="color:var(--terra);">Resourcing</a></li>
+      <li><a href="index.html#benefits">Fees &amp; Insurance</a></li>
       <li><a href="index.html#consult">Contact</a></li>
       <li><a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="nav-cta">Book a Free Consultation</a></li>
     </ul>

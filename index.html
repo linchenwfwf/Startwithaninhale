@@ -1146,6 +1146,10 @@
     .ins-questions li::marker { color: var(--terra); }
     .ins-questions .ins-tip { font-style: italic; font-size: 0.85rem; }
     @media (max-width: 560px) { .ins-questions { padding: 1.5rem 1.3rem; } }
+    /* keep the full desktop menu on one line on mid-size screens */
+    @media (min-width: 1401px) and (max-width: 1700px) {
+      nav { padding-left: 2.5rem; padding-right: 2.5rem; }
+    }
   </style>
 </head>
 <body>
@@ -1179,6 +1183,7 @@
         </ul>
       </li>
       <li><a href="resourcing.html">Resourcing</a></li>
+      <li><a href="#benefits">Fees &amp; Insurance</a></li>
       <li><a href="#consult">Contact</a></li>
       <li><a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="nav-cta">Book a Free Consultation</a></li>
     </ul>
