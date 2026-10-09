@@ -19,6 +19,7 @@
     "url": "https://www.startwithaninhale.com/",
     "image": "https://www.startwithaninhale.com/lin-portrait.jpg",
     "telephone": "+1-347-735-8420",
+    "priceRange": "$250 per session",
     "description": "Somatic psychotherapy and EMDR with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. English and Mandarin.",
     "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn", "addressRegion": "NY", "addressCountry": "US"},
     "areaServed": [{"@type": "State", "name": "New York"}, {"@type": "State", "name": "New Jersey"}],
@@ -1131,6 +1132,11 @@
       .btn-light, .btn-primary, .btn-terra { font-size: 0.75rem !important; padding: 0.85rem 1.4rem !important; display: block; margin: 0.5rem auto; max-width: 280px; }
       .consult-calendar iframe { height: 720px !important; }
     }
+    /* fees */
+    .fee-row { display: flex; gap: 1rem; justify-content: center; margin-top: 2.2rem; flex-wrap: wrap; }
+    .fee-item { flex: 1 1 180px; max-width: 230px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 12px; padding: 1.3rem 1rem; }
+    .fee-value { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--terra); line-height: 1.2; margin-bottom: 0.4rem; }
+    .fee-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-mid); line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -1408,12 +1414,26 @@
   <!-- INSURANCE / OUT-OF-NETWORK BENEFITS -->
   <section id="benefits" style="background: #ead2c1;">
     <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-      <p class="section-label">Insurance</p>
+      <p class="section-label">Fees &amp; Insurance</p>
       <div class="divider" style="margin: 1.2rem auto;"></div>
       <h2 class="section-heading">Use your <em>out-of-network</em> benefits</h2>
       <p class="section-body" style="margin-left: auto; margin-right: auto;">
-        I'm an out-of-network provider, which means I don't bill insurance directly. But many PPO plans reimburse a significant portion of each session, often 50–80% once your deductible is met. Through Thrizer, you can check your out-of-network benefits in about a minute, with no commitment.
+        I'm an out-of-network provider, which means I don't bill insurance directly. Instead, I provide a monthly superbill, a detailed receipt you can submit to your insurance company for reimbursement. Many PPO plans reimburse a significant portion of each session, often 50–80% once your deductible is met. Through Thrizer, you can check your out-of-network benefits in about a minute, with no commitment.
       </p>
+      <div class="fee-row">
+        <div class="fee-item">
+          <p class="fee-value">$250</p>
+          <p class="fee-label">Per 50-minute session</p>
+        </div>
+        <div class="fee-item">
+          <p class="fee-value">Out-of-network</p>
+          <p class="fee-label">PPO plans often reimburse <span style="white-space:nowrap;">50–80%</span></p>
+        </div>
+        <div class="fee-item">
+          <p class="fee-value">Monthly superbill</p>
+          <p class="fee-label">Ready to submit to your insurer</p>
+        </div>
+      </div>
       <!-- Thrizer benefits-checker widget -->
       <div style="margin-top: 2.2rem;">
         <script
