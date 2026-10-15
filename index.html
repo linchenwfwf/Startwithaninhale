@@ -1150,6 +1150,162 @@
     @media (min-width: 1401px) and (max-width: 1700px) {
       nav { padding-left: 2.5rem; padding-right: 2.5rem; }
     }
+
+    /* ── PHOTO HERO ── */
+    .photo-hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem var(--h-pad) 9rem;
+      background:
+        linear-gradient(180deg, rgba(60,42,30,0.15) 0%, rgba(60,42,30,0.05) 40%, rgba(60,42,30,0.35) 100%),
+        url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000') center 60% / cover no-repeat;
+      color: #fff;
+      overflow: hidden;
+    }
+    .photo-hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 1px 12px rgba(60,42,30,0.35);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.2s forwards;
+    }
+    .photo-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 6.2rem);
+      font-weight: 300;
+      line-height: 1.05;
+      text-shadow: 0 2px 24px rgba(60,42,30,0.3);
+      opacity: 0;
+      animation: fadeUp 1s ease 0.4s forwards;
+    }
+    .photo-hero-title em { font-style: italic; }
+    .photo-hero-sub {
+      font-size: 1.05rem;
+      max-width: 34rem;
+      margin: 1.4rem auto 2.4rem;
+      text-shadow: 0 1px 12px rgba(60,42,30,0.4);
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.65s forwards;
+    }
+    .photo-hero .btn-primary { align-self: center; }
+
+    /* wavy edges between sections */
+    .wave {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      display: block;
+      pointer-events: none;
+    }
+    .wave-bottom { bottom: -1px; }
+    .wave-top { top: -1px; transform: rotate(180deg); }
+
+    #hero { padding-top: 0; }
+
+    /* ── SCROLLING BAND ── */
+    .marquee {
+      overflow: hidden;
+      background: var(--brown);
+      color: var(--ivory);
+      padding: 1.1rem 0;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      animation: marquee 40s linear infinite;
+    }
+    .marquee-track span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+      font-style: italic;
+      font-weight: 300;
+      padding-right: 1.6rem;
+    }
+    .marquee-track span::after {
+      content: '✦';
+      font-style: normal;
+      font-size: 0.7em;
+      color: var(--terra-light);
+      padding-left: 1.6rem;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── PHOTO BANDS ── */
+    .photo-band {
+      position: relative;
+      min-height: 62vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem var(--h-pad);
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    .photo-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(60,42,30,0.38);
+    }
+    .photo-band blockquote {
+      position: relative;
+      max-width: 46rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.6vw, 3rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.3;
+      text-shadow: 0 2px 20px rgba(60,42,30,0.35);
+    }
+    .photo-band cite {
+      display: block;
+      margin-top: 1.4rem;
+      font-family: 'Jost', sans-serif;
+      font-style: normal;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .photo-band-grass { background-image: url('https://images.pexels.com/photos/9808497/pexels-photo-9808497.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
+    .photo-band-mist  { background-image: url('https://images.pexels.com/photos/9348873/pexels-photo-9348873.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
+
+    /* consult section over the Brooklyn waterfront */
+    #consult {
+      background:
+        linear-gradient(rgba(60,42,30,0.86), rgba(60,42,30,0.9)),
+        url('https://images.pexels.com/photos/1402800/pexels-photo-1402800.jpeg?auto=compress&cs=tinysrgb&w=2000') center / cover no-repeat;
+    }
+
+    /* gentle fade-in as content scrolls into view */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .photo-hero { min-height: 78vh; padding: 7rem 1.5rem 7rem; }
+      #hero { padding-top: 2.5rem; }
+      .photo-band { min-height: 48vh; padding: 6rem 1.5rem; }
+      .wave { height: 40px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -1175,27 +1331,27 @@
           <li><a href="zh.html">中文咨询</a></li>
         </ul>
       </li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false">Neurodivergence <span class="nav-caret">&#9662;</span></button>
-        <ul class="nav-dropdown-menu">
-          <li><a href="autism.html">Autism</a></li>
-          <li><a href="adhd.html">ADHD</a></li>
-        </ul>
-      </li>
-      <li><a href="resourcing.html">Resourcing</a></li>
-      <li><a href="#benefits">Fees &amp; Insurance</a></li>
       <li><a href="#consult">Contact</a></li>
       <li><a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="nav-cta">Book a Free Consultation</a></li>
     </ul>
   </nav>
 
+  <!-- PHOTO HERO -->
+  <section class="photo-hero">
+    <p class="photo-hero-eyebrow">Somatic Psychotherapy · Brooklyn Heights &amp; Virtual</p>
+    <h1 class="photo-hero-title">Start with an <em>Inhale</em></h1>
+    <p class="photo-hero-sub">A warm, unhurried space to slow down and come back to yourself, in English and 普通话.</p>
+    <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary">Book a Free Consultation</a>
+    <svg class="wave wave-bottom" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
+  </section>
+
   <!-- HERO -->
   <section id="hero">
     <div class="hero-text">
       <p class="hero-eyebrow">Somatic Psychotherapy · New York &amp; New Jersey</p>
-      <h1 class="hero-heading">
+      <h2 class="hero-heading">
         You've spent your whole<br>life <em>adapting</em>.<br>Here, you don't have to.
-      </h1>
+      </h2>
       <p class="hero-sub">
         Humans are wired for survival, protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking, can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
       </p>
@@ -1251,6 +1407,9 @@
   </div>
 
 
+
+  <!-- SCROLLING BAND -->
+  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Come back to your breath</span><span>Somatic IFS</span><span>EMDR</span><span>普通话 &amp; English</span><span>Neurodivergent-affirming</span><span>Brooklyn Heights &amp; virtual</span><span>Start with an inhale</span><span>Come back to your breath</span><span>Somatic IFS</span><span>EMDR</span><span>普通话 &amp; English</span><span>Neurodivergent-affirming</span><span>Brooklyn Heights &amp; virtual</span><span>Start with an inhale</span></div></div>
 
   <!-- SERVICES -->
   <section id="services">
@@ -1328,6 +1487,13 @@
     </div>
   </section>
 
+  <!-- PHOTO BAND -->
+  <div class="photo-band photo-band-grass">
+    <svg class="wave wave-top" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
+    <blockquote class="reveal">The body holds what the mind sometimes can't articulate.<cite>Lin Chen, LCSW</cite></blockquote>
+    <svg class="wave wave-bottom" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
+  </div>
+
   <!-- APPROACH -->
   <section id="approach">
     <p class="section-label">My Approach</p>
@@ -1382,6 +1548,13 @@
       </ul>
     </div>
   </section>
+
+  <!-- PHOTO BAND -->
+  <div class="photo-band photo-band-mist">
+    <svg class="wave wave-top" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
+    <blockquote class="reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
+    <svg class="wave wave-bottom" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F0E8DF"/></svg>
+  </div>
 
   <!-- EMDR -->
   <section id="emdr">
@@ -1551,6 +1724,12 @@
         }
       });
     }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-heading, .about-greeting, .about-photo, .approach-item, .fee-item').forEach(el => el.classList.add('reveal'));
+    const revealer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealer.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealer.observe(el));
 
     document.querySelectorAll('.service-card, .faq-item').forEach(el => {
       el.style.opacity = '0';
