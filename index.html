@@ -738,7 +738,7 @@
 
     /* ── EMDR ── */
     #emdr {
-      background: var(--sage-pale);
+      background: transparent;
       position: relative;
       overflow: hidden;
     }
@@ -1154,28 +1154,21 @@
     /* ── PHOTO HERO ── */
     .photo-hero {
       position: relative;
-      min-height: 88vh;
+      min-height: 70vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem var(--h-pad) 9rem;
-      background:
-        linear-gradient(180deg, rgba(60,42,30,0.15) 0%, rgba(60,42,30,0.05) 40%, rgba(60,42,30,0.35) 100%),
-        url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000') center 60% / cover no-repeat;
-      color: #fff;
-      overflow: hidden;
-      /* wave-shaped bottom edge that lets the page background show through */
-      -webkit-mask: linear-gradient(#000, #000) top / 100% calc(100% - 69px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,28 C1200,62 960,60 720,32 C480,5 240,5 0,40 Z'/%3E%3C/svg%3E") bottom / 100% 70px no-repeat;
-      mask: linear-gradient(#000, #000) top / 100% calc(100% - 69px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,28 C1200,62 960,60 720,32 C480,5 240,5 0,40 Z'/%3E%3C/svg%3E") bottom / 100% 70px no-repeat;
+      padding: 8rem var(--h-pad) 4rem;
+      color: var(--brown);
     }
     .photo-hero-eyebrow {
       font-size: 0.75rem;
       letter-spacing: 0.24em;
       text-transform: uppercase;
       margin-bottom: 1.2rem;
-      text-shadow: 0 1px 12px rgba(60,42,30,0.35);
+      color: var(--terra);
       opacity: 0;
       animation: fadeUp 0.9s ease 0.2s forwards;
     }
@@ -1184,20 +1177,18 @@
       font-size: clamp(3rem, 7vw, 6.2rem);
       font-weight: 300;
       line-height: 1.05;
-      text-shadow: 0 2px 24px rgba(60,42,30,0.3);
       opacity: 0;
       animation: fadeUp 1s ease 0.4s forwards;
     }
-    .photo-hero-title em { font-style: italic; }
+    .photo-hero-title em { font-style: italic; color: var(--terra); }
     .photo-hero-sub {
       font-size: 1.05rem;
       max-width: 34rem;
       margin: 1.4rem auto 2.4rem;
-      text-shadow: 0 1px 12px rgba(60,42,30,0.4);
+      color: var(--brown-mid);
       opacity: 0;
       animation: fadeUp 0.9s ease 0.65s forwards;
     }
-    .photo-hero .btn-primary { align-self: center; }
 
     /* wavy edges between sections */
     .wave {
@@ -1244,37 +1235,54 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* ── PHOTO BANDS ── */
-    .photo-band {
+    /* ── PHOTO WASHES: faint photos sitting behind sections ── */
+    .photo-wash {
       position: relative;
-      min-height: 62vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 8rem var(--h-pad);
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      overflow: hidden;
+      isolation: isolate;
     }
-    .photo-band::before {
+    .photo-wash::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(60,42,30,0.38);
+      z-index: -1;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.22;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 15%, #000 55%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 15%, #000 55%, transparent 100%);
     }
-    .photo-band blockquote {
-      position: relative;
+    .photo-wash-mountain::before {
+      background-image: url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000');
+      background-position: center 60%;
+      opacity: 0.3;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
+    }
+    /* grass + mist sit behind the quote and heading, then fade out before the paragraphs */
+    .photo-wash-grass::before,
+    .photo-wash-mist::before {
+      bottom: auto;
+      height: min(100%, 780px);
+      opacity: 0.2;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 50%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 50%, transparent 100%);
+    }
+    .photo-wash-grass::before { background-image: url('https://images.pexels.com/photos/9808497/pexels-photo-9808497.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
+    .photo-wash-mist::before  { background-image: url('https://images.pexels.com/photos/9348873/pexels-photo-9348873.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
+    .wash-quote {
       max-width: 46rem;
+      margin: 0 auto;
+      padding: 7rem var(--h-pad) 3rem;
+      text-align: center;
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.8rem, 3.6vw, 3rem);
       font-weight: 300;
       font-style: italic;
       line-height: 1.3;
-      text-shadow: 0 2px 20px rgba(60,42,30,0.35);
+      color: var(--brown);
     }
-    .photo-band cite {
+    .wash-quote cite {
       display: block;
       margin-top: 1.4rem;
       font-family: 'Jost', sans-serif;
@@ -1282,10 +1290,8 @@
       font-size: 0.75rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.85;
+      color: var(--terra);
     }
-    .photo-band-grass { background-image: url('https://images.pexels.com/photos/9808497/pexels-photo-9808497.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
-    .photo-band-mist  { background-image: url('https://images.pexels.com/photos/9348873/pexels-photo-9348873.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
 
     /* consult section over the Brooklyn waterfront */
     #consult {
@@ -1299,9 +1305,9 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 900px) {
-      .photo-hero { min-height: 78vh; padding: 7rem 1.5rem 7rem; }
+      .photo-hero { min-height: 60vh; padding: 7rem 1.5rem 3rem; }
       #hero { padding-top: 2.5rem; }
-      .photo-band { min-height: 48vh; padding: 6rem 1.5rem; }
+      .wash-quote { padding: 5rem 1.5rem 2rem; }
       .wave { height: 40px; }
     }
 
@@ -1335,16 +1341,15 @@
         </ul>
       </li>
       <li><a href="#consult">Contact</a></li>
-      <li><a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="nav-cta">Book a Free Consultation</a></li>
     </ul>
   </nav>
 
   <!-- PHOTO HERO -->
+  <div class="photo-wash photo-wash-mountain">
   <section class="photo-hero">
     <p class="photo-hero-eyebrow">Somatic Psychotherapy · Brooklyn Heights &amp; Virtual</p>
     <h1 class="photo-hero-title">Start with an <em>Inhale</em></h1>
     <p class="photo-hero-sub">A warm, unhurried space to slow down and come back to yourself, in English and 普通话.</p>
-    <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary">Book a Free Consultation</a>
   </section>
 
   <!-- HERO -->
@@ -1378,6 +1383,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- ABOUT -->
   <section id="about">
@@ -1409,9 +1415,6 @@
   </div>
 
 
-
-  <!-- SCROLLING BAND -->
-  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Come back to your breath</span><span>Somatic IFS</span><span>EMDR</span><span>普通话 &amp; English</span><span>Neurodivergent-affirming</span><span>Brooklyn Heights &amp; virtual</span><span>Start with an inhale</span><span>Come back to your breath</span><span>Somatic IFS</span><span>EMDR</span><span>普通话 &amp; English</span><span>Neurodivergent-affirming</span><span>Brooklyn Heights &amp; virtual</span><span>Start with an inhale</span></div></div>
 
   <!-- SERVICES -->
   <section id="services">
@@ -1445,7 +1448,6 @@
       <!-- Featured specialty: C-PTSD & Immigrant Family -->
       <div class="service-card featured-specialty">
         <div class="specialty-left">
-          <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><path d="M19 33C19 33 4 23 4 13C4 7 8 4 13 4C16 4 18 6 19 8C20 6 22 4 25 4C30 4 34 7 34 13C34 23 19 33 19 33Z" stroke="var(--terra)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div class="service-title">C-PTSD &amp; the <em>Immigrant Family</em> Experience</div>
           <p class="service-desc">For those who grew up in families where love was expressed through achievement, where your worth felt conditional on how well you performed, how little you needed, and how seamlessly you translated a world your parents couldn't fully navigate.</p>
           <div class="specialty-tags">
@@ -1467,7 +1469,6 @@
       <!-- Featured specialty: Somatic IFS -->
       <div class="service-card featured-specialty" style="margin-top: 2rem;">
         <div class="specialty-left">
-          <div class="service-icon"><svg width="38" height="38" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="14" stroke="var(--terra)" stroke-width="1.5" fill="none"/></svg></div>
           <div class="service-title">Somatic IFS &amp; <em>Parts Work</em></div>
           <p class="service-desc">For those who sense different parts of themselves in conflict: the part that wants to rest and the part that never stops pushing; the part that longs for closeness and the part that always pulls away.</p>
           <div class="specialty-tags">
@@ -1489,14 +1490,10 @@
     </div>
   </section>
 
-  <!-- PHOTO BAND -->
-  <div class="photo-band photo-band-grass">
-    <svg class="wave wave-top" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
-    <blockquote class="reveal">The body holds what the mind sometimes can't articulate.<cite>Lin Chen, LCSW</cite></blockquote>
-    <svg class="wave wave-bottom" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
-  </div>
 
   <!-- APPROACH -->
+  <div class="photo-wash photo-wash-grass">
+    <blockquote class="wash-quote reveal">The body holds what the mind sometimes can't articulate.<cite>Lin Chen, LCSW</cite></blockquote>
   <section id="approach">
     <p class="section-label">My Approach</p>
     <div class="divider"></div>
@@ -1550,15 +1547,12 @@
       </ul>
     </div>
   </section>
-
-  <!-- PHOTO BAND -->
-  <div class="photo-band photo-band-mist">
-    <svg class="wave wave-top" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
-    <blockquote class="reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
-    <svg class="wave wave-bottom" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F0E8DF"/></svg>
   </div>
 
+
   <!-- EMDR -->
+  <div class="photo-wash photo-wash-mist">
+    <blockquote class="wash-quote reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
   <section id="emdr">
     <div class="emdr-layout">
       <div>
@@ -1599,6 +1593,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- INSURANCE / OUT-OF-NETWORK BENEFITS -->
   <section id="benefits" style="background: #ead2c1;">
