@@ -1166,6 +1166,9 @@
         url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000') center 60% / cover no-repeat;
       color: #fff;
       overflow: hidden;
+      /* wave-shaped bottom edge that lets the page background show through */
+      -webkit-mask: linear-gradient(#000, #000) top / 100% calc(100% - 69px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,28 C1200,62 960,60 720,32 C480,5 240,5 0,40 Z'/%3E%3C/svg%3E") bottom / 100% 70px no-repeat;
+      mask: linear-gradient(#000, #000) top / 100% calc(100% - 69px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 70' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1440,0 L1440,28 C1200,62 960,60 720,32 C480,5 240,5 0,40 Z'/%3E%3C/svg%3E") bottom / 100% 70px no-repeat;
     }
     .photo-hero-eyebrow {
       font-size: 0.75rem;
@@ -1342,7 +1345,6 @@
     <h1 class="photo-hero-title">Start with an <em>Inhale</em></h1>
     <p class="photo-hero-sub">A warm, unhurried space to slow down and come back to yourself, in English and 普通话.</p>
     <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary">Book a Free Consultation</a>
-    <svg class="wave wave-bottom" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,5 480,5 720,32 C960,60 1200,62 1440,28 L1440,70 L0,70 Z" fill="#F7F2E9"/></svg>
   </section>
 
   <!-- HERO -->
