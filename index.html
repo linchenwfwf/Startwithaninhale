@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Start with an Inhale Psychotherapy | Somatic & EMDR Therapy in Brooklyn Heights | Lin Chen, LCSW</title>
-  <meta name="description" content="Somatic psychotherapy with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. Neurodivergent-affirming care in English and Mandarin (普通话). Book a free consultation." />
+  <meta name="description" content="Somatic psychotherapy with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. Individual and couples therapy, including neurodivergent couples. Neurodivergent-affirming care in English and Mandarin (普通话). Book a free consultation." />
   <link rel="canonical" href="https://www.startwithaninhale.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Start with an Inhale Psychotherapy | Somatic & EMDR Therapy in Brooklyn Heights | Lin Chen, LCSW" />
-  <meta property="og:description" content="Somatic psychotherapy with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. Neurodivergent-affirming care in English and Mandarin (普通话). Book a free consultation." />
+  <meta property="og:description" content="Somatic psychotherapy with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. Individual and couples therapy, including neurodivergent couples. Neurodivergent-affirming care in English and Mandarin (普通话). Book a free consultation." />
   <meta property="og:url" content="https://www.startwithaninhale.com/" />
   <meta property="og:image" content="https://www.startwithaninhale.com/lin-portrait.jpg" />
   <script type="application/ld+json">
@@ -19,7 +19,7 @@
     "url": "https://www.startwithaninhale.com/",
     "image": "https://www.startwithaninhale.com/lin-portrait.jpg",
     "telephone": "+1-347-735-8420",
-    "priceRange": "$250 per session",
+    "priceRange": "$250–$275 per session",
     "description": "Somatic psychotherapy and EMDR with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. English and Mandarin.",
     "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn", "addressRegion": "NY", "addressCountry": "US"},
     "areaServed": [{"@type": "State", "name": "New York"}, {"@type": "State", "name": "New Jersey"}],
@@ -276,6 +276,7 @@
       opacity: 0;
       animation: fadeUp 0.8s ease 0.6s forwards;
     }
+    .hero-sub-accent { color: var(--terra); font-weight: 400; }
 
     .hero-tags {
       display: flex;
@@ -1157,13 +1158,12 @@
     /* ── PHOTO HERO ── */
     .photo-hero {
       position: relative;
-      min-height: 70vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem var(--h-pad) 4rem;
+      padding: 8rem var(--h-pad) 6rem;
       color: var(--brown);
     }
     .photo-hero-eyebrow {
@@ -1184,13 +1184,99 @@
       animation: fadeUp 1s ease 0.4s forwards;
     }
     .photo-hero-title em { font-style: italic; color: var(--terra); }
+    .photo-hero-kicker {
+      display: block;
+      margin-top: 0.9rem;
+      padding-left: 0.6em; /* balances the trailing letter-spacing */
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(0.72rem, 1.1vw, 0.9rem);
+      font-weight: 400;
+      letter-spacing: 0.6em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+    }
     .photo-hero-sub {
       font-size: 1.05rem;
       max-width: 34rem;
-      margin: 1.4rem auto 2.4rem;
+      margin: 1.4rem auto 1rem;
       color: var(--brown-mid);
       opacity: 0;
       animation: fadeUp 0.9s ease 0.65s forwards;
+    }
+
+    /* 4-7-8 breathing cue: 19s cycle, inhale 4s, hold 7s, exhale 8s */
+    /* title + breathing cue share the title's width */
+    .photo-hero-head { display: inline-flex; flex-direction: column; max-width: 100%; }
+    .breath {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      margin-top: 1.6rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.9s forwards;
+    }
+    .breath-ring {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid rgba(184,107,74,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .breath-dot {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,146,111,0.55) 0%, rgba(184,107,74,0.25) 70%);
+      transform: scale(0.3);
+      animation: breathe 19s ease-in-out infinite;
+    }
+    .breath-label {
+      position: relative;
+      height: 1.2rem;
+      width: 12rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+    }
+    .breath-label { text-align: center; transition: opacity 0.5s ease; }
+    .breath-count {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 6px;
+      margin-bottom: 0.6rem;
+    }
+    .breath-count::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      border-top: 1px solid rgba(184,107,74,0.15);
+    }
+    .breath-count i {
+      position: relative;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(184,107,74,0.18);
+      transition: background 0.8s ease;
+    }
+    .breath-count i.on { background: rgba(184,107,74,0.7); }
+    @keyframes breathe {
+      0%     { transform: scale(0.3); }
+      21%    { transform: scale(1); }
+      58%    { transform: scale(1); }
+      100%   { transform: scale(0.3); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .breath-dot { animation: none; transform: scale(0.65); }
     }
 
     /* wavy edges between sections */
@@ -1351,9 +1437,16 @@
   <!-- PHOTO HERO -->
   <div class="photo-wash photo-wash-mountain">
   <section class="photo-hero">
-    <p class="photo-hero-eyebrow">Somatic Psychotherapy · Brooklyn Heights &amp; Virtual</p>
-    <h1 class="photo-hero-title">Start with an <em>Inhale</em></h1>
-    <p class="photo-hero-sub">A warm, unhurried space to slow down and come back to yourself, in English and 普通话.</p>
+    <p class="photo-hero-eyebrow">Somatic · Brooklyn Heights &amp; Virtual</p>
+    <div class="photo-hero-head">
+      <h1 class="photo-hero-title">Start with an <em>Inhale</em><span class="photo-hero-kicker">Psychotherapy</span></h1>
+      <div class="breath" aria-label="4-7-8 breathing: breathe in for 4, hold for 7, breathe out for 8">
+        <div class="breath-count" aria-hidden="true"></div>
+        <div class="breath-ring" aria-hidden="true"><div class="breath-dot"></div></div>
+        <div class="breath-label" aria-hidden="true">Breathe in</div>
+      </div>
+    </div>
+    <p class="photo-hero-sub">Inhabit a steadier body, experiencing more moments of comfort, joy, and playfulness.</p>
   </section>
 
   <!-- HERO -->
@@ -1363,10 +1456,10 @@
       <h2 class="hero-heading">
         You've spent your whole<br>life <em>adapting</em>.<br>Here, you don't have to.
       </h2>
-      <p class="hero-sub">
+      <p class="hero-sub" style="margin-bottom: 1rem;">
         Humans are wired for survival, protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking, can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
       </p>
-      <p class="hero-sub" style="animation-delay: 0.75s;">
+      <p class="hero-sub hero-sub-accent" style="animation-delay: 0.75s;">
         Meaningful therapy allows vitality, authenticity, and a sense of freedom to emerge. I help clients experience more of these vivid feelings of aliveness.
       </p>
       <div class="hero-tags">
@@ -1398,10 +1491,10 @@
           <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" />
         </div>
         <p>
-          I'm a licensed clinical social worker (LCSW) based in Brooklyn Heights, offering somatic psychotherapy in English and 普通话 to clients across New York and New Jersey.
+          I'm a licensed clinical social worker (LCSW) based in Brooklyn Heights, offering somatic psychotherapy in English and 普通话 to individual and couple clients across New York and New Jersey.
         </p>
         <p>
-          My work weaves together Somatic IFS, EMDR, and Psychodynamic Gestalt approaches. I sit with adults navigating the long echoes of trauma, the weight of immigrant family dynamics, and the quiet exhaustion of moving through a world that wasn't built for every kind of mind.
+          My work weaves together Somatic IFS, EMDR, and Psychodynamic Gestalt approaches. I sit with adults navigating the long echoes of trauma, the weight of immigrant family dynamics, and the quiet exhaustion of moving through a world that wasn't built for every kind of mind. I also work with couples, especially neurodivergent partners, helping each of you interpret what goes unsaid between you: the tone, the silence, the meaning beneath the words.
         </p>
         <p>
           Before becoming a therapist, I worked in tech, so I understand from the inside the nuance of managing high-demand, fast-moving work while also navigating the relationships and quiet politics of a team. I'm especially passionate about working with high-functioning autistic adults in BIPOC communities, where being highly capable on the outside can mask how much is being carried underneath, and where race, culture, and neurodivergence intersect in ways that deserve real understanding.
@@ -1422,34 +1515,13 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <p class="section-label">What I Offer</p>
+    <p class="section-label">Areas of Specialization</p>
     <div class="divider"></div>
-    <h2 class="section-heading">Areas of <em>specialization</em></h2>
+    <h2 class="section-heading">Who I <em>work with</em></h2>
     <p class="section-body">
-      I specialize in working with individuals from diverse backgrounds, integrating somatic and depth-oriented approaches to support holistic healing.
+      I specialize in working with individuals and couples from diverse backgrounds, especially those shaped by immigrant family dynamics, neurodivergence, and the meeting of different cultures and races.
     </p>
     <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-title">Psychodynamic Depth Therapy</div>
-        <p class="service-desc">A reflective space to listen inward, to the thoughts, feelings, and patterns that shape who you are. Grounded in a Gestalt modality, this work explores what lives beneath the surface with curiosity and care.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-title">EMDR Therapy</div>
-        <p class="service-desc">A trauma therapy designed to integrate fragmented experiences, bringing together body, mind, and memory, without requiring you to retell your story in detail.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-title">Somatic Therapy</div>
-        <p class="service-desc">Body-based work that helps you notice, understand, and gently shift the patterns held in your nervous system. This includes Somatic IFS, connecting with the different parts of yourself through the felt sense of the body.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="service-title">Internal Family Systems (IFS)</div>
-        <p class="service-desc">A gentle way of getting to know the different parts of you: the inner critic, the part that keeps pushing, the part that longs to rest. Rather than fighting these parts, we listen to what they are protecting, so your Self can lead with more calm and compassion.</p>
-      </div>
-
 
       <!-- Featured specialty: C-PTSD & Immigrant Family -->
       <div class="service-card featured-specialty">
@@ -1472,24 +1544,27 @@
         </div>
       </div>
 
-      <!-- Featured specialty: Somatic IFS -->
+      <!-- Featured specialty: Couples Therapy -->
       <div class="service-card featured-specialty" style="margin-top: 2rem;">
         <div class="specialty-left">
-          <div class="service-title">Somatic IFS &amp; <em>Parts Work</em></div>
-          <p class="service-desc">For those who sense different parts of themselves in conflict: the part that wants to rest and the part that never stops pushing; the part that longs for closeness and the part that always pulls away.</p>
+          <div class="service-title">Couples Therapy for <em>Neurodivergent &amp; Interracial</em> Relationships</div>
+          <p class="service-desc">For partners whose brains work differently: one autistic and one not, one with ADHD and one without, or any pairing where you love each other deeply but keep missing each other in the moment. And for interracial and intercultural couples learning to hold two histories in one home.</p>
           <div class="specialty-tags">
-            <span class="specialty-tag">Parts Work</span>
-            <span class="specialty-tag">Self Leadership</span>
-            <span class="specialty-tag">Inner Critic</span>
-            <span class="specialty-tag">Protectors &amp; Exiles</span>
-            <span class="specialty-tag">Nervous System</span>
-            <span class="specialty-tag">Embodied Healing</span>
+            <span class="specialty-tag">Neurodivergent Couples</span>
+            <span class="specialty-tag">Autism &amp; ADHD</span>
+            <span class="specialty-tag">Interracial Couples</span>
+            <span class="specialty-tag">Communication</span>
+            <span class="specialty-tag">Conflict &amp; Repair</span>
+            <span class="specialty-tag">Intercultural Couples</span>
+            <span class="specialty-tag">Intimacy &amp; Trust</span>
           </div>
         </div>
         <div class="specialty-right">
-          <p>Internal Family Systems understands the psyche as made up of many parts, each with its own perspective, its own history, and its own role it learned to play to keep you safe. The part that criticizes you harshly. The part that shuts down when things get too close. The part that still carries the pain of something that happened long ago. None of these parts are your enemy. They are trying to protect something tender.</p>
-          <p>Somatic IFS adds the dimension of the body to this work. We don't just think about your parts; we notice where they live in you. A tightness in the chest. A heaviness in the shoulders. A held breath. The body holds what the mind sometimes can't articulate, and learning to listen to it is one of the most profound forms of self-knowledge there is.</p>
-          <p>This work invites the deepest part of you, what IFS calls the Self, to lead. Not by suppressing or managing your parts, but by turning toward them with genuine curiosity and care. Over time, this shifts the entire inner landscape: less internal war, more spaciousness. Less performing, more simply being.</p>
+          <p>In neurodivergent relationships, conflict often isn't about a lack of love. It's about two nervous systems that process information, emotion, and sensory input in different ways. What feels like coldness to one partner may be overwhelm in the other. What feels like criticism may simply be directness. Over time, these misreadings can harden into loneliness on both sides.</p>
+          <p>In interracial and intercultural relationships, partners bring different histories of race, family, and belonging, and sometimes different experiences of how the world treats them. Things that go unspoken, like a family's quiet disapproval, a microaggression one partner feels and the other misses, or different ideas about closeness and obligation, can slowly turn into distance. As a therapist who works deeply with race, culture, and immigrant family dynamics, I help couples name these differences openly and with care, so they become a source of understanding rather than a fault line.</p>
+          <p>My approach to couples work is experiential, body-based, and attachment-informed, drawing on Gestalt and IFS. Together, we slow things down and get curious about how each of you is actually wired: how you communicate, recharge, show care, and need care shown to you. Rather than asking either partner to mask or "fix" who they are, we build a shared language and practical agreements that honor both of your brains, so the relationship can feel less like translation and more like home.</p>
+          <p>I also work with couples beyond neurodiversity, including immigrant-family couples, partners navigating recurring conflict or communication breakdowns, rebuilding trust after a rupture, life transitions like becoming parents, and couples who simply feel disconnected and want to find their way back to each other.</p>
+          <p>Couples sessions are $275 per session.</p>
         </div>
       </div>
 
@@ -1532,13 +1607,43 @@
       </div>
     </div>
 
+    <div style="margin-top: 3.5rem;">
+      <p class="cred-block-title" style="margin-bottom: 0;">Therapies I offer</p>
+      <div class="services-grid" style="margin-top: 1.5rem;">
+        <div class="service-card">
+          <div class="service-title">Psychodynamic Depth Therapy</div>
+          <p class="service-desc">A reflective space to listen inward, to the thoughts, feelings, and patterns that shape who you are. Grounded in a Gestalt modality, this work explores what lives beneath the surface with curiosity and care.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-title">EMDR Therapy</div>
+          <p class="service-desc">A trauma therapy designed to integrate fragmented experiences, bringing together body, mind, and memory, without requiring you to retell your story in detail.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-title">Somatic Therapy</div>
+          <p class="service-desc">Body-based work that helps you notice, understand, and gently shift the patterns held in your nervous system, so insight is grounded in what you actually feel, not just what you think.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-title">Somatic IFS &amp; Parts Work</div>
+          <p class="service-desc">A gentle way of getting to know the different parts of you: the inner critic, the part that keeps pushing, the part that longs to rest. Rather than fighting these parts, we listen to what they are protecting, so your Self can lead with more calm and compassion. Somatic IFS adds the body: we notice where your parts live in you, a tightness in the chest, a held breath, and listen there too.</p>
+        </div>
+      </div>
+    </div>
+
     <div style="margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(160,135,110,0.2);">
       <p class="cred-block-title" style="margin-bottom: 1.5rem;">Certifications &amp; Training</p>
-      <ul class="cred-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 3rem;">
+      <ul class="cred-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 3rem;">
         <li>
           <div class="cred-divider"></div>
           <strong>Somatic Embodiment &amp; Regulation (SER)</strong>
           <span>Certificate, body-based trauma approach</span>
+        </li>
+        <li>
+          <div class="cred-divider"></div>
+          <strong>EMDR Training</strong>
+          <span>The Institute for Creative Mindfulness</span>
         </li>
         <li>
           <div class="cred-divider"></div>
@@ -1602,7 +1707,7 @@
   </div>
 
   <!-- INSURANCE / OUT-OF-NETWORK BENEFITS -->
-  <section id="benefits" style="background: #ead2c1;">
+  <section id="benefits" style="background: radial-gradient(ellipse 70% 45% at 50% 22%, rgba(212,146,111,0.22), transparent 70%), linear-gradient(to bottom, rgba(234,210,193,0) 0, #ead2c1 14rem);">
     <div style="max-width: 760px; margin: 0 auto; text-align: center;">
       <p class="section-label">Fees &amp; Insurance</p>
       <div class="divider" style="margin: 1.2rem auto;"></div>
@@ -1613,7 +1718,11 @@
       <div class="fee-row">
         <div class="fee-item">
           <p class="fee-value">$250</p>
-          <p class="fee-label">Per 50-minute session</p>
+          <p class="fee-label">Per 50-minute individual session</p>
+        </div>
+        <div class="fee-item">
+          <p class="fee-value">$275</p>
+          <p class="fee-label">Per couples therapy session</p>
         </div>
         <div class="fee-item">
           <p class="fee-value">Out-of-network</p>
@@ -1740,6 +1849,31 @@
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
+
+    // 4-7-8 breathing: label and one dot per second, synced to the circle's 19s animation
+    (() => {
+      const dot = document.querySelector('.breath-dot');
+      const label = document.querySelector('.breath-label');
+      const count = document.querySelector('.breath-count');
+      if (!dot) return;
+      const phases = [['Breathe in', 4], ['Hold', 7], ['Breathe out', 8]];
+      const start = performance.now();
+      let current = -1;
+      const tick = () => {
+        const anim = dot.getAnimations()[0];
+        const ms = (anim && anim.currentTime != null ? anim.currentTime : performance.now() - start) % 19000;
+        let sec = Math.floor(ms / 1000), i = 0;
+        while (sec >= phases[i][1]) { sec -= phases[i][1]; i++; }
+        if (i !== current) {
+          current = i;
+          label.textContent = phases[i][0];
+          count.innerHTML = '<i></i>'.repeat(phases[i][1]);
+        }
+        [...count.children].forEach((d, n) => d.classList.toggle('on', n <= sec));
+      };
+      tick();
+      setInterval(tick, 200);
+    })();
   </script>
 </body>
 </html>
