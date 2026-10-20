@@ -278,13 +278,20 @@
 
     .hero-heading {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 4vw, 4.5rem);
+      font-size: clamp(2.6rem, 4vw, 4.2rem);
       font-weight: 300;
       line-height: 1.18;
       color: var(--brown);
       margin-bottom: 1.8rem;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+    .hero-heading-sub {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.45em;
+      line-height: 1.4;
+      color: var(--brown-mid);
     }
     .hero-heading em {
       font-style: italic;
@@ -295,13 +302,12 @@
       font-size: 1rem;
       font-weight: 300;
       color: var(--cream-text);
-      max-width: 100%;
-      line-height: 1.8;
+      max-width: 40rem;
+      line-height: 1.85;
       margin-bottom: 2.5rem;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.6s forwards;
     }
-    .hero-sub-accent { color: var(--terra); font-weight: 400; }
 
     .hero-tags {
       display: flex;
@@ -311,15 +317,14 @@
       opacity: 0;
       animation: fadeUp 0.8s ease 0.7s forwards;
     }
+    .hero-tags { max-width: 40rem; gap: 0.35rem 0; }
     .tag {
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 0.35rem 0.9rem;
-      border: 1px solid var(--sage-light);
-      border-radius: 50px;
-      color: var(--sage);
+      color: var(--brown-light);
     }
+    .tag:not(:last-child)::after { content: "·"; margin: 0 0.7em; color: var(--sage-light); }
 
     .btn-primary {
       display: inline-block;
@@ -1063,14 +1068,12 @@
         grid-template-columns: 1fr;
         min-height: auto;
         padding: 110px 1.5rem 3rem;
-        text-align: center;
         gap: 2.5rem;
       }
       .hero-text { padding: 0; }
       .hero-visual { display: flex; justify-content: center; order: -1; }
       .hero-visual .photo-frame { width: 220px !important; height: 220px !important; }
       .hero-heading { font-size: clamp(2rem, 8vw, 3rem) !important; }
-      .hero-tags { justify-content: center; }
       section { padding: 4.5rem 1.5rem; }
       #about { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid, .services-grid.therapy-grid { grid-template-columns: 1fr; }
@@ -1464,12 +1467,12 @@
   <section id="hero">
     <div class="hero-text">
       <h2 class="hero-heading">
-        You've spent your whole<br>life <em>adapting</em>.<br>Here, you don't have to.
+        Inhabit a <em>steadier</em> body,<span class="hero-heading-sub">experiencing more moments of comfort, joy, and playfulness.</span>
       </h2>
       <p class="hero-sub" style="margin-bottom: 1rem;">
-        Humans are wired for survival, protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking, can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
+        Humans are wired for survival. Protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
       </p>
-      <p class="hero-sub hero-sub-accent" style="animation-delay: 0.75s;">
+      <p class="hero-sub" style="animation-delay: 0.75s;">
         Meaningful therapy allows vitality, authenticity, and a sense of freedom to emerge. I help clients experience more of these vivid feelings of aliveness.
       </p>
       <div class="hero-tags">
