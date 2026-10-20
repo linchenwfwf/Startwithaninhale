@@ -90,6 +90,41 @@
       text-decoration: none;
       white-space: nowrap;
     }
+    /* logo: breath mark beside the name, with spaced caps below */
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      line-height: 1.15;
+    }
+    .logo-mark {
+      flex: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--terra-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-mark::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--terra-light);
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-text em { font-style: italic; font-weight: 400; color: var(--terra); }
+    .logo-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      margin-top: 0.25rem;
+    }
     .nav-links { display: flex; gap: 1.1rem; align-items: center; list-style: none; }
     .nav-links a {
       font-size: 0.77rem;
@@ -599,73 +634,70 @@
     @media (max-width: 1200px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    .services-grid.therapy-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
 
-    .service-card.featured-specialty {
-      grid-column: 1 / -1;
+    /* who I work with: calm cream cards that link to each specialty page */
+    .who-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-      background: var(--brown);
-      color: #fff;
-      border-top: 3px solid var(--terra);
-      padding: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
     }
-    .service-card.featured-specialty:hover {
-      border-color: var(--terra-light);
-      transform: translateY(-4px);
+    @media (max-width: 900px) {
+      .who-grid { grid-template-columns: 1fr; }
     }
-    .service-card.featured-specialty .service-title {
-      color: #fff;
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-    }
-    .service-card.featured-specialty .service-title em {
-      font-style: italic;
-      color: var(--terra-light);
-    }
-    .service-card.featured-specialty .service-desc {
-      color: rgba(255,255,255,0.7);
-    }
-    .specialty-tags {
+    .who-card {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.2rem;
+      flex-direction: column;
+      background: #F5EBE0;
+      border-radius: 14px;
+      padding: 2.4rem 2rem 2rem;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
-    .specialty-tag {
-      font-size: 0.68rem;
+    .who-card:hover {
+      box-shadow: 0 12px 32px rgba(184,107,74,0.12);
+      transform: translateY(-3px);
+    }
+    .who-accent {
+      width: 32px;
+      height: 1px;
+      background: var(--terra);
+      margin-bottom: 1.3rem;
+    }
+    .who-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--brown);
+      margin-bottom: 0.9rem;
+    }
+    .who-title em { font-style: italic; color: var(--terra); }
+    .who-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--cream-text);
+      margin-bottom: 1.3rem;
+    }
+    .who-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.8rem; }
+    .who-tags span {
+      font-size: 0.62rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.28rem 0.75rem;
-      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.25rem 0.7rem;
+      border: 1px solid rgba(107,77,56,0.22);
       border-radius: 50px;
-      color: rgba(255,255,255,0.55);
+      color: var(--brown-mid);
     }
-    .specialty-right {
-      border-left: 1px solid rgba(255,255,255,0.12);
-      padding-left: 3rem;
+    .who-links { margin-top: auto; display: flex; gap: 1.4rem; }
+    .who-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terra);
+      text-decoration: none;
     }
-    .specialty-right p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-    }
-    .specialty-right p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 900px) {
-      .service-card.featured-specialty {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      .specialty-right {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        padding-top: 1.5rem;
-      }
-    }
+    .who-links a:hover { color: var(--brown-mid); }
 
     .service-card {
       background: #F5EBE0;
@@ -1051,7 +1083,7 @@
       .hero-tags { justify-content: center; }
       section { padding: 4.5rem 1.5rem; }
       #about { grid-template-columns: 1fr; gap: 3rem; }
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid, .services-grid.therapy-grid { grid-template-columns: 1fr; }
       .emdr-layout { grid-template-columns: 1fr; gap: 3rem; }
       .rates-layout { grid-template-columns: 1fr; }
       .section-heading { font-size: clamp(1.8rem, 6vw, 2.5rem) !important; }
@@ -1137,7 +1169,7 @@
       .consult-calendar iframe { height: 720px !important; }
     }
     /* fees */
-    .fee-row { display: flex; gap: 1rem; justify-content: center; margin-top: 2.2rem; flex-wrap: wrap; }
+    .fee-row { display: grid; grid-template-columns: repeat(2, minmax(0, 230px)); gap: 1rem; justify-content: center; margin-top: 2.2rem; }
     .fee-item { flex: 1 1 180px; max-width: 230px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 12px; padding: 1.3rem 1rem; }
     .fee-value { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--terra); line-height: 1.2; margin-bottom: 0.4rem; }
     .fee-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-mid); line-height: 1.5; }
@@ -1163,7 +1195,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 8rem var(--h-pad) 6rem;
+      padding: 10.5rem var(--h-pad) 6rem;
       color: var(--brown);
     }
     .photo-hero-eyebrow {
@@ -1184,17 +1216,6 @@
       animation: fadeUp 1s ease 0.4s forwards;
     }
     .photo-hero-title em { font-style: italic; color: var(--terra); }
-    .photo-hero-kicker {
-      display: block;
-      margin-top: 0.9rem;
-      padding-left: 0.6em; /* balances the trailing letter-spacing */
-      font-family: 'Jost', sans-serif;
-      font-size: clamp(0.72rem, 1.1vw, 0.9rem);
-      font-weight: 400;
-      letter-spacing: 0.6em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-    }
     .photo-hero-sub {
       font-size: 1.05rem;
       max-width: 34rem;
@@ -1395,7 +1416,7 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 900px) {
-      .photo-hero { min-height: 60vh; padding: 7rem 1.5rem 3rem; }
+      .photo-hero { min-height: 60vh; padding: 8.5rem 1.5rem 3rem; }
       #hero { padding-top: 2.5rem; }
       .wash-quote { padding: 5rem 1.5rem 2rem; }
       .wave { height: 40px; }
@@ -1411,7 +1432,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#hero" class="nav-name">Start with an <em style="font-style:italic; font-family:'Cormorant Garamond', serif; font-weight:400; color:var(--brown); text-decoration:underline; text-decoration-thickness:0.5px; text-underline-offset:3px;">Inhale</em></a>
+    <a href="#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1426,7 +1447,10 @@
           <li><a href="emdr.html">EMDR Therapy</a></li>
           <li><a href="somatic-ifs.html">Somatic IFS</a></li>
           <li><a href="experiential.html">Experiential Therapy</a></li>
+          <li><a href="couples.html">Couples Therapy</a></li>
           <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
+          <li><a href="adhd.html">ADHD</a></li>
+          <li><a href="autism.html">Autism</a></li>
           <li><a href="zh.html">中文咨询</a></li>
         </ul>
       </li>
@@ -1437,9 +1461,9 @@
   <!-- PHOTO HERO -->
   <div class="photo-wash photo-wash-mountain">
   <section class="photo-hero">
-    <p class="photo-hero-eyebrow">Somatic · Brooklyn Heights &amp; Virtual</p>
+    <p class="photo-hero-eyebrow">Somatic Psychotherapy · Brooklyn Heights &amp; Virtual in NY &amp; NJ</p>
     <div class="photo-hero-head">
-      <h1 class="photo-hero-title">Start with an <em>Inhale</em><span class="photo-hero-kicker">Psychotherapy</span></h1>
+      <h1 class="photo-hero-title">Start with an <em>Inhale</em></h1>
       <div class="breath" aria-label="4-7-8 breathing: breathe in for 4, hold for 7, breathe out for 8">
         <div class="breath-count" aria-hidden="true"></div>
         <div class="breath-ring" aria-hidden="true"><div class="breath-dot"></div></div>
@@ -1452,7 +1476,6 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-text">
-      <p class="hero-eyebrow">Somatic Psychotherapy · New York &amp; New Jersey</p>
       <h2 class="hero-heading">
         You've spent your whole<br>life <em>adapting</em>.<br>Here, you don't have to.
       </h2>
@@ -1521,53 +1544,28 @@
     <p class="section-body">
       I specialize in working with individuals and couples from diverse backgrounds, especially those shaped by immigrant family dynamics, neurodivergence, and the meeting of different cultures and races.
     </p>
-    <div class="services-grid">
-
-      <!-- Featured specialty: C-PTSD & Immigrant Family -->
-      <div class="service-card featured-specialty">
-        <div class="specialty-left">
-          <div class="service-title">C-PTSD &amp; the <em>Immigrant Family</em> Experience</div>
-          <p class="service-desc">For those who grew up in families where love was expressed through achievement, where your worth felt conditional on how well you performed, how little you needed, and how seamlessly you translated a world your parents couldn't fully navigate.</p>
-          <div class="specialty-tags">
-            <span class="specialty-tag">C-PTSD</span>
-            <span class="specialty-tag">Parentified Child</span>
-            <span class="specialty-tag">Immigrant Families</span>
-            <span class="specialty-tag">Emotional Neglect</span>
-            <span class="specialty-tag">Identity &amp; Belonging</span>
-            <span class="specialty-tag">Intergenerational Trauma</span>
-          </div>
-        </div>
-        <div class="specialty-right">
-          <p>Growing up as the child of immigrants often means carrying weight that was never yours to hold. You may have served as a language broker, cultural interpreter, or emotional anchor for your parents, all before you had the language to name your own needs.</p>
-          <p>In families where survival was the primary focus, emotional attunement wasn't always available. Love arrived through sacrifice and provision, not through being truly seen. Over time, this shapes how you see yourself: someone who earns connection, who performs their worth, who doesn't quite know how to simply <em>exist</em>.</p>
-          <p>Complex PTSD from this kind of chronic relational environment can look like perfectionism, people-pleasing, difficulty trusting your own emotions, or a persistent sense of not belonging anywhere, not fully here, not fully there. Therapy offers a space to grieve what wasn't given, understand what was inherited, and slowly build a relationship with yourself that isn't conditional.</p>
-        </div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-accent"></div>
+        <h3 class="who-title">C-PTSD &amp; the <em>Immigrant Family</em></h3>
+        <p class="who-desc">For those who grew up translating a world their parents couldn't fully navigate, and learned that love had to be earned.</p>
+        <div class="who-tags"><span>C-PTSD</span><span>Parentified Child</span><span>Intergenerational Trauma</span></div>
+        <div class="who-links"><a href="children-of-immigrants.html">Learn more &rarr;</a></div>
       </div>
-
-      <!-- Featured specialty: Couples Therapy -->
-      <div class="service-card featured-specialty" style="margin-top: 2rem;">
-        <div class="specialty-left">
-          <div class="service-title">Couples Therapy for <em>Neurodivergent &amp; Interracial</em> Relationships</div>
-          <p class="service-desc">For partners whose brains work differently: one autistic and one not, one with ADHD and one without, or any pairing where you love each other deeply but keep missing each other in the moment. And for interracial and intercultural couples learning to hold two histories in one home.</p>
-          <div class="specialty-tags">
-            <span class="specialty-tag">Neurodivergent Couples</span>
-            <span class="specialty-tag">Autism &amp; ADHD</span>
-            <span class="specialty-tag">Interracial Couples</span>
-            <span class="specialty-tag">Communication</span>
-            <span class="specialty-tag">Conflict &amp; Repair</span>
-            <span class="specialty-tag">Intercultural Couples</span>
-            <span class="specialty-tag">Intimacy &amp; Trust</span>
-          </div>
-        </div>
-        <div class="specialty-right">
-          <p>In neurodivergent relationships, conflict often isn't about a lack of love. It's about two nervous systems that process information, emotion, and sensory input in different ways. What feels like coldness to one partner may be overwhelm in the other. What feels like criticism may simply be directness. Over time, these misreadings can harden into loneliness on both sides.</p>
-          <p>In interracial and intercultural relationships, partners bring different histories of race, family, and belonging, and sometimes different experiences of how the world treats them. Things that go unspoken, like a family's quiet disapproval, a microaggression one partner feels and the other misses, or different ideas about closeness and obligation, can slowly turn into distance. As a therapist who works deeply with race, culture, and immigrant family dynamics, I help couples name these differences openly and with care, so they become a source of understanding rather than a fault line.</p>
-          <p>My approach to couples work is experiential, body-based, and attachment-informed, drawing on Gestalt and IFS. Together, we slow things down and get curious about how each of you is actually wired: how you communicate, recharge, show care, and need care shown to you. Rather than asking either partner to mask or "fix" who they are, we build a shared language and practical agreements that honor both of your brains, so the relationship can feel less like translation and more like home.</p>
-          <p>I also work with couples beyond neurodiversity, including immigrant-family couples, partners navigating recurring conflict or communication breakdowns, rebuilding trust after a rupture, life transitions like becoming parents, and couples who simply feel disconnected and want to find their way back to each other.</p>
-          <p>Couples sessions are $275 per session.</p>
-        </div>
+      <div class="who-card">
+        <div class="who-accent"></div>
+        <h3 class="who-title">Neurodivergent <em>Adults</em></h3>
+        <p class="who-desc">For autistic and ADHD adults who look capable on the outside while quietly carrying the cost of masking, especially in BIPOC communities.</p>
+        <div class="who-tags"><span>Autism</span><span>ADHD</span><span>Masking &amp; Burnout</span><span>BIPOC</span></div>
+        <div class="who-links"><a href="autism.html">Autism &rarr;</a><a href="adhd.html">ADHD &rarr;</a></div>
       </div>
-
+      <div class="who-card">
+        <div class="who-accent"></div>
+        <h3 class="who-title">Couples: <em>Neurodivergent &amp; Interracial</em></h3>
+        <p class="who-desc">For partners who love each other deeply but keep missing each other, across different minds, cultures, or races.</p>
+        <div class="who-tags"><span>Neurodivergent Couples</span><span>Interracial</span><span>Conflict &amp; Repair</span></div>
+        <div class="who-links"><a href="couples.html">Learn more &rarr;</a></div>
+      </div>
     </div>
   </section>
 
@@ -1609,7 +1607,7 @@
 
     <div style="margin-top: 3.5rem;">
       <p class="cred-block-title" style="margin-bottom: 0;">Therapies I offer</p>
-      <div class="services-grid" style="margin-top: 1.5rem;">
+      <div class="services-grid therapy-grid">
         <div class="service-card">
           <div class="service-title">Psychodynamic Depth Therapy</div>
           <p class="service-desc">A reflective space to listen inward, to the thoughts, feelings, and patterns that shape who you are. Grounded in a Gestalt modality, this work explores what lives beneath the surface with curiosity and care.</p>
@@ -1791,7 +1789,7 @@
   <footer>
     <span class="footer-name">Start with an Inhale Psychotherapy &nbsp;·&nbsp; Lin Chen, LCSW</span>
     <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; 普通话 &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
-    <span>© 2025 · All rights reserved</span>
+    <span>© 2026 · All rights reserved</span>
   </footer>
 
   <script>

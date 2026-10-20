@@ -74,6 +74,41 @@
       text-decoration: none;
       white-space: nowrap;
     }
+    /* logo: breath mark beside the name, with spaced caps below */
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      line-height: 1.15;
+    }
+    .logo-mark {
+      flex: none;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--terra-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-mark::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--terra-light);
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-text em { font-style: italic; font-weight: 400; color: var(--terra); }
+    .logo-sub {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: var(--brown-mid);
+      margin-top: 0.25rem;
+    }
     .nav-links { display: flex; gap: 1.1rem; align-items: center; list-style: none; }
     .nav-links a {
       font-size: 0.77rem;
@@ -1129,7 +1164,7 @@
 <body>
   <!-- NAV -->
   <nav id="nav">
-    <a href="index.html#hero" class="nav-name">Start with an <em style="font-style:italic; font-family:'Cormorant Garamond', serif; font-weight:400; color:var(--brown); text-decoration:underline; text-decoration-thickness:0.5px; text-underline-offset:3px;">Inhale</em></a>
+    <a href="index.html#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1144,7 +1179,10 @@
           <li><a href="emdr.html">EMDR Therapy</a></li>
           <li><a href="somatic-ifs.html">Somatic IFS</a></li>
           <li><a href="experiential.html">Experiential Therapy</a></li>
+          <li><a href="couples.html">Couples Therapy</a></li>
           <li><a href="children-of-immigrants.html" style="color:var(--terra);">Children of Immigrants</a></li>
+          <li><a href="adhd.html">ADHD</a></li>
+          <li><a href="autism.html">Autism</a></li>
           <li><a href="zh.html">中文咨询</a></li>
         </ul>
       </li>
@@ -1208,7 +1246,7 @@
   <footer>
     <span class="footer-name">Start with an Inhale Psychotherapy &nbsp;·&nbsp; Lin Chen, LCSW</span>
     <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; 普通话 &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
-    <span>© 2025 · All rights reserved</span>
+    <span>© 2026 · All rights reserved</span>
   </footer>
 
   <script>
