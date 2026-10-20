@@ -99,20 +99,10 @@
     }
     .logo-mark {
       flex: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid var(--terra-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-mark::after {
-      content: "";
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--terra-light);
+      width: 32px;
+      height: 32px;
+      color: var(--terra-light);
+      transform: rotate(-12deg);
     }
     .logo-text { display: flex; flex-direction: column; }
     .logo-text em { font-style: italic; font-weight: 400; color: var(--terra); }
@@ -1376,8 +1366,8 @@
       -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 50%, transparent 100%);
       mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 50%, transparent 100%);
     }
-    .photo-wash-grass::before { background-image: url('https://images.pexels.com/photos/9808497/pexels-photo-9808497.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
-    .photo-wash-mist::before  { background-image: url('https://images.pexels.com/photos/9348873/pexels-photo-9348873.jpeg?auto=compress&cs=tinysrgb&w=2000'); }
+    .photo-wash-grass.bg-in::before { background-image: url('https://images.pexels.com/photos/9808497/pexels-photo-9808497.jpeg?auto=compress&cs=tinysrgb&w=1200'); }
+    .photo-wash-mist.bg-in::before  { background-image: url('https://images.pexels.com/photos/9348873/pexels-photo-9348873.jpeg?auto=compress&cs=tinysrgb&w=1200'); }
     .wash-quote {
       max-width: 46rem;
       margin: 0 auto;
@@ -1401,11 +1391,11 @@
       color: var(--terra);
     }
 
-    /* consult section over the Brooklyn waterfront */
-    #consult {
+    /* consult section over the Brooklyn waterfront (photo added once near, via .bg-in) */
+    #consult.bg-in {
       background:
         linear-gradient(rgba(60,42,30,0.86), rgba(60,42,30,0.9)),
-        url('https://images.pexels.com/photos/1402800/pexels-photo-1402800.jpeg?auto=compress&cs=tinysrgb&w=2000') center / cover no-repeat;
+        url('https://images.pexels.com/photos/1402800/pexels-photo-1402800.jpeg?auto=compress&cs=tinysrgb&w=1200') center / cover no-repeat;
     }
 
     /* gentle fade-in as content scrolls into view */
@@ -1429,7 +1419,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
+    <a href="#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 10.2C29.6 16.4 27 25.4 18.4 27.6C10.4 29.6 3.8 23.8 4 16.2C4.2 9.2 9.8 4 16.6 4.2C20.4 4.3 23.2 5.8 25.1 8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="16" cy="16.2" r="6" fill="currentColor" opacity="0.85"/></svg><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1507,7 +1497,7 @@
         <p class="section-label" style="margin-bottom:1rem;">About</p>
         <h2 class="about-greeting">Hi, I'm <em>Lin</em>.</h2>
         <div class="about-photo" style="margin: 0.5rem 0 2.5rem;">
-          <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" />
+          <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" loading="lazy" decoding="async" />
         </div>
         <p>
           I'm a licensed clinical social worker (LCSW) based in Brooklyn Heights, offering somatic psychotherapy in English and 普通话 to individual and couple clients across New York and New Jersey.
@@ -1567,7 +1557,7 @@
 
 
   <!-- APPROACH -->
-  <div class="photo-wash photo-wash-grass">
+  <div class="photo-wash photo-wash-grass" data-lazy-bg>
     <blockquote class="wash-quote reveal">The body holds what the mind sometimes can't articulate.<cite>Lin Chen, LCSW</cite></blockquote>
   <section id="approach">
     <p class="section-label">My Approach</p>
@@ -1656,7 +1646,7 @@
 
 
   <!-- EMDR -->
-  <div class="photo-wash photo-wash-mist">
+  <div class="photo-wash photo-wash-mist" data-lazy-bg>
     <blockquote class="wash-quote reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
   <section id="emdr">
     <div class="emdr-layout">
@@ -1760,7 +1750,7 @@
   </section>
 
   <!-- CTA -->
-  <section id="consult">
+  <section id="consult" data-lazy-bg>
     <div class="consult-inner">
       <div class="consult-intro">
         <p class="cta-eyebrow">Ready to begin?</p>
@@ -1770,7 +1760,7 @@
         </p>
       </div>
       <div class="consult-calendar">
-        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3iudbcjlsQgKwpnzuX8VvSaVO1iOzvWIk82Znd-IP5XKvC84-5n6-SSpg_uKqINFKQpQnA47q5?gv=true" frameborder="0" scrolling="yes"></iframe>
+        <iframe loading="lazy" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3iudbcjlsQgKwpnzuX8VvSaVO1iOzvWIk82Znd-IP5XKvC84-5n6-SSpg_uKqINFKQpQnA47q5?gv=true" frameborder="0" scrolling="yes"></iframe>
       </div>
       <div style="margin-top:2.5rem;">
         <a href="tel:+13477358420" class="btn-light" style="display:inline-block;">Or Call/Text (347) 735-8420</a>
@@ -1843,6 +1833,12 @@
       el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
       observer.observe(el);
     });
+
+    // load below-the-fold background photos only as they approach the screen
+    const lazyBg = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bg-in'); lazyBg.unobserve(e.target); } });
+    }, { rootMargin: '600px 0px' });
+    document.querySelectorAll('[data-lazy-bg]').forEach(el => lazyBg.observe(el));
 
     // 4-7-8 breathing: label and one dot per second, synced to the circle's 19s animation
     (() => {

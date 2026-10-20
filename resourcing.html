@@ -83,20 +83,10 @@
     }
     .logo-mark {
       flex: none;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid var(--terra-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-mark::after {
-      content: "";
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--terra-light);
+      width: 32px;
+      height: 32px;
+      color: var(--terra-light);
+      transform: rotate(-12deg);
     }
     .logo-text { display: flex; flex-direction: column; }
     .logo-text em { font-style: italic; font-weight: 400; color: var(--terra); }
@@ -1160,7 +1150,7 @@
 <body>
   <!-- NAV -->
   <nav id="nav">
-    <a href="index.html#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><span class="logo-mark" aria-hidden="true"></span><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
+    <a href="index.html#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 10.2C29.6 16.4 27 25.4 18.4 27.6C10.4 29.6 3.8 23.8 4 16.2C4.2 9.2 9.8 4 16.6 4.2C20.4 4.3 23.2 5.8 25.1 8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="16" cy="16.2" r="6" fill="currentColor" opacity="0.85"/></svg><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
     <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
