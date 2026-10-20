@@ -1195,7 +1195,9 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 10.5rem var(--h-pad) 6rem;
+      min-height: 100vh;
+      min-height: 100svh; /* opening view: just the title, breath, and mountains */
+      padding: 8rem var(--h-pad) 12rem;
       color: var(--brown);
     }
     .photo-hero-eyebrow {
@@ -1216,14 +1218,6 @@
       animation: fadeUp 1s ease 0.4s forwards;
     }
     .photo-hero-title em { font-style: italic; color: var(--terra); }
-    .photo-hero-sub {
-      font-size: 1.05rem;
-      max-width: 34rem;
-      margin: 1.4rem auto 1rem;
-      color: var(--brown-mid);
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.65s forwards;
-    }
 
     /* 4-7-8 breathing cue: 19s cycle, inhale 4s, hold 7s, exhale 8s */
     /* title + breathing cue share the title's width */
@@ -1366,6 +1360,9 @@
     .photo-wash-mountain::before {
       background-image: url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000');
       background-position: center 60%;
+      bottom: auto;
+      height: 136vh;
+      height: 136svh; /* sized to the screen so the ridge sits in the opening view */
       opacity: 0.3;
       -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
       mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
@@ -1416,7 +1413,7 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 900px) {
-      .photo-hero { min-height: 60vh; padding: 8.5rem 1.5rem 3rem; }
+      .photo-hero { padding: 7rem 1.5rem 10rem; }
       #hero { padding-top: 2.5rem; }
       .wash-quote { padding: 5rem 1.5rem 2rem; }
       .wave { height: 40px; }
@@ -1470,7 +1467,6 @@
         <div class="breath-label" aria-hidden="true">Breathe in</div>
       </div>
     </div>
-    <p class="photo-hero-sub">Inhabit a steadier body, experiencing more moments of comfort, joy, and playfulness.</p>
   </section>
 
   <!-- HERO -->
