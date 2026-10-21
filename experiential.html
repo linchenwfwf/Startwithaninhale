@@ -123,6 +123,32 @@
     }
     .nav-cta:hover { background: var(--brown-mid); color: var(--ivory) !important; }
 
+    /* book button: always visible, beside the menu */
+    .nav-links { order: 2; margin-left: auto; }
+    .nav-book {
+      order: 3;
+      margin-left: 1.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--ivory);
+      background: var(--terra);
+      padding: 0.55rem 1.1rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-book:hover { background: var(--brown-mid); }
+    .nav-toggle { order: 4; }
+    @media (max-width: 1400px) {
+      .nav-book { margin-left: auto; margin-right: 1.1rem; }
+    }
+    @media (max-width: 560px) {
+      .nav-book { font-size: 0.62rem; padding: 0.45rem 0.75rem; margin-right: 0.8rem; letter-spacing: 0.08em; }
+    }
+
     /* dropdown menu */
     .nav-dropdown { position: relative; }
     .nav-dropdown-toggle {
@@ -1155,27 +1181,30 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="index.html#hero">Welcome</a></li>
       <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#approach">Approach</a></li>
       <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" style="color:var(--terra);" aria-expanded="false">Therapy <span class="nav-caret">&#9662;</span></button>
+        <button class="nav-dropdown-toggle" aria-expanded="false">Who I help <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="autism.html">Late-Diagnosed Autism</a></li>
+          <li><a href="adhd.html">ADHD</a></li>
+          <li><a href="ocd.html">OCD</a></li>
+          <li><a href="anxiety.html">Anxiety</a></li>
+          <li><a href="couples.html">Couples</a></li>
+          <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" style="color:var(--terra);" aria-expanded="false">Therapies <span class="nav-caret">&#9662;</span></button>
         <ul class="nav-dropdown-menu">
           <li><a href="emdr.html">EMDR Therapy</a></li>
           <li><a href="somatic-ifs.html">Somatic IFS</a></li>
           <li><a href="experiential.html" style="color:var(--terra);">Experiential Therapy</a></li>
-          <li><a href="couples.html">Couples Therapy</a></li>
-          <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
-          <li><a href="anxiety.html">Anxiety</a></li>
-          <li><a href="adhd.html">ADHD</a></li>
-          <li><a href="autism.html">Autism</a></li>
-          <li><a href="ocd.html">OCD</a></li>
-          <li><a href="zh.html">中文咨询</a></li>
         </ul>
       </li>
-      <li><a href="index.html#consult">Contact</a></li>
+      <li><a href="index.html#benefits">Fees</a></li>
+      <li><a href="zh.html">中文</a></li>
     </ul>
+    <a href="index.html#consult" class="nav-book">Book a consult</a>
   </nav>
 
   <section id="experiential" style="padding-top: 9rem;">
@@ -1232,9 +1261,9 @@
     </div>
     <div style="max-width: 780px; margin: 4rem auto 0; text-align: center;">
       <h2 style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.6rem,2.4vw,2.2rem); font-weight:400; color:var(--brown); margin-bottom:1rem;">Ready to <em style="font-style:italic; color:var(--terra);">begin</em>?</h2>
-      <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85; margin-bottom:2rem;">A free 15-minute consultation is a chance to see if we're a good fit, with no pressure or obligation. In person in Brooklyn Heights, or virtually anywhere in New York and New Jersey.</p>
+      <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85; margin-bottom:2rem;">A free 20-minute consultation is a chance to see if we're a good fit, with no pressure or obligation. In person in Brooklyn Heights, or virtually anywhere in New York and New Jersey.</p>
       <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary" style="align-self:auto;">Book a Free Consultation</a>
-      <p style="font-size:0.9rem; color:var(--brown-mid); margin-top:1.5rem;"><a href="tel:+13477358420" style="color:var(--brown-mid);">Or call/text (347) 735-8420</a></p>
+      <p style="font-size:0.9rem; color:var(--brown-mid); margin-top:1.5rem;"><a href="tel:+13477358420" style="color:var(--brown-mid);">Or call/text (347) 735-8420</a> &nbsp;·&nbsp; or email <a href="mailto:lin@startwithaninhale.com" style="color:var(--brown-mid);">lin@startwithaninhale.com</a></p>
     </div>
   </section>
 

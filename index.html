@@ -19,6 +19,7 @@
     "url": "https://www.startwithaninhale.com/",
     "image": "https://www.startwithaninhale.com/lin-portrait.jpg",
     "telephone": "+1-347-735-8420",
+    "email": "lin@startwithaninhale.com",
     "priceRange": "$250–$275 per session",
     "description": "Somatic psychotherapy and EMDR with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. English and Mandarin.",
     "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn", "addressRegion": "NY", "addressCountry": "US"},
@@ -138,6 +139,32 @@
       white-space: nowrap;
     }
     .nav-cta:hover { background: var(--brown-mid); color: var(--ivory) !important; }
+
+    /* book button: always visible, beside the menu */
+    .nav-links { order: 2; margin-left: auto; }
+    .nav-book {
+      order: 3;
+      margin-left: 1.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      color: var(--ivory);
+      background: var(--terra);
+      padding: 0.55rem 1.1rem;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-book:hover { background: var(--brown-mid); }
+    .nav-toggle { order: 4; }
+    @media (max-width: 1400px) {
+      .nav-book { margin-left: auto; margin-right: 1.1rem; }
+    }
+    @media (max-width: 560px) {
+      .nav-book { font-size: 0.62rem; padding: 0.45rem 0.75rem; margin-right: 0.8rem; letter-spacing: 0.08em; }
+    }
 
     /* dropdown menu */
     .nav-dropdown { position: relative; }
@@ -302,7 +329,7 @@
       font-size: 1rem;
       font-weight: 300;
       color: var(--cream-text);
-      max-width: 40rem;
+      max-width: 34rem;
       line-height: 1.85;
       margin-bottom: 2.5rem;
       opacity: 0;
@@ -735,6 +762,15 @@
       color: var(--cream-text);
       line-height: 1.75;
     }
+
+    /* booking: price at a glance, and what happens after you book */
+    .price-note { margin-top: 1rem; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-light); }
+    .expect-steps { list-style: none; max-width: 560px; margin: 2rem auto 0; text-align: left; }
+    .expect-steps li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.7; }
+    .expect-steps li:last-child { border-bottom: none; }
+    .expect-steps strong { color: #fff; font-weight: 400; }
+    .expect-steps span { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--terra-light); color: var(--terra-light); font-size: 0.78rem; display: flex; align-items: center; justify-content: center; margin-top: 0.15rem; }
+    .expect-price { margin-top: 1.4rem; font-size: 0.78rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.5); }
 
     /* ── DOES THIS SOUND FAMILIAR ── */
     #familiar { background: transparent; padding-top: 3rem; padding-bottom: 1rem; }
@@ -1479,27 +1515,30 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links">
-      <li><a href="#hero">Welcome</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#approach">Approach</a></li>
       <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false">Therapy <span class="nav-caret">&#9662;</span></button>
+        <button class="nav-dropdown-toggle" aria-expanded="false">Who I help <span class="nav-caret">&#9662;</span></button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="autism.html">Late-Diagnosed Autism</a></li>
+          <li><a href="adhd.html">ADHD</a></li>
+          <li><a href="ocd.html">OCD</a></li>
+          <li><a href="anxiety.html">Anxiety</a></li>
+          <li><a href="couples.html">Couples</a></li>
+          <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false">Therapies <span class="nav-caret">&#9662;</span></button>
         <ul class="nav-dropdown-menu">
           <li><a href="emdr.html">EMDR Therapy</a></li>
           <li><a href="somatic-ifs.html">Somatic IFS</a></li>
           <li><a href="experiential.html">Experiential Therapy</a></li>
-          <li><a href="couples.html">Couples Therapy</a></li>
-          <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
-          <li><a href="anxiety.html">Anxiety</a></li>
-          <li><a href="adhd.html">ADHD</a></li>
-          <li><a href="autism.html">Autism</a></li>
-          <li><a href="ocd.html">OCD</a></li>
-          <li><a href="zh.html">中文咨询</a></li>
         </ul>
       </li>
-      <li><a href="#consult">Contact</a></li>
+      <li><a href="#benefits">Fees</a></li>
+      <li><a href="zh.html">中文</a></li>
     </ul>
+    <a href="#consult" class="nav-book">Book a consult</a>
   </nav>
 
   <!-- PHOTO HERO -->
@@ -1520,10 +1559,10 @@
   <section id="hero">
     <div class="hero-text">
       <h2 class="hero-heading">
-        Inhabit a <em>steadier</em> body,<span class="hero-heading-sub">experiencing more moments of comfort, joy, and playfulness.</span>
+        Inhabit a <em>steadier</em> body,<span class="hero-heading-sub">experiencing more moments of calm, rest, and quiet joy.</span>
       </h2>
       <p class="hero-sub">
-        Humans are wired for survival. Protective patterns like overthinking, perfectionism, shutting down, or constant caretaking can become automatic. Therapy can help you find your way back to yourself, with more vitality, authenticity, and freedom.
+        Somatic therapy for late-diagnosed autistic adults, and anyone tired of keeping up. In Brooklyn Heights and online across New York and New Jersey.
       </p>
     </div>
   </section>
@@ -1568,6 +1607,7 @@
   <!-- APPROACH CTA -->
   <div class="about-cta" style="padding: 0 var(--h-pad) 4rem;">
     <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary">Book a Free Consultation</a>
+    <p class="price-note">Free 20-minute consult &nbsp;·&nbsp; $250 per session &nbsp;·&nbsp; out-of-network</p>
   </div>
 
 
@@ -1590,9 +1630,9 @@
       </div>
       <div class="who-card">
         <div class="who-accent"></div>
-        <h3 class="who-title">Neurodivergent <em>Adults</em></h3>
-        <p class="who-desc">For autistic, ADHD, and OCD adults who look capable on the outside while quietly carrying the cost of masking, especially in BIPOC communities.</p>
-        <div class="who-tags"><span>Autism</span><span>ADHD</span><span>OCD</span><span>Masking &amp; Burnout</span><span>BIPOC</span></div>
+        <h3 class="who-title">Late-Diagnosed <em>Autistic Adults</em></h3>
+        <p class="who-desc">For adults who learned they're autistic later in life, who look capable on the outside while quietly carrying the cost of masking, especially in BIPOC communities. Many of my clients are autistic men. I also work with ADHD and OCD.</p>
+        <div class="who-tags"><span>Late Diagnosis</span><span>Masking &amp; Burnout</span><span>BIPOC</span><span>ADHD</span><span>OCD</span></div>
         <div class="who-links"><a href="autism.html">Autism &rarr;</a><a href="adhd.html">ADHD &rarr;</a><a href="ocd.html">OCD &rarr;</a></div>
       </div>
       <div class="who-card">
@@ -1704,14 +1744,21 @@
         <p class="cta-eyebrow">Ready to begin?</p>
         <h2 class="cta-heading">Make some room for <em>yourself</em>.</h2>
         <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; margin-top:1rem;">
-          Pick a time below for a free 15-minute consultation, a chance to see if we're a good fit, with no pressure or obligation.
+          A free 20-minute consultation is a chance to see if we're a good fit, with no pressure or obligation.
         </p>
+        <ol class="expect-steps">
+          <li><span>1</span><div><strong>Pick a time below.</strong> You'll get a confirmation email with the details.</div></li>
+          <li><span>2</span><div><strong>We talk for 20 minutes,</strong> by video or phone. You don't need to prepare anything, and "I'm not sure" is a perfectly good answer.</div></li>
+          <li><span>3</span><div><strong>If it feels right,</strong> we schedule a first session. If not, I'm happy to suggest other options.</div></li>
+        </ol>
+        <p class="expect-price">$250 per individual session · $275 per couples session · out-of-network, superbills provided</p>
       </div>
       <div class="consult-calendar">
         <iframe loading="lazy" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3iudbcjlsQgKwpnzuX8VvSaVO1iOzvWIk82Znd-IP5XKvC84-5n6-SSpg_uKqINFKQpQnA47q5?gv=true" frameborder="0" scrolling="yes"></iframe>
       </div>
       <div style="margin-top:2.5rem;">
         <a href="tel:+13477358420" class="btn-light" style="display:inline-block;">Or Call/Text (347) 735-8420</a>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: rgba(255,255,255,0.65);">Prefer writing? Email <a href="mailto:lin@startwithaninhale.com" style="color: var(--terra-light);">lin@startwithaninhale.com</a></p>
         <p style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em;">
           Brooklyn Heights · Virtual · NY &amp; NJ
         </p>
