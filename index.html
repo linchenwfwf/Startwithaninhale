@@ -635,11 +635,11 @@
     .who-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 0 1.5rem;
       margin-top: 3.5rem;
     }
-    @media (max-width: 900px) {
-      .who-grid { grid-template-columns: 1fr; }
+    @media (max-width: 1200px) {
+      .who-grid { grid-template-columns: 1fr; max-width: 640px; gap: 1.5rem; }
     }
     .who-card {
       display: flex;
@@ -648,6 +648,20 @@
       border-radius: 14px;
       padding: 2.4rem 2rem 2rem;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    /* on wider screens, About and Who I work with start on the same line as the intro heading */
+    @media (min-width: 901px) {
+      #about, #services, .about-cta { padding-left: calc(var(--h-pad) * 2) !important; }
+    }
+
+    /* side by side, each card shares the same rows so titles, text, tags and links line up */
+    @media (min-width: 1201px) {
+      .who-card {
+        display: grid;
+        grid-row: span 5;
+        grid-template-rows: subgrid;
+        row-gap: 0;
+      }
     }
     .who-card:hover {
       box-shadow: 0 12px 32px rgba(184,107,74,0.12);
@@ -1075,7 +1089,8 @@
       .hero-visual .photo-frame { width: 220px !important; height: 220px !important; }
       .hero-heading { font-size: clamp(2rem, 8vw, 3rem) !important; }
       section { padding: 4.5rem 1.5rem; }
-      #about { grid-template-columns: 1fr; gap: 3rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+      .about-cta { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
       .services-grid, .services-grid.therapy-grid { grid-template-columns: 1fr; }
       .emdr-layout { grid-template-columns: 1fr; gap: 3rem; }
       .rates-layout { grid-template-columns: 1fr; }
@@ -1154,6 +1169,9 @@
       .hero-sub { font-size: 0.95rem !important; }
       .tag { font-size: 0.7rem !important; padding: 0.35rem 0.75rem !important; }
       section { padding: 3.5rem 1.25rem; }
+      #about { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .about-cta { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+      .about-cta .btn-primary { margin-left: 0; }
       .approach-grid { grid-template-columns: 1fr !important; }
       .approach-item { padding: 1.5rem 0 !important; border-right: none !important; border-bottom: 1px solid rgba(160,135,110,0.15); }
       .approach-item:last-child { border-bottom: none; }
@@ -1499,7 +1517,7 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="about-text" style="max-width: 760px; margin: 0 auto;">
+    <div class="about-text" style="max-width: 760px;">
         <p class="section-label" style="margin-bottom:1rem;">About</p>
         <h2 class="about-greeting">Hi, I'm <em>Lin</em>.</h2>
         <div class="about-photo" style="margin: 0.5rem 0 2.5rem;">
@@ -1522,7 +1540,7 @@
   </section>
 
   <!-- APPROACH CTA -->
-  <div style="text-align:center; padding: 0 var(--h-pad) 4rem;">
+  <div class="about-cta" style="padding: 0 var(--h-pad) 4rem;">
     <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary">Book a Free Consultation</a>
   </div>
 
