@@ -629,7 +629,7 @@
     @media (max-width: 1200px) {
       .services-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    .services-grid.therapy-grid { grid-template-columns: repeat(2, 1fr); margin-top: 1.5rem; }
+    .services-grid.therapy-grid { grid-template-columns: repeat(2, 1fr); margin-top: 2.5rem; }
 
     /* who I work with: calm cream cards that link to each specialty page */
     .who-grid {
@@ -651,7 +651,7 @@
     }
     /* on wider screens, About and Who I work with start on the same line as the intro heading */
     @media (min-width: 901px) {
-      #about, #services, .about-cta { padding-left: calc(var(--h-pad) * 2) !important; }
+      #about, #services, #familiar, #approach, .about-cta { padding-left: calc(var(--h-pad) * 2) !important; }
     }
 
     /* side by side, each card shares the same rows so titles, text, tags and links line up */
@@ -736,12 +736,40 @@
       line-height: 1.75;
     }
 
+    /* ── DOES THIS SOUND FAMILIAR ── */
+    #familiar { background: transparent; padding-top: 3rem; padding-bottom: 1rem; }
+    .familiar-list { list-style: none; max-width: 640px; margin: 0.5rem 0 2rem; }
+    .familiar-list li {
+      position: relative;
+      padding: 0.85rem 0 0.85rem 1.6rem;
+      border-bottom: 1px solid rgba(160,135,110,0.18);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+      line-height: 1.45;
+      color: var(--brown);
+    }
+    .familiar-list li:last-child { border-bottom: none; }
+    .familiar-list li::before {
+      content: "";
+      position: absolute; left: 0; top: 1.45rem;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--terra-light);
+    }
+    .familiar-close { max-width: 640px; font-size: 1rem; line-height: 1.85; color: var(--cream-text); }
+    .familiar-close em { font-style: italic; color: var(--terra); }
+
+    /* therapy cards link to their pages; training sits on one quiet line */
+    a.service-card { display: flex; flex-direction: column; text-decoration: none; }
+    .service-more { margin-top: auto; padding-top: 1rem; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terra); }
+    .training-line { max-width: 760px; margin-top: 2.5rem; font-size: 0.85rem; line-height: 1.9; color: var(--brown-mid); }
+    .training-line span { display: block; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.3rem; }
+
     /* ── APPROACH ── */
     #approach { background: transparent; padding-top: 1rem; }
 
     .approach-intro {
-      max-width: 760px;
-      margin: 1.5rem auto 0;
+      max-width: 640px;
+      margin: 0;
       font-size: 1rem;
       line-height: 1.9;
       color: var(--cream-text);
@@ -1186,6 +1214,12 @@
     .fee-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-mid); line-height: 1.5; }
     /* insurance questions */
     .ins-questions { text-align: left; margin: 3rem auto 0; max-width: 680px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 14px; padding: 2rem 2.2rem; }
+    .ins-questions summary { cursor: pointer; list-style: none; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--brown); line-height: 1.3; }
+    .ins-questions summary::-webkit-details-marker { display: none; }
+    .ins-questions summary::after { content: "+"; float: right; color: var(--terra); margin-left: 1rem; }
+    .ins-questions[open] summary { margin-bottom: 0.8rem; }
+    .ins-questions[open] summary::after { content: "−"; }
+    .ins-questions { padding: 1.3rem 2.2rem; }
     .ins-questions h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--brown); margin-bottom: 0.8rem; line-height: 1.3; }
     .ins-questions p, .ins-questions li { font-size: 0.92rem; color: var(--brown-mid); line-height: 1.8; }
     .ins-questions ol { margin: 1rem 0 1rem 1.3rem; }
@@ -1457,6 +1491,7 @@
           <li><a href="experiential.html">Experiential Therapy</a></li>
           <li><a href="couples.html">Couples Therapy</a></li>
           <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
+          <li><a href="anxiety.html">Anxiety</a></li>
           <li><a href="adhd.html">ADHD</a></li>
           <li><a href="autism.html">Autism</a></li>
           <li><a href="ocd.html">OCD</a></li>
@@ -1487,32 +1522,29 @@
       <h2 class="hero-heading">
         Inhabit a <em>steadier</em> body,<span class="hero-heading-sub">experiencing more moments of comfort, joy, and playfulness.</span>
       </h2>
-      <p class="hero-sub" style="margin-bottom: 1rem;">
-        Humans are wired for survival. Protective patterns like overthinking, perfectionism, emotional shutdown, rigid "shoulds," or constant caretaking can become automatic. My work integrates somatic regulation with insight-oriented psychotherapy, helping clients find their way back to themselves, holistically.
+      <p class="hero-sub">
+        Humans are wired for survival. Protective patterns like overthinking, perfectionism, shutting down, or constant caretaking can become automatic. Therapy can help you find your way back to yourself, with more vitality, authenticity, and freedom.
       </p>
-      <p class="hero-sub" style="animation-delay: 0.75s;">
-        Meaningful therapy allows vitality, authenticity, and a sense of freedom to emerge. I help clients experience more of these vivid feelings of aliveness.
-      </p>
-      <div class="hero-tags">
-        <span class="tag">Anxiety</span>
-        <span class="tag">C-PTSD &amp; Trauma</span>
-        <span class="tag">OCD</span>
-        <span class="tag">ADHD</span>
-        <span class="tag">Autism</span>
-        <span class="tag">Neurodivergent-Affirming</span>
-        <span class="tag">Children of Immigrants</span>
-        <span class="tag">Couples Therapy</span>
-        <span class="tag">Interracial Couples</span>
-        <span class="tag">LGBTQ+ Affirming</span>
-        <span class="tag">EMDR</span>
-        <span class="tag">Somatic Therapy</span>
-        <span class="tag">Internal Family Systems (IFS)</span>
-        <span class="tag">Brooklyn Heights</span>
-        <span class="tag">Telehealth NY &amp; NJ</span>
-        <span class="tag">普通话 &amp; English</span>
-      </div>
     </div>
   </section>
+  </div>
+
+  <!-- FAMILIAR -->
+  <div class="photo-wash photo-wash-mist" data-lazy-bg>
+  <section id="familiar">
+    <p class="section-label">Does this sound familiar?</p>
+    <div class="divider"></div>
+    <h2 class="section-heading">You can keep up, <em>but it costs you</em></h2>
+    <ul class="familiar-list">
+      <li>You've learned to get through the day by watching, copying, and rehearsing.</li>
+      <li>Conversations take an effort other people don't seem to notice.</li>
+      <li>You hold it together at work, then have nothing left at home.</li>
+      <li>Noise, change, or a crowded room drains you more than it "should."</li>
+      <li>And underneath, you're tired in a way sleep doesn't fix.</li>
+    </ul>
+    <p class="familiar-close">Keeping up is how you got by. Therapy can be a place where you <em>don't</em> have to: where we understand how you're wired, and build a life that fits it.</p>
+  </section>
+    <blockquote class="wash-quote reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
   </div>
 
   <!-- ABOUT -->
@@ -1524,16 +1556,10 @@
           <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" loading="lazy" decoding="async" />
         </div>
         <p>
-          I'm a licensed clinical social worker (LCSW) based in Brooklyn Heights, offering somatic psychotherapy in English and 普通话 to individual and couple clients across New York and New Jersey.
+          I'm a licensed clinical social worker (LCSW) in Brooklyn Heights, offering somatic psychotherapy in English and 普通话, in person and by telehealth across New York and New Jersey.
         </p>
         <p>
-          My work weaves together Somatic IFS, EMDR, and Psychodynamic Gestalt approaches. I sit with adults navigating the long echoes of trauma, the weight of immigrant family dynamics, and the quiet exhaustion of moving through a world that wasn't built for every kind of mind. I also work with couples, especially neurodivergent partners, helping each of you interpret what goes unsaid between you: the tone, the silence, the meaning beneath the words.
-        </p>
-        <p>
-          Before becoming a therapist, I worked in tech, so I understand from the inside the nuance of managing high-demand, fast-moving work while also navigating the relationships and quiet politics of a team. I'm especially passionate about working with high-functioning autistic adults in BIPOC communities, where being highly capable on the outside can mask how much is being carried underneath, and where race, culture, and neurodivergence intersect in ways that deserve real understanding.
-        </p>
-        <p>
-          I value depth, curiosity, and authenticity in the therapeutic relationship. I work with people who feel that words alone aren't enough, helping them build a new relationship with anxiety, triggers, and overwhelm, so that life can feel calmer, more grounded, and more fully their own.
+          I'm especially drawn to late-diagnosed autistic adults, many in BIPOC communities. Before becoming a therapist, I worked in tech, so I know the pace and quiet politics of high-demand work from the inside.
         </p>
         <p class="about-sig">— Lin Chen, LCSW</p>
     </div>
@@ -1552,7 +1578,7 @@
     <div class="divider"></div>
     <h2 class="section-heading">Who I <em>work with</em></h2>
     <p class="section-body">
-      I specialize in working with individuals and couples from diverse backgrounds, especially those shaped by immigrant family dynamics, neurodivergence, and the meeting of different cultures and races.
+      Three groups I know especially well. I also see adults for <a href="anxiety.html" style="color:var(--terra);">anxiety</a> and trauma, and my practice is LGBTQ+ and neurodivergent affirming.
     </p>
     <div class="who-grid">
       <div class="who-card">
@@ -1588,131 +1614,37 @@
     <div class="divider"></div>
     <h2 class="section-heading">How I <em>work</em></h2>
     <p class="approach-intro">
-      I hold as fundamental that every person deserves to feel genuinely met. My approach to psychotherapy is rooted in presence: the belief that healing unfolds in the quality of the space between therapist and client. I practice with a deep attunement to the body, drawing on somatic awareness to help clients reconnect with the wisdom held in their nervous systems, not just their narratives.
+      I believe healing happens in the space between us. I listen to the body as much as to the words: the pauses, the breath, the feelings that don't have language yet. And I hold culture and history as part of the whole person, because being truly met is itself transformative.
     </p>
-    <p class="approach-intro">
-      Alongside this, I bring a profound commitment to deep listening, not simply hearing words, but attending to the subtle rhythms of affect, silence, and sensation that often carry what language cannot. I approach each person with the conviction that being truly seen and accepted is itself transformative; I strive to meet each client with warmth, curiosity, and an unwavering sense of their inherent worth.
-    </p>
-    <p class="approach-intro">
-      I also hold cultural context as an essential lens, recognizing that our histories, identities, and communities shape how we experience ourselves, our pain, and what healing can look like. Whether working across language, culture, or lived experience, I create a therapeutic relationship that feels genuinely safe, attuned, and affirming of the whole person.
-    </p>
-    <div class="approach-grid">
-      <div class="approach-item">
-        <p class="approach-label">Somatic</p>
-        <p class="approach-desc">Listening to the body as much as the mind, grounding insight in felt, embodied experience.</p>
-      </div>
-      <div class="approach-item">
-        <p class="approach-label">Depth</p>
-        <p class="approach-desc">Looking beneath symptoms to uncover the emotional truths and protective patterns that drive them.</p>
-      </div>
-      <div class="approach-item">
-        <p class="approach-label">Relational</p>
-        <p class="approach-desc">Healing as co-created, warm, real, and built on genuine human connection.</p>
-      </div>
-      <div class="approach-item">
-        <p class="approach-label">Integrative</p>
-        <p class="approach-desc">Drawing from Somatic IFS, EMDR, and somatic therapy to meet you exactly where you are.</p>
-      </div>
+
+    <div class="services-grid therapy-grid">
+      <a class="service-card" href="experiential.html">
+        <div class="service-title">Psychodynamic &amp; Gestalt</div>
+        <p class="service-desc">Listening beneath the surface to the patterns that shape who you are.</p>
+        <span class="service-more">Learn more &rarr;</span>
+      </a>
+      <a class="service-card" href="emdr.html">
+        <div class="service-title">EMDR Therapy</div>
+        <p class="service-desc">Helping the brain finish processing stuck memories, without retelling every detail.</p>
+        <span class="service-more">Learn more &rarr;</span>
+      </a>
+      <a class="service-card" href="resourcing.html">
+        <div class="service-title">Somatic Therapy</div>
+        <p class="service-desc">Gently shifting what your nervous system holds, so insight is felt, not just thought.</p>
+        <span class="service-more">Learn more &rarr;</span>
+      </a>
+      <a class="service-card" href="somatic-ifs.html">
+        <div class="service-title">Somatic IFS &amp; Parts Work</div>
+        <p class="service-desc">Befriending the parts of you that push, criticize, or long to rest, and noticing where they live in the body.</p>
+        <span class="service-more">Learn more &rarr;</span>
+      </a>
     </div>
 
-    <div style="margin-top: 3.5rem;">
-      <p class="cred-block-title" style="margin-bottom: 0;">Therapies I offer</p>
-      <div class="services-grid therapy-grid">
-        <div class="service-card">
-          <div class="service-title">Psychodynamic Depth Therapy</div>
-          <p class="service-desc">A reflective space to listen inward, to the thoughts, feelings, and patterns that shape who you are. Grounded in a Gestalt modality, this work explores what lives beneath the surface with curiosity and care.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-title">EMDR Therapy</div>
-          <p class="service-desc">A trauma therapy designed to integrate fragmented experiences, bringing together body, mind, and memory, without requiring you to retell your story in detail.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-title">Somatic Therapy</div>
-          <p class="service-desc">Body-based work that helps you notice, understand, and gently shift the patterns held in your nervous system, so insight is grounded in what you actually feel, not just what you think.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-title">Somatic IFS &amp; Parts Work</div>
-          <p class="service-desc">A gentle way of getting to know the different parts of you: the inner critic, the part that keeps pushing, the part that longs to rest. Rather than fighting these parts, we listen to what they are protecting, so your Self can lead with more calm and compassion. Somatic IFS adds the body: we notice where your parts live in you, a tightness in the chest, a held breath, and listen there too.</p>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid rgba(160,135,110,0.2);">
-      <p class="cred-block-title" style="margin-bottom: 1.5rem;">Certifications &amp; Training</p>
-      <ul class="cred-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 3rem;">
-        <li>
-          <div class="cred-divider"></div>
-          <strong>Somatic Embodiment &amp; Regulation (SER)</strong>
-          <span>Certificate, body-based trauma approach</span>
-        </li>
-        <li>
-          <div class="cred-divider"></div>
-          <strong>EMDR Training</strong>
-          <span>The Institute for Creative Mindfulness</span>
-        </li>
-        <li>
-          <div class="cred-divider"></div>
-          <strong>Psychodynamic Gestalt Training</strong>
-          <span>Two-year post-graduate training</span>
-        </li>
-        <li>
-          <div class="cred-divider"></div>
-          <strong>Licensed Clinical Social Worker (LCSW)</strong>
-          <span>New York &amp; New Jersey</span>
-        </li>
-      </ul>
-    </div>
+    <p class="training-line"><span>Training</span> Somatic Embodiment &amp; Regulation (SER) &nbsp;·&nbsp; EMDR, The Institute for Creative Mindfulness &nbsp;·&nbsp; Two-year Psychodynamic Gestalt training &nbsp;·&nbsp; LCSW, New York &amp; New Jersey</p>
   </section>
   </div>
 
 
-  <!-- EMDR -->
-  <div class="photo-wash photo-wash-mist" data-lazy-bg>
-    <blockquote class="wash-quote reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
-  <section id="emdr">
-    <div class="emdr-layout">
-      <div>
-        <p class="section-label">EMDR Therapy</p>
-        <div class="divider"></div>
-        <h2 class="section-heading">Healing the nervous system<br>at its <em>roots</em></h2>
-        <p class="section-body">
-          Eye Movement Desensitization and Reprocessing (EMDR) is a well-researched, evidence-based therapy that helps the brain complete its natural processing of traumatic memories that have become "stuck" and continue to cause distress.
-        </p>
-        <div class="emdr-quote">
-          <p>"EMDR therapy doesn't require you to talk in detail about a distressing event; it works with the body's own healing mechanisms."</p>
-          <cite>— EMDR International Association</cite>
-        </div>
-      </div>
-      <div>
-        <div class="emdr-faq">
-          <div class="faq-item">
-            <div class="faq-q">What does EMDR treat?</div>
-            <div class="faq-a">EMDR is effective for PTSD, complex trauma, anxiety, phobias, grief, performance anxiety, and more. It is recognized by the APA, WHO, and VA as a first-line treatment for trauma.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">What does a session feel like?</div>
-            <div class="faq-a">Sessions begin with establishing safety and understanding your history. During processing, you'll hold a distressing memory in mind while engaging in bilateral stimulation (eye movements or tapping). Many people describe sessions as surprisingly gentle.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">How many sessions will I need?</div>
-            <div class="faq-a">Single-incident traumas often resolve in 8–12 sessions. Complex or developmental trauma may take longer. We'll move at a pace that feels safe and supportive for you.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Do I have to talk about the trauma in detail?</div>
-            <div class="faq-a">No. EMDR is unique in that it does not require detailed verbal processing of the traumatic event. This makes it accessible for people who find talk therapy re-traumatizing.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Is EMDR only for trauma?</div>
-            <div class="faq-a">Not at all. EMDR can be used for anxiety, depression, negative self-beliefs, grief, and any experience that left an emotional imprint. It works wherever the nervous system is holding distress.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  </div>
 
   <!-- INSURANCE / OUT-OF-NETWORK BENEFITS -->
   <section id="benefits" style="background: radial-gradient(ellipse 70% 45% at 50% 22%, rgba(212,146,111,0.22), transparent 70%), linear-gradient(to bottom, rgba(234,210,193,0) 0, #ead2c1 14rem);">
@@ -1721,7 +1653,7 @@
       <div class="divider" style="margin: 1.2rem auto;"></div>
       <h2 class="section-heading">Use your <em>out-of-network</em> benefits</h2>
       <p class="section-body" style="margin-left: auto; margin-right: auto;">
-        I'm an out-of-network provider, which means I don't bill insurance directly. Instead, I provide a monthly superbill, a detailed receipt you can submit to your insurance company for reimbursement. Many PPO plans reimburse a significant portion of each session, often 50–80% once your deductible is met. Through Thrizer, you can check your out-of-network benefits in about a minute, with no commitment.
+        I'm an out-of-network provider. Each month you'll receive a superbill to submit to your insurer, and many PPO plans reimburse 50–80% once your deductible is met.
       </p>
       <div class="fee-row">
         <div class="fee-item">
@@ -1731,14 +1663,6 @@
         <div class="fee-item">
           <p class="fee-value">$275</p>
           <p class="fee-label">Per couples therapy session</p>
-        </div>
-        <div class="fee-item">
-          <p class="fee-value">Out-of-network</p>
-          <p class="fee-label">PPO plans often reimburse <span style="white-space:nowrap;">50–80%</span></p>
-        </div>
-        <div class="fee-item">
-          <p class="fee-value">Monthly superbill</p>
-          <p class="fee-label">Ready to submit to your insurer</p>
         </div>
       </div>
       <!-- Thrizer benefits-checker widget -->
@@ -1751,12 +1675,12 @@
       <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--brown-light); letter-spacing: 0.04em;">
         Powered by Thrizer · Secure &amp; takes about a minute
       </p>
-      <p class="section-body" style="margin: 1.8rem auto 0;">
-        For some insurance plans, Thrizer can also <strong>submit your reimbursement claims to insurance for you</strong>, so you don't have to file superbills yourself. And for a small fee, you can pay only your expected share upfront instead of the full session fee, with Thrizer collecting the rest from your insurance.
+      <p class="section-body" style="margin: 1.2rem auto 0; font-size: 0.92rem;">
+        With some plans, Thrizer can file claims for you, so you pay only your share upfront.
       </p>
 
-      <div class="ins-questions">
-        <h3>Prefer to call? Questions to ask your insurance</h3>
+      <details class="ins-questions">
+        <summary>Prefer to call? Questions to ask your insurance</summary>
         <p class="ins-intro">Call the member services number on the back of your insurance card and ask about your <strong>out-of-network outpatient mental health</strong> benefits. It helps to have a pen ready.</p>
         <ol>
           <li>Do I have out-of-network benefits for outpatient mental health (psychotherapy)?</li>
@@ -1769,7 +1693,7 @@
           <li>How do I submit a superbill, and how long does reimbursement usually take?</li>
         </ol>
         <p class="ins-tip">Tip: write down the date, the representative's name, and the call reference number, in case you need it later.</p>
-      </div>
+      </details>
     </div>
   </section>
 
@@ -1778,7 +1702,7 @@
     <div class="consult-inner">
       <div class="consult-intro">
         <p class="cta-eyebrow">Ready to begin?</p>
-        <h2 class="cta-heading">Ready to finally feel <em>connected</em>.</h2>
+        <h2 class="cta-heading">Make some room for <em>yourself</em>.</h2>
         <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; margin-top:1rem;">
           Pick a time below for a free 15-minute consultation, a chance to see if we're a good fit, with no pressure or obligation.
         </p>
