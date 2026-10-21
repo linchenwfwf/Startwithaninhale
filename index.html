@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brooklyn Heights Therapist | EMDR, Somatic & Couples Therapy | Lin Chen, LCSW</title>
-  <meta name="description" content="Lin Chen, LCSW: therapist in Brooklyn Heights and online across NY &amp; NJ. Trauma, anxiety, OCD, ADHD, autism, and couples therapy, in English and Mandarin (普通话). Free consultation." />
+  <title>Late-Diagnosed Autism Therapy in Brooklyn Heights | Lin Chen, LCSW</title>
+  <meta name="description" content="Somatic therapy for autistic adults diagnosed later in life, especially men, and their partners. EMDR, IFS, and psychodynamic Gestalt with Lin Chen, LCSW, in Brooklyn Heights and online across NY &amp; NJ. English and 普通话." />
   <link rel="canonical" href="https://www.startwithaninhale.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Brooklyn Heights Therapist | EMDR, Somatic & Couples Therapy | Lin Chen, LCSW" />
-  <meta property="og:description" content="Lin Chen, LCSW: therapist in Brooklyn Heights and online across NY &amp; NJ. Trauma, anxiety, OCD, ADHD, autism, and couples therapy, in English and Mandarin (普通话). Free consultation." />
+  <meta property="og:title" content="Late-Diagnosed Autism Therapy in Brooklyn Heights | Lin Chen, LCSW" />
+  <meta property="og:description" content="Somatic therapy for autistic adults diagnosed later in life, especially men, and their partners. EMDR, IFS, and psychodynamic Gestalt with Lin Chen, LCSW, in Brooklyn Heights and online across NY &amp; NJ. English and 普通话." />
   <meta property="og:url" content="https://www.startwithaninhale.com/" />
-  <meta property="og:image" content="https://www.startwithaninhale.com/lin-portrait.jpg" />
+  <meta property="og:image" content="https://www.startwithaninhale.com/lin-headshot.jpg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Start with an Inhale Psychotherapy",
     "url": "https://www.startwithaninhale.com/",
-    "image": "https://www.startwithaninhale.com/lin-portrait.jpg",
+    "image": "https://www.startwithaninhale.com/lin-headshot.jpg",
     "telephone": "+1-347-735-8420",
     "email": "lin@startwithaninhale.com",
     "priceRange": "$250–$275 per session",
-    "description": "Somatic psychotherapy and EMDR with Lin Chen, LCSW, in Brooklyn Heights and virtually across New York and New Jersey. English and Mandarin.",
+    "description": "Somatic therapy for late-diagnosed autistic adults, especially men, and couples, with Lin Chen, LCSW, in Brooklyn Heights and online across New York and New Jersey. English and Mandarin.",
     "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn", "addressRegion": "NY", "addressCountry": "US"},
     "areaServed": [{"@type": "State", "name": "New York"}, {"@type": "State", "name": "New Jersey"}],
     "availableLanguage": ["English", "Mandarin Chinese"],
@@ -30,1835 +30,441 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
   <style>
+    /* Concept: calm, literal, predictable. No motion, no surprises, everything in plain view. */
     :root {
-      --ivory:       #F7F2E9;
-      --ivory-dark:  #EDE7D8;
-      --sage:        #A0876E;
-      --sage-light:  #C4B5A0;
-      --sage-pale:   #F0E8DF;
-      --terra:       #B86B4A;
-      --terra-light: #D4926F;
-      --brown:       #3C2A1E;
-      --brown-mid:   #6B4D38;
-      --brown-light: #9C7B68;
-      --cream-text:  #6B5C50;
-      --h-pad:       clamp(2rem, 8vw, 10rem);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Jost', sans-serif;
-      background:
-        radial-gradient(ellipse at 15% 25%, rgba(212,146,111,0.32) 0%, rgba(184,107,74,0.1) 30%, transparent 55%),
-        radial-gradient(ellipse at 75% 35%, rgba(212,146,111,0.22) 0%, transparent 45%),
-        radial-gradient(ellipse at 40% 65%, rgba(212,146,111,0.15) 0%, transparent 40%),
-        var(--ivory);
-      background-attachment: fixed;
-      color: var(--brown);
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.2rem var(--h-pad);
-      background: rgba(247,242,233,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(160,135,110,0.2);
-      transition: box-shadow 0.3s;
-    }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(60,42,30,0.08); }
-
-    .nav-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--brown);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    /* logo: breath mark beside the name, with spaced caps below */
-    .nav-logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      line-height: 1.15;
-    }
-    .logo-mark {
-      flex: none;
-      width: 32px;
-      height: 32px;
-      color: var(--terra-light);
-      transform: rotate(-12deg);
-    }
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-text em { font-style: italic; font-weight: 400; color: var(--terra); }
-    .logo-sub {
-      font-family: 'Jost', sans-serif;
-      font-size: 0.55rem;
-      font-weight: 400;
-      letter-spacing: 0.42em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-      margin-top: 0.25rem;
-    }
-    .nav-links { display: flex; gap: 1.1rem; align-items: center; list-style: none; }
-    .nav-links a {
-      font-size: 0.77rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--terra); }
-    .nav-cta {
-      font-size: 0.72rem !important;
-      font-weight: 500 !important;
-      letter-spacing: 0.1em !important;
-      color: var(--ivory) !important;
-      background: var(--brown);
-      padding: 0.5rem 1.2rem;
-      border-radius: 2px;
-      transition: background 0.2s !important;
-      white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--brown-mid); color: var(--ivory) !important; }
-
-    /* book button: always visible, beside the menu */
-    .nav-links { order: 2; margin-left: auto; }
-    .nav-book {
-      order: 3;
-      margin-left: 1.4rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      white-space: nowrap;
-      color: var(--ivory);
-      background: var(--terra);
-      padding: 0.55rem 1.1rem;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-    .nav-book:hover { background: var(--brown-mid); }
-    .nav-toggle { order: 4; }
-    @media (max-width: 1400px) {
-      .nav-book { margin-left: auto; margin-right: 1.1rem; }
-    }
-    @media (max-width: 560px) {
-      .nav-book { font-size: 0.62rem; padding: 0.45rem 0.75rem; margin-right: 0.8rem; letter-spacing: 0.08em; }
-    }
-
-    /* dropdown menu */
-    .nav-dropdown { position: relative; }
-    .nav-dropdown-toggle {
-      font-family: inherit;
-      font-size: 0.77rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: color 0.2s;
-    }
-    .nav-dropdown-toggle:hover { color: var(--terra); }
-    .nav-caret { font-size: 0.6rem; transition: transform 0.25s; }
-    .nav-dropdown:hover .nav-caret,
-    .nav-dropdown.open .nav-caret { transform: rotate(180deg); }
-    .nav-dropdown-menu {
-      list-style: none;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%) translateY(6px);
-      min-width: 170px;
-      padding: 0.5rem 0;
-      background: rgba(247,242,233,0.98);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(160,135,110,0.2);
-      border-radius: 10px;
-      box-shadow: 0 12px 30px rgba(60,42,30,0.14);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-      z-index: 200;
-    }
-    .nav-dropdown:hover .nav-dropdown-menu,
-    .nav-dropdown.open .nav-dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-    .nav-dropdown-menu li { display: block; }
-    .nav-dropdown-menu a {
-      display: block;
-      padding: 0.55rem 1.5rem;
-      white-space: nowrap;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-dropdown-menu a:hover { color: var(--terra); }
-
-    /* hamburger */
-    .nav-toggle {
-      display: none;
-      position: relative;
-      width: 26px;
-      height: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 210;
-    }
-    .nav-toggle span {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--brown);
-      border-radius: 2px;
-      transition: transform 0.25s ease, opacity 0.2s ease;
-    }
-    .nav-toggle span:nth-child(1) { top: 1px; }
-    .nav-toggle span:nth-child(2) { top: 9px; }
-    .nav-toggle span:nth-child(3) { top: 17px; }
-    nav.open .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
-    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: auto;
-      padding-bottom: 1rem;
-      display: block;
-      padding-top: 80px;
-      position: relative;
-      background: transparent;
-    }
-
-    /* organic background blobs */
-    #hero::before {
-      content: '';
-      position: absolute;
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(212,146,111,0.18) 0%, transparent 65%);
-      top: -50px; right: -100px;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    #hero::after {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(ellipse, rgba(184,107,74,0.15) 0%, transparent 65%);
-      bottom: -100px; left: 0;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem var(--h-pad) 4rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--terra);
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-
-    .hero-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 4vw, 4.2rem);
-      font-weight: 300;
-      line-height: 1.18;
-      color: var(--brown);
-      margin-bottom: 1.8rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.4s forwards;
-    }
-    .hero-heading-sub {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.45em;
-      line-height: 1.4;
-      color: var(--brown-mid);
-    }
-    .hero-heading em {
-      font-style: italic;
-      color: var(--terra);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--cream-text);
-      max-width: 34rem;
-      line-height: 1.85;
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.6s forwards;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 2.8rem;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.7s forwards;
-    }
-    .hero-tags { max-width: 40rem; gap: 0.35rem 0; }
-    .tag {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--brown-light);
-    }
-    .tag:not(:last-child)::after { content: "·"; margin: 0 0.7em; color: var(--sage-light); }
-
-    .btn-primary {
-      display: inline-block;
-      background: var(--terra);
-      color: #fff;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.9rem 2.2rem;
-      border-radius: 2px;
-      text-decoration: none;
-      transition: background 0.25s, transform 0.2s;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.85s forwards;
-      align-self: flex-start;
-    }
-    .btn-primary:hover { background: var(--brown-mid); transform: translateY(-2px); }
-
-    .btn-secondary {
-      display: inline-block;
-      background: transparent;
-      color: var(--terra);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.6rem;
-      border-radius: 2px;
-      border: 1.5px solid var(--terra);
-      text-decoration: none;
-      transition: background 0.25s, color 0.25s, transform 0.2s;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1s forwards;
-    }
-    .btn-secondary:hover { background: var(--terra); color: #fff; transform: translateY(-2px); }
-
-    .hero-btns { display: flex; flex-direction: row; gap: 1rem; align-items: center; flex-wrap: nowrap; }
-
-    .hero-visual {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeIn 1.2s ease 0.5s forwards;
-    }
-    .hero-visual::before {
-      content: '';
-      position: absolute;
-      width: 620px; height: 620px;
-      background: radial-gradient(ellipse, rgba(184,107,74,0.28) 0%, rgba(212,146,111,0.14) 40%, transparent 68%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero-visual::after {
-      content: '';
-      position: absolute;
-      width: 420px; height: 420px;
-      background: radial-gradient(ellipse, rgba(212,146,111,0.32) 0%, rgba(184,107,74,0.1) 50%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* decorative botanical SVG frame */
-    .photo-frame {
-      position: relative;
-      width: 380px;
-      height: 480px;
-      z-index: 1;
-    }
-    .photo-frame img {
-      filter: sepia(0.12) saturate(0.9) brightness(1.03);
-    }
-    .photo-frame::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at center, transparent 55%, rgba(184,107,74,0.18) 100%);
-      pointer-events: none;
-      z-index: 2;
-    }
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(160deg, var(--sage-pale) 0%, var(--ivory-dark) 100%);
-      border-radius: 50% 50% 45% 45% / 40% 40% 60% 60%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--brown-light);
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      gap: 0.5rem;
-      overflow: hidden;
-    }
-    .photo-placeholder svg { opacity: 0.4; }
-
-    /* floating botanical accents */
-    .leaf {
-      position: absolute;
-      opacity: 0.55;
-    }
-    .leaf-1 { top: 30px; left: -30px; transform: rotate(-25deg); }
-    .leaf-2 { bottom: 60px; right: -40px; transform: rotate(15deg); }
-    .leaf-3 { top: 50%; left: -50px; transform: rotate(200deg); }
-
-    /* ── SECTION SHARED ── */
-    section { padding: 7rem var(--h-pad); }
-
-    .section-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--terra);
-      margin-bottom: 0.8rem;
-    }
-
-    .section-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      font-weight: 400;
-      line-height: 1.25;
-      color: var(--brown);
-      margin-bottom: 1.5rem;
-    }
-    .section-heading em { font-style: italic; color: var(--terra); }
-
-    .section-body {
-      font-size: 1rem;
-      color: var(--cream-text);
-      line-height: 1.85;
-      max-width: 640px;
-    }
-
-    /* divider */
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: var(--terra);
-      margin-bottom: 2rem;
-      opacity: 0.6;
-    }
-
-
-    .about-image {
-      position: relative;
-    }
-    .about-img-box {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(145deg, var(--sage-pale) 0%, #e2d5c8 100%);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--sage);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .about-img-box span { opacity: 0.5; }
-
-    .about-accent {
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      width: 120px;
-      height: 120px;
-      background: var(--terra);
-      opacity: 0.12;
-      border-radius: 50%;
-    }
-
-    .credentials {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .cred-chip {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      padding: 0.3rem 0.85rem;
-      background: var(--ivory);
-      border: 1px solid var(--brown-light);
-      border-radius: 2px;
-      color: var(--brown-mid);
-    }
-
-    /* ── CREDENTIALS ── */
-    #credentials { background: transparent; padding-top: 2rem; padding-bottom: 2rem; }
-    .credentials-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 2.5rem;
-    }
-    .cred-block { }
-    .cred-block-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--brown);
-      margin-bottom: 1.2rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid rgba(160,135,110,0.3);
-    }
-    .cred-list { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
-    .cred-list li {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-    .cred-list li strong {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--brown);
-      letter-spacing: 0.02em;
-    }
-    .cred-list li span {
-      font-size: 0.78rem;
-      color: var(--brown-light);
-      letter-spacing: 0.03em;
-    }
-    .cred-divider {
-      width: 2rem;
-      height: 1.5px;
-      background: var(--terra);
-      margin-bottom: 0.5rem;
-      opacity: 0.6;
-    }
-    @media (max-width: 900px) {
-      .credentials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    /* ── ABOUT ── */
-    #about {
-      background: transparent;
-      padding: 5rem var(--h-pad) 3rem;
-    }
-    .about-inner {
-      max-width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .about-photo {
-      width: 340px;
-      height: 420px;
-      flex-shrink: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(60,42,30,0.15);
-    }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-    .about-greeting {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 300;
-      color: var(--brown);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-    .about-greeting em { font-style: italic; color: var(--terra); }
-    .about-text p {
-      font-size: 1.05rem;
-      line-height: 2.1;
-      color: var(--cream-text);
-      margin-bottom: 1.8rem;
-    }
-    .about-sig {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: var(--brown-mid);
-      margin-top: 1.5rem;
-    }
-    @media (max-width: 860px) {
-      #about { padding: 4rem 1.5rem 2rem; }
-      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
-      .about-photo { width: 240px; height: 300px; margin: 0 auto; }
-    }
-
-    /* ── SERVICES ── */
-    #services { background: transparent; padding-top: 2rem; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-    @media (max-width: 1200px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    .services-grid.therapy-grid { grid-template-columns: repeat(2, 1fr); margin-top: 2.5rem; }
-
-    /* who I work with: calm cream cards that link to each specialty page */
-    .who-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0 1.5rem;
-      margin-top: 3.5rem;
-    }
-    @media (max-width: 1200px) {
-      .who-grid { grid-template-columns: 1fr; max-width: 640px; gap: 1.5rem; }
-    }
-    .who-card {
-      display: flex;
-      flex-direction: column;
-      background: #F5EBE0;
-      border-radius: 14px;
-      padding: 2.4rem 2rem 2rem;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-    /* on wider screens, About and Who I work with start on the same line as the intro heading */
-    @media (min-width: 901px) {
-      #about, #services, #familiar, #approach, .about-cta { padding-left: calc(var(--h-pad) * 2) !important; }
-    }
-
-    /* side by side, each card shares the same rows so titles, text, tags and links line up */
-    @media (min-width: 1201px) {
-      .who-card {
-        display: grid;
-        grid-row: span 5;
-        grid-template-rows: subgrid;
-        row-gap: 0;
-      }
-    }
-    .who-card:hover {
-      box-shadow: 0 12px 32px rgba(184,107,74,0.12);
-      transform: translateY(-3px);
-    }
-    .who-accent {
-      width: 32px;
-      height: 1px;
-      background: var(--terra);
-      margin-bottom: 1.3rem;
-    }
-    .who-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.55rem;
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--brown);
-      margin-bottom: 0.9rem;
-    }
-    .who-title em { font-style: italic; color: var(--terra); }
-    .who-desc {
-      font-size: 0.9rem;
-      line-height: 1.75;
-      color: var(--cream-text);
-      margin-bottom: 1.3rem;
-    }
-    .who-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.8rem; }
-    .who-tags span {
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.7rem;
-      border: 1px solid rgba(107,77,56,0.22);
-      border-radius: 50px;
-      color: var(--brown-mid);
-    }
-    .who-links { margin-top: auto; display: flex; gap: 1.4rem; }
-    .who-links a {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--terra);
-      text-decoration: none;
-    }
-    .who-links a:hover { color: var(--brown-mid); }
-
-    .service-card {
-      background: #F5EBE0;
-      padding: 2.5rem 2rem;
-      border-radius: 4px;
-      border-top: 3px solid var(--sage-light);
-      transition: border-color 0.25s, transform 0.25s;
-    }
-    .service-card:hover {
-      border-color: var(--terra);
-      transform: translateY(-4px);
-    }
-    .service-icon {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-    .service-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--brown);
-      margin-bottom: 0.8rem;
-    }
-    .service-desc {
-      font-size: 0.9rem;
-      color: var(--cream-text);
-      line-height: 1.75;
-    }
-
-    /* booking: price at a glance, and what happens after you book */
-    .price-note { margin-top: 1rem; font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-light); }
-    .expect-steps { list-style: none; max-width: 560px; margin: 2rem auto 0; text-align: left; }
-    .expect-steps li { display: flex; gap: 1rem; align-items: flex-start; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.7; }
-    .expect-steps li:last-child { border-bottom: none; }
-    .expect-steps strong { color: #fff; font-weight: 400; }
-    .expect-steps span { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--terra-light); color: var(--terra-light); font-size: 0.78rem; display: flex; align-items: center; justify-content: center; margin-top: 0.15rem; }
-    .expect-price { margin-top: 1.4rem; font-size: 0.78rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.5); }
-
-    /* ── DOES THIS SOUND FAMILIAR ── */
-    #familiar { background: transparent; padding-top: 3rem; padding-bottom: 1rem; }
-    .familiar-list { list-style: none; max-width: 640px; margin: 0.5rem 0 2rem; }
-    .familiar-list li {
-      position: relative;
-      padding: 0.85rem 0 0.85rem 1.6rem;
-      border-bottom: 1px solid rgba(160,135,110,0.18);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.15rem, 1.6vw, 1.35rem);
-      line-height: 1.45;
-      color: var(--brown);
-    }
-    .familiar-list li:last-child { border-bottom: none; }
-    .familiar-list li::before {
-      content: "";
-      position: absolute; left: 0; top: 1.45rem;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--terra-light);
-    }
-    .familiar-close { max-width: 640px; font-size: 1rem; line-height: 1.85; color: var(--cream-text); }
-    .familiar-close em { font-style: italic; color: var(--terra); }
-
-    /* therapy cards link to their pages; training sits on one quiet line */
-    a.service-card { display: flex; flex-direction: column; text-decoration: none; }
-    .service-more { margin-top: auto; padding-top: 1rem; font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terra); }
-    .training-line { max-width: 760px; margin-top: 2.5rem; font-size: 0.85rem; line-height: 1.9; color: var(--brown-mid); }
-    .training-line span { display: block; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terra); margin-bottom: 0.3rem; }
-
-    /* ── APPROACH ── */
-    #approach { background: transparent; padding-top: 1rem; }
-
-    .approach-intro {
-      max-width: 640px;
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.9;
-      color: var(--cream-text);
-      text-align: left;
-    }
-    .approach-intro + .approach-intro { margin-top: 1.2rem; }
-
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 3rem;
-      border-top: 1px solid rgba(160,135,110,0.2);
-    }
-    .approach-item {
-      padding: 2.5rem 2rem 2.5rem 0;
-      border-right: 1px solid rgba(160,135,110,0.15);
-    }
-    .approach-item:last-child { border-right: none; padding-right: 0; }
-    .approach-item:not(:first-child) { padding-left: 2rem; }
-    .approach-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      font-weight: 500;
-      font-style: italic;
-      color: var(--brown);
-      margin-bottom: 0.7rem;
-    }
-    .approach-desc {
-      font-size: 0.875rem;
-      color: var(--cream-text);
-      line-height: 1.75;
-    }
-    @media (max-width: 900px) {
-      .approach-grid { grid-template-columns: 1fr 1fr; }
-      .approach-item { border-right: none; border-bottom: 1px solid rgba(160,135,110,0.15); padding: 2rem; }
-      .approach-item:last-child { border-bottom: none; }
-    }
-
-    /* ── EMDR ── */
-    #emdr {
-      background: transparent;
-      position: relative;
-      overflow: hidden;
-    }
-    #emdr::before {
-      content: '';
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(ellipse, rgba(184,107,74,0.08) 0%, transparent 70%);
-      top: -200px; right: -100px;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .emdr-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-      position: relative;
-      z-index: 1;
-    }
-
-    .emdr-faq { margin-top: 1.5rem; }
-
-    .faq-item {
-      border-bottom: 1px solid rgba(160,135,110,0.25);
-      padding: 1.2rem 0;
-    }
-    .faq-q {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--brown);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-    .faq-q::after {
-      content: '+';
-      font-size: 1.2rem;
-      color: var(--terra);
-      transition: transform 0.25s;
-      flex-shrink: 0;
-    }
-    .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a {
-      font-size: 0.9rem;
-      color: var(--cream-text);
-      line-height: 1.8;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding-top 0.25s;
-    }
-    .faq-item.open .faq-a {
-      max-height: 300px;
-      padding-top: 0.8rem;
-    }
-
-    .emdr-quote {
-      margin-top: 2rem;
-      padding: 2rem;
-      background: rgba(255,255,255,0.6);
-      border-left: 3px solid var(--terra);
-      border-radius: 0 4px 4px 0;
-    }
-    .emdr-quote p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--brown);
-      line-height: 1.6;
-    }
-    .emdr-quote cite {
-      display: block;
-      margin-top: 0.6rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--terra);
-      font-style: normal;
-    }
-
-    /* ── RATES ── */
-    #rates { background: radial-gradient(ellipse at 20% 30%, rgba(212,146,111,0.22) 0%, rgba(184,107,74,0.08) 40%, transparent 65%), var(--ivory); }
-
-    .rates-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
-    }
-
-    .rate-card {
-      background: var(--ivory);
-      padding: 2.5rem;
-      border-radius: 4px;
-      border: 1px solid rgba(160,135,110,0.2);
-    }
-    .rate-card.featured {
-      background: var(--brown);
-      color: #fff;
-      border-color: transparent;
-    }
-    .rate-card-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-    .rate-card.featured .rate-card-label { color: var(--sage-light); }
-    .rate-card:not(.featured) .rate-card-label { color: var(--terra); }
-
-    .rate-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 300;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-    .rate-card.featured .rate-price { color: #fff; }
-    .rate-card:not(.featured) .rate-price { color: var(--brown); }
-
-    .rate-unit {
-      font-size: 0.8rem;
-      color: var(--brown-light);
-      margin-bottom: 1.5rem;
-    }
-    .rate-card.featured .rate-unit { color: rgba(255,255,255,0.55); }
-
-    .rate-details {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .rate-details li {
-      font-size: 0.9rem;
-      display: flex;
-      gap: 0.6rem;
-      align-items: flex-start;
-    }
-    .rate-card.featured .rate-details li { color: rgba(255,255,255,0.8); }
-    .rate-card:not(.featured) .rate-details li { color: var(--cream-text); }
-    .rate-details li::before {
-      content: '—';
-      color: var(--terra);
-      flex-shrink: 0;
-    }
-    .rate-card.featured .rate-details li::before { color: var(--sage-light); }
-
-    .rates-note {
-      margin-top: 2.5rem;
-      padding: 1.5rem 2rem;
-      background: rgba(160,135,110,0.1);
-      border-radius: 4px;
-      font-size: 0.9rem;
-      color: var(--cream-text);
-      line-height: 1.7;
-      width: 100%;
-    }
-
-    /* ── CTA ── */
-    #consult {
-      background: var(--brown);
-      text-align: center;
-      padding: 7rem 2rem 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .consult-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .consult-intro {
-      max-width: 560px;
-      margin: 0 auto 3rem;
-    }
-    .consult-calendar {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-      background: var(--ivory);
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .consult-calendar iframe {
-      width: 100%;
-      height: 820px;
-      border: 0;
-      display: block;
-    }
-    @media (max-width: 860px) {
-      #consult { padding: 5rem 1.25rem; }
-      .consult-calendar iframe { height: 780px; }
-    }
-    #consult::before {
-      content: '';
-      position: absolute;
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(184,107,74,0.1) 0%, transparent 60%);
-      top: -200px; left: 50%;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .cta-eyebrow {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--sage-light);
-      margin-bottom: 1.2rem;
-    }
-    .cta-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      font-weight: 300;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    .cta-heading em { font-style: italic; color: var(--terra-light); }
-    .cta-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-      max-width: 520px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.8;
-    }
-    .btn-light {
-      display: inline-block;
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.4);
-      font-family: 'Jost', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.9rem 2.4rem;
-      border-radius: 2px;
-      text-decoration: none;
-      margin: 0.4rem;
-      transition: background 0.25s, border-color 0.25s;
-    }
-    .btn-light:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); }
-    .btn-cream {
-      background: var(--ivory-dark);
-      color: var(--brown);
-      border-color: var(--ivory-dark);
-    }
-    .btn-cream:hover { background: var(--ivory); border-color: var(--ivory); }
-    .btn-terra {
-      background: var(--terra);
-      border-color: var(--terra);
-    }
-    .btn-terra:hover { background: var(--terra-light); border-color: var(--terra-light); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #2A1D14;
-      color: rgba(255,255,255,0.45);
-      padding: 2.5rem var(--h-pad);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-    }
-    .footer-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.65);
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-name { font-size: 0.95rem; }
-      #hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        padding: 110px 1.5rem 3rem;
-        gap: 2.5rem;
-      }
-      .hero-text { padding: 0; }
-      .hero-visual { display: flex; justify-content: center; order: -1; }
-      .hero-visual .photo-frame { width: 220px !important; height: 220px !important; }
-      .hero-heading { font-size: clamp(2rem, 8vw, 3rem) !important; }
-      section { padding: 4.5rem 1.5rem; }
-      #about { grid-template-columns: 1fr; gap: 3rem; padding-left: 1.5rem; padding-right: 1.5rem; }
-      .about-cta { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-      .services-grid, .services-grid.therapy-grid { grid-template-columns: 1fr; }
-      .emdr-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .rates-layout { grid-template-columns: 1fr; }
-      .section-heading { font-size: clamp(1.8rem, 6vw, 2.5rem) !important; }
-      #consult { padding: 4.5rem 1.25rem; }
-      .cta-heading { font-size: clamp(2rem, 7vw, 3rem) !important; }
-      footer {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-        padding: 2rem 1.5rem;
-        font-size: 0.75rem;
-      }
-    }
-    /* mobile / small-laptop nav: hamburger menu */
-    @media (max-width: 1400px) {
-      .nav-toggle { display: block; }
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        background: var(--ivory);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(160,135,110,0.2);
-        box-shadow: 0 12px 30px rgba(60,42,30,0.10);
-        padding: 0.5rem 1.5rem 1.5rem;
-        display: none;
-      }
-      nav.open .nav-links { display: flex; }
-      .nav-links > li { width: 100%; }
-      .nav-links > li > a,
-      .nav-dropdown-toggle {
-        display: block;
-        width: 100%;
-        padding: 0.9rem 0.2rem;
-        font-size: 0.85rem;
-        border-bottom: 1px solid rgba(160,135,110,0.12);
-      }
-      .nav-dropdown { position: static; }
-      .nav-dropdown-toggle { display: flex; justify-content: space-between; align-items: center; text-align: left; }
-      .nav-dropdown-menu {
-        position: static;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        min-width: 0;
-        padding: 0;
-        margin: 0;
-        background: transparent;
-        backdrop-filter: none;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        display: none;
-      }
-      .nav-dropdown.open .nav-dropdown-menu { display: block; }
-      .nav-dropdown:hover .nav-dropdown-menu,
-      .nav-dropdown.open .nav-dropdown-menu { transform: none; }
-      .nav-dropdown-menu a { padding-left: 1.4rem; opacity: 0.85; }
-      .nav-cta {
-        margin-top: 0.9rem;
-        text-align: center;
-        border-bottom: none !important;
-      }
-    }
-    @media (max-width: 560px) {
-      nav { padding: 0.85rem 1rem; }
-      .nav-name { font-size: 0.85rem; }
-      .nav-cta { padding: 0.45rem 0.9rem !important; font-size: 0.65rem !important; }
-      #hero { padding: 100px 1.25rem 2.5rem; }
-      .hero-eyebrow { font-size: 0.65rem !important; }
-      .hero-sub { font-size: 0.95rem !important; }
-      .tag { font-size: 0.7rem !important; padding: 0.35rem 0.75rem !important; }
-      section { padding: 3.5rem 1.25rem; }
-      #about { padding-left: 1.25rem; padding-right: 1.25rem; }
-      .about-cta { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
-      .about-cta .btn-primary { margin-left: 0; }
-      .approach-grid { grid-template-columns: 1fr !important; }
-      .approach-item { padding: 1.5rem 0 !important; border-right: none !important; border-bottom: 1px solid rgba(160,135,110,0.15); }
-      .approach-item:last-child { border-bottom: none; }
-      .cred-list { grid-template-columns: 1fr !important; gap: 1rem !important; }
-      .btn-light, .btn-primary, .btn-terra { font-size: 0.75rem !important; padding: 0.85rem 1.4rem !important; display: block; margin: 0.5rem auto; max-width: 280px; }
-      .consult-calendar iframe { height: 720px !important; }
-    }
-    /* fees */
-    .fee-row { display: grid; grid-template-columns: repeat(2, minmax(0, 230px)); gap: 1rem; justify-content: center; margin-top: 2.2rem; }
-    .fee-item { flex: 1 1 180px; max-width: 230px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 12px; padding: 1.3rem 1rem; }
-    .fee-value { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; color: var(--terra); line-height: 1.2; margin-bottom: 0.4rem; }
-    .fee-label { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--brown-mid); line-height: 1.5; }
-    /* insurance questions */
-    .ins-questions { text-align: left; margin: 3rem auto 0; max-width: 680px; background: rgba(247,242,233,0.55); border: 1px solid rgba(107,77,56,0.18); border-radius: 14px; padding: 2rem 2.2rem; }
-    .ins-questions summary { cursor: pointer; list-style: none; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--brown); line-height: 1.3; }
-    .ins-questions summary::-webkit-details-marker { display: none; }
-    .ins-questions summary::after { content: "+"; float: right; color: var(--terra); margin-left: 1rem; }
-    .ins-questions[open] summary { margin-bottom: 0.8rem; }
-    .ins-questions[open] summary::after { content: "−"; }
-    .ins-questions { padding: 1.3rem 2.2rem; }
-    .ins-questions h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--brown); margin-bottom: 0.8rem; line-height: 1.3; }
-    .ins-questions p, .ins-questions li { font-size: 0.92rem; color: var(--brown-mid); line-height: 1.8; }
-    .ins-questions ol { margin: 1rem 0 1rem 1.3rem; }
-    .ins-questions li { margin-bottom: 0.45rem; padding-left: 0.3rem; }
-    .ins-questions li::marker { color: var(--terra); }
-    .ins-questions .ins-tip { font-style: italic; font-size: 0.85rem; }
-    @media (max-width: 560px) { .ins-questions { padding: 1.5rem 1.3rem; } }
-    /* keep the full desktop menu on one line on mid-size screens */
-    @media (min-width: 1401px) and (max-width: 1700px) {
-      nav { padding-left: 2.5rem; padding-right: 2.5rem; }
-    }
-
-    /* ── PHOTO HERO ── */
-    .photo-hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 100vh;
-      min-height: 100svh; /* opening view: just the title, breath, and mountains */
-      padding: 8rem var(--h-pad) 12rem;
-      color: var(--brown);
-    }
-    .photo-hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      color: var(--terra);
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.2s forwards;
-    }
-    .photo-hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 6.2rem);
-      font-weight: 300;
-      line-height: 1.05;
-      opacity: 0;
-      animation: fadeUp 1s ease 0.4s forwards;
-    }
-    .photo-hero-title em { font-style: italic; color: var(--terra); }
-
-    /* 4-7-8 breathing cue: 19s cycle, inhale 4s, hold 7s, exhale 8s */
-    /* title + breathing cue share the title's width */
-    .photo-hero-head { display: inline-flex; flex-direction: column; max-width: 100%; }
-    .breath {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.9rem;
-      margin-top: 1.6rem;
-      opacity: 0;
-      animation: fadeUp 0.9s ease 0.9s forwards;
-    }
-    .breath-ring {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      border: 1px solid rgba(184,107,74,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .breath-dot {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(212,146,111,0.55) 0%, rgba(184,107,74,0.25) 70%);
-      transform: scale(0.3);
-      animation: breathe 19s ease-in-out infinite;
-    }
-    .breath-label {
-      position: relative;
-      height: 1.2rem;
-      width: 12rem;
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--brown-mid);
-    }
-    .breath-label { text-align: center; transition: opacity 0.5s ease; }
-    .breath-count {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      height: 6px;
-      margin-bottom: 0.6rem;
-    }
-    .breath-count::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      border-top: 1px solid rgba(184,107,74,0.15);
-    }
-    .breath-count i {
-      position: relative;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(184,107,74,0.18);
-      transition: background 0.8s ease;
-    }
-    .breath-count i.on { background: rgba(184,107,74,0.7); }
-    @keyframes breathe {
-      0%     { transform: scale(0.3); }
-      21%    { transform: scale(1); }
-      58%    { transform: scale(1); }
-      100%   { transform: scale(0.3); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .breath-dot { animation: none; transform: scale(0.65); }
-    }
-
-    /* wavy edges between sections */
-    .wave {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      display: block;
-      pointer-events: none;
-    }
-    .wave-bottom { bottom: -1px; }
-    .wave-top { top: -1px; transform: rotate(180deg); }
-
-    #hero { padding-top: 0; }
-
-    /* ── SCROLLING BAND ── */
-    .marquee {
-      overflow: hidden;
-      background: var(--brown);
-      color: var(--ivory);
-      padding: 1.1rem 0;
-      white-space: nowrap;
-    }
-    .marquee-track {
-      display: inline-flex;
-      animation: marquee 40s linear infinite;
-    }
-    .marquee-track span {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 2.4vw, 1.9rem);
-      font-style: italic;
-      font-weight: 300;
-      padding-right: 1.6rem;
-    }
-    .marquee-track span::after {
-      content: '✦';
-      font-style: normal;
-      font-size: 0.7em;
-      color: var(--terra-light);
-      padding-left: 1.6rem;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* ── PHOTO WASHES: faint photos sitting behind sections ── */
-    .photo-wash {
-      position: relative;
-      isolation: isolate;
-      overflow-x: clip;
-    }
-    .photo-wash::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.22;
-      pointer-events: none;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 15%, #000 55%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, #000 15%, #000 55%, transparent 100%);
-    }
-    .photo-wash-mountain::before {
-      background-image: url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000');
-      background-position: center 60%;
-      bottom: auto;
-      height: 156vh;
-      height: 156svh; /* sized to the screen so the ridge sits in the opening view */
-      opacity: 0.3;
-      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
-      mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%);
-    }
-    /* grass + mist sit behind the quote and heading, then fade out before the paragraphs */
-    .photo-wash-grass::before,
-    .photo-wash-mist::before {
-      bottom: auto;
-      height: min(100%, 780px);
-      opacity: 0.2;
-      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 50%, transparent 100%);
-      mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 50%, transparent 100%);
-    }
-    .photo-wash-grass.bg-in::before { background-image: url('https://images.pexels.com/photos/9808497/pexels-photo-9808497.jpeg?auto=compress&cs=tinysrgb&w=1200'); }
-    .photo-wash-mist.bg-in::before  { background-image: url('https://images.pexels.com/photos/9348873/pexels-photo-9348873.jpeg?auto=compress&cs=tinysrgb&w=1200'); }
-    .wash-quote {
-      max-width: 46rem;
-      margin: 0 auto;
-      padding: 7rem var(--h-pad) 3rem;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3.6vw, 3rem);
-      font-weight: 300;
-      font-style: italic;
-      line-height: 1.3;
-      color: var(--brown);
-    }
-    .wash-quote cite {
-      display: block;
-      margin-top: 1.4rem;
-      font-family: 'Jost', sans-serif;
-      font-style: normal;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--terra);
-    }
-
-    /* consult section over the Brooklyn waterfront (photo added once near, via .bg-in) */
-    #consult.bg-in {
-      background:
-        linear-gradient(rgba(60,42,30,0.86), rgba(60,42,30,0.9)),
-        url('https://images.pexels.com/photos/1402800/pexels-photo-1402800.jpeg?auto=compress&cs=tinysrgb&w=1200') center / cover no-repeat;
-    }
-
-    /* gentle fade-in as content scrolls into view */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 900px) {
-      .photo-hero { padding: 7rem 1.5rem 10rem; }
-      #hero { padding-top: 2.5rem; }
-      .wash-quote { padding: 5rem 1.5rem 2rem; }
-      .wave { height: 40px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .marquee-track { animation: none; }
-      .reveal { opacity: 1; transform: none; transition: none; }
+      /* the original site's warm palette: ivory, peach cream, terracotta, brown */
+      --paper: #F7F2E9;
+      --paper-2: #F3E4D6;
+      --card: #FBF6EF;
+      --ink: #3C2A1E;
+      --ink-2: #6B4D38;
+      --ink-3: #9C7B68;
+      --line: #E6D6C6;
+      --accent: #B86B4A;
+      --accent-dark: #9A5537;
+      --sage: #B86B4A;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+      --gutter: clamp(1.25rem, 5vw, 4rem);
+      --wrap: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: auto; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent-dark); text-underline-offset: 3px; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+    .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: 0.6rem 1rem; z-index: 50; }
+    .skip:focus { left: 1rem; top: 1rem; }
+
+    /* header */
+    header { position: sticky; top: 0; z-index: 20; background: rgba(247,242,233,0.95); border-bottom: 1px solid var(--line); }
+    .bar { display: flex; align-items: center; gap: 2rem; min-height: 68px; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; color: var(--ink); }
+    .brand svg { width: 28px; height: 28px; color: var(--accent); flex: none; }
+    .brand strong { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; display: block; line-height: 1.1; }
+    .brand > span > span { font-size: 0.72rem; color: var(--ink-3); letter-spacing: 0.02em; }
+    .menu { display: flex; gap: 1.6rem; margin-left: auto; list-style: none; }
+    .menu a { color: var(--ink-2); text-decoration: none; font-size: 0.92rem; }
+    .menu a:hover { color: var(--ink); text-decoration: underline; }
+    .btn { display: inline-block; background: var(--accent); color: #fff; text-decoration: none; font-weight: 500; font-size: 0.95rem; padding: 0.8rem 1.3rem; border-radius: 6px; white-space: nowrap; }
+    .btn:hover { background: var(--accent-dark); }
+    .btn.small { padding: 0.55rem 1rem; font-size: 0.88rem; }
+    .btn.ghost { background: transparent; color: var(--accent-dark); border: 1px solid var(--accent); }
+    .btn.ghost:hover { background: rgba(184,107,74,0.08); }
+
+    /* hero */
+    .hero { padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem); background: radial-gradient(ellipse 60% 70% at 80% 20%, rgba(212,146,111,0.22), transparent 70%), radial-gradient(ellipse 50% 60% at 10% 90%, rgba(184,107,74,0.12), transparent 70%); }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+    .kicker { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 1.4rem; }
+    h1 em, h2 em { font-style: italic; color: var(--accent); }
+    .lede { font-size: 1.12rem; color: var(--ink-2); max-width: 34rem; margin-bottom: 2rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+    .facts { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.6rem 1.6rem 1.2rem; }
+    .who { display: flex; align-items: center; gap: 1rem; padding-bottom: 1.2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--line); }
+    .avatar { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex: none; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.55) translateY(5%); transform-origin: 50% 38%; display: block; }
+    .who strong { display: block; font-family: var(--serif); font-weight: 500; font-size: 1.2rem; line-height: 1.2; }
+    .who span { font-size: 0.85rem; color: var(--ink-3); }
+    .facts h2 { font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.6rem; }
+    .facts dl { display: grid; grid-template-columns: auto 1fr; gap: 0; }
+    .facts dt, .facts dd { padding: 0.65rem 0; border-top: 1px solid var(--line); font-size: 0.93rem; }
+    .facts dt { color: var(--ink-3); padding-right: 1.2rem; }
+    .facts dd { color: var(--ink); }
+
+    /* sections */
+    section { padding: clamp(3.5rem, 7vw, 6rem) 0; border-top: 1px solid var(--line); }
+    section.tint { background: var(--paper-2); }
+    .label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; }
+    h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3.4vw, 2.5rem); line-height: 1.15; margin-bottom: 1.2rem; max-width: 40rem; }
+    h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .intro { color: var(--ink-2); max-width: 40rem; margin-bottom: 2.4rem; }
+    p + p { margin-top: 1rem; }
+
+    .recognize { list-style: none; max-width: 44rem; }
+    .recognize li { padding: 1rem 0 1rem 2rem; border-top: 1px solid var(--line); position: relative; font-family: var(--serif); font-size: 1.25rem; line-height: 1.4; }
+    .recognize li::before { content: ""; position: absolute; left: 0; top: 1.55rem; width: 10px; height: 1px; background: var(--accent); }
+    .after { margin-top: 1.8rem; max-width: 40rem; color: var(--ink-2); }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.2rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.2rem; }
+    .tile { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem; }
+    .tile p { font-size: 0.95rem; color: var(--ink-2); }
+
+    .method { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.6rem; }
+    .method h3 { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; margin-bottom: 0.9rem; }
+    .method dl div { padding: 0.7rem 0; border-top: 1px solid var(--line); }
+    .method dt { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.2rem; }
+    .method dd { font-size: 0.95rem; color: var(--ink-2); }
+
+    .steps { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.2rem; }
+    .steps li { counter-increment: s; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.5rem; }
+    .steps li::before { content: "Step " counter(s); display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .steps .meta { display: block; font-size: 0.85rem; color: var(--ink-3); margin-top: 0.8rem; }
+
+    .about { display: grid; grid-template-columns: 300px 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .about img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%; border-radius: 10px; display: block; }
+    .creds { list-style: none; margin-top: 1.6rem; border-top: 1px solid var(--line); }
+    .creds li { padding: 0.6rem 0; border-bottom: 1px solid var(--line); font-size: 0.93rem; display: flex; justify-content: space-between; gap: 1rem; }
+    .creds li span { color: var(--ink-3); text-align: right; }
+
+    table.fees { width: 100%; max-width: 44rem; border-collapse: collapse; margin-bottom: 1.6rem; }
+    .fees th, .fees td { text-align: left; padding: 0.85rem 0; border-top: 1px solid var(--line); font-size: 0.97rem; vertical-align: top; }
+    .fees th { font-weight: 500; width: 45%; color: var(--ink-2); }
+    .fees tr:last-child th, .fees tr:last-child td { border-bottom: 1px solid var(--line); }
+
+    details { border-top: 1px solid var(--line); max-width: 48rem; }
+    details:last-of-type { border-bottom: 1px solid var(--line); }
+    summary { cursor: pointer; list-style: none; padding: 1.1rem 2rem 1.1rem 0; font-weight: 500; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 0.2rem; top: 1rem; font-size: 1.2rem; color: var(--accent); }
+    details[open] summary::after { content: "−"; }
+    details p { padding: 0 0 1.2rem; color: var(--ink-2); max-width: 42rem; }
+
+    .book { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .book iframe { width: 100%; height: 620px; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+    .contact { list-style: none; margin-top: 1.6rem; }
+    .contact li { padding: 0.7rem 0; border-top: 1px solid var(--line); font-size: 0.95rem; }
+    .contact li:last-child { border-bottom: 1px solid var(--line); }
+
+    .band { height: clamp(220px, 34vw, 420px); background: url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000') center 60% / cover no-repeat; }
+    .room { margin-top: 2.4rem; display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.6rem; align-items: center; }
+    .room-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .room-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 55%; border-radius: 10px; display: block; }
+    .room p { color: var(--ink-2); }
+    @media (max-width: 960px) { .room { grid-template-columns: 1fr; } }
+    .couples { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+    .couple-list { list-style: none; }
+    .couple-list li { padding: 1.1rem 0; border-top: 1px solid var(--line); }
+    .couple-list li:last-child { border-bottom: 1px solid var(--line); }
+    .couple-list p { font-size: 0.95rem; color: var(--ink-2); }
+    @media (max-width: 960px) { .couples { grid-template-columns: 1fr; } }
+    .checker { max-width: 44rem; }
+    footer { padding: 3rem 0; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--ink-3); }
+    .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
+    footer h3 { font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 0.6rem; }
+    footer ul { list-style: none; }
+    footer li { padding: 0.2rem 0; }
+    footer a { color: var(--ink-2); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .crisis { margin-top: 2rem; font-size: 0.82rem; }
+
+    @media (max-width: 960px) {
+      .bar { gap: 0 1rem; padding-top: 0.6rem; }
+      .bar .btn { margin-left: auto; }
+      .menu { order: 3; width: 100%; margin: 0; gap: 1.3rem; overflow-x: auto; white-space: nowrap; padding: 0.55rem 0 0.7rem; scrollbar-width: none; }
+      .menu::-webkit-scrollbar { display: none; }
+      .menu a { font-size: 0.86rem; }
+      .hero-grid, .about, .book { grid-template-columns: 1fr; }
+      .about img { max-width: 260px; }
+      .grid-3, .steps { grid-template-columns: 1fr; }
+      .foot { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .brand > span > span { display: none; }
+      .facts dl { grid-template-columns: 1fr; }
+      .facts dt { padding-bottom: 0; }
+      .facts dd { border-top: none; padding-top: 0.1rem; }
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 10.2C29.6 16.4 27 25.4 18.4 27.6C10.4 29.6 3.8 23.8 4 16.2C4.2 9.2 9.8 4 16.6 4.2C20.4 4.3 23.2 5.8 25.1 8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="16" cy="16.2" r="6" fill="currentColor" opacity="0.85"/></svg><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false">Who I help <span class="nav-caret">&#9662;</span></button>
-        <ul class="nav-dropdown-menu">
-          <li><a href="autism.html">Late-Diagnosed Autism</a></li>
-          <li><a href="adhd.html">ADHD</a></li>
-          <li><a href="ocd.html">OCD</a></li>
-          <li><a href="anxiety.html">Anxiety</a></li>
-          <li><a href="couples.html">Couples</a></li>
-          <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
+  <header>
+    <div class="wrap bar">
+      <a class="brand" href="#hero" aria-label="Start with an Inhale, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 10.2C29.6 16.4 27 25.4 18.4 27.6C10.4 29.6 3.8 23.8 4 16.2C4.2 9.2 9.8 4 16.6 4.2C20.4 4.3 23.2 5.8 25.1 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="16" cy="16.2" r="6" fill="currentColor" opacity="0.85"/></svg>
+        <span><strong>Start with an Inhale</strong><span>Lin Chen, LCSW · Brooklyn Heights</span></span>
+      </a>
+      <ul class="menu">
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#couples">Couples</a></li>
+        <li><a href="#benefits">Fees</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#more">More</a></li>
+      </ul>
+      <a class="btn small" href="#consult">Book a free call</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. Hero: what, who, where, how much. Answered in five seconds. -->
+    <div class="hero" id="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="kicker">Therapy for late-diagnosed autistic adults · especially men</p>
+          <h1>You've been keeping up for years. <em>You don't have to here.</em></h1>
+          <p class="lede">Somatic psychotherapy for autistic adults diagnosed later in life, especially men, and anyone who suspects they might be autistic. In person in Brooklyn Heights, or online across New York and New Jersey.</p>
+          <div class="actions">
+            <a class="btn" href="#consult">Book a free 20-minute call</a>
+            <a class="btn ghost" href="#how">See how it works</a>
+          </div>
+        </div>
+        <aside class="facts" aria-label="Quick facts">
+          <div class="who">
+            <span class="avatar"><img src="lin-headshot.jpg" alt="Lin Chen, LCSW" /></span>
+            <div><strong>Lin Chen, LCSW</strong><span>Your therapist</span></div>
+          </div>
+          <h2>At a glance</h2>
+          <dl>
+            <dt>Focus</dt><dd>Autistic adults diagnosed later in life, especially men, and their partners</dd>
+            <dt>Approach</dt><dd>Somatic therapy, EMDR, IFS, psychodynamic Gestalt</dd>
+            <dt>Where</dt><dd>Brooklyn Heights, or online (NY &amp; NJ)</dd>
+            <dt>Sessions</dt><dd>Individual: 50 minutes · $250<br>Couples: $275</dd>
+            <dt>Insurance</dt><dd>Out-of-network; monthly superbill</dd>
+            <dt>Languages</dt><dd>English, 普通话</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+
+    <!-- a quiet landscape: one calm image, no people, no motion -->
+    <figure class="band" aria-hidden="true"></figure>
+
+    <!-- 2. Recognition: concrete, not poetic. -->
+    <section>
+      <div class="wrap">
+        <p class="label">Does this sound familiar?</p>
+        <h2>Capable on the outside. <em>Exhausted underneath.</em></h2>
+        <ul class="recognize">
+          <li>You learned the social rules by watching, copying, and rehearsing.</li>
+          <li>You're the reliable one at work, then have nothing left at home.</li>
+          <li>You were told you were "fine," "logical," or "just quiet" for most of your life.</li>
+          <li>You know something is wrong, but you can't always name what you feel.</li>
+          <li>A partner, a burnout, or your child's diagnosis made you look again.</li>
         </ul>
-      </li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false">Therapies <span class="nav-caret">&#9662;</span></button>
-        <ul class="nav-dropdown-menu">
-          <li><a href="emdr.html">EMDR Therapy</a></li>
-          <li><a href="somatic-ifs.html">Somatic IFS</a></li>
-          <li><a href="experiential.html">Experiential Therapy</a></li>
+        <p class="after">None of this means something is wrong with you. It usually means you've been doing a lot of translation, for a long time, without support.</p>
+      </div>
+    </section>
+
+    <!-- 3. What sessions are like: removes uncertainty, the biggest barrier. -->
+    <section class="tint" id="how">
+      <div class="wrap">
+        <p class="label">What sessions are like</p>
+        <h2>Predictable, practical, <em>on your terms</em></h2>
+        <p class="intro">You don't need to arrive with the right words or a clear goal. Here's what you can expect.</p>
+        <div class="grid-3">
+          <div class="tile"><h3>No performance required</h3><p>No forced eye contact, no small talk. Fidget, stim, pause, or look away. Silence is fine.</p></div>
+          <div class="tile"><h3>Clear structure</h3><p>Each session has a simple shape: check in, the main work, and a short summary of what we covered.</p></div>
+          <div class="tile"><h3>Words are optional</h3><p>If naming feelings is hard, we start with what you notice in your body, or with what's practical.</p></div>
+          <div class="tile"><h3>Your sensory needs</h3><p>Tell me what helps: lighting, seating, camera on or off online. We adjust, without needing a reason.</p></div>
+          <div class="tile"><h3>Direct communication</h3><p>I'll say what I mean and explain why I'm suggesting something. You can always ask, "why are we doing this?"</p></div>
+          <div class="tile"><h3>Not about fixing autism</h3><p>The goal isn't to make you less autistic. It's less exhaustion, and a life that fits how you're wired.</p></div>
+        </div>
+        <div class="room">
+          <div class="room-photos"><img class="room-photo" src="office-room.jpg" alt="The therapy office: a sofa with warm cushions, a reading chair, a round rug, plants, and a large window with a city view" loading="lazy" /><img class="room-photo" src="office-window.jpg" alt="The office window: hanging plants framing a view of the Brooklyn and Manhattan skyline" loading="lazy" /></div>
+          <div>
+            <h3>The room</h3>
+            <p>This is where we meet: a quiet room on a high floor at 26 Court Street, with natural light, plants, and a few places to sit. Choose the sofa, the chair, or a floor cushion, whatever is comfortable.</p>
+            <p>If you'd rather start online, that works too, and you can visit later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Approach: mechanism-first, for people who want to know how things work. -->
+    <section id="approach">
+      <div class="wrap">
+        <p class="label">The approach</p>
+        <h2>How the methods work, <em>and why they fit</em></h2>
+        <p class="intro">Talk therapy alone often asks autistic people to translate feelings into words, which is exactly what's hard. These methods work with the body and the nervous system too.</p>
+        <div class="grid-2">
+          <div class="method">
+            <h3>Somatic therapy</h3>
+            <dl>
+              <div><dt>What it is</dt><dd>Building awareness of signals inside the body (interoception): heart rate, tension, breath.</dd></div>
+              <div><dt>Why it fits</dt><dd>Research links difficulty naming emotions to interoception. Body awareness gives another way in.</dd></div>
+              <div><dt>In session</dt><dd>Noticing, grounding, and regulating your nervous system before and after hard topics.</dd></div>
+            </dl>
+          </div>
+          <div class="method">
+            <h3>EMDR</h3>
+            <dl>
+              <div><dt>What it is</dt><dd>A structured trauma therapy using bilateral stimulation (eye movements or tapping).</dd></div>
+              <div><dt>Why it fits</dt><dd>It doesn't require retelling events in detail. Useful for bullying, rejection, and years of being misunderstood.</dd></div>
+              <div><dt>In session</dt><dd>A clear protocol with defined phases. Preparation comes first; processing starts only when you're ready.</dd></div>
+            </dl>
+          </div>
+          <div class="method">
+            <h3>Internal Family Systems (IFS)</h3>
+            <dl>
+              <div><dt>What it is</dt><dd>A model of the mind as made of "parts": the masker, the critic, the one who just wants to shut the door.</dd></div>
+              <div><dt>Why it fits</dt><dd>It explains masking without blame: a part learned to protect you. We work with it, not against it.</dd></div>
+              <div><dt>In session</dt><dd>Getting to know these parts, often by noticing where they show up in the body.</dd></div>
+            </dl>
+          </div>
+          <div class="method">
+            <h3>Psychodynamic Gestalt</h3>
+            <dl>
+              <div><dt>What it is</dt><dd>Exploring the patterns that shape how you relate, in the present moment, here in the room.</dd></div>
+              <div><dt>Why it fits</dt><dd>After a late diagnosis, it helps you reread your history, and separate who you are from who you had to be.</dd></div>
+              <div><dt>In session</dt><dd>Paying attention to what's happening right now, including between us, with curiosity rather than judgment.</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Process: three steps, no ambiguity. -->
+    <section class="tint">
+      <div class="wrap">
+        <p class="label">Getting started</p>
+        <h2>Three steps, <em>nothing hidden</em></h2>
+        <ol class="steps">
+          <li><h3>Free 20-minute call</h3><p>Video or phone. You don't need to prepare. We see whether this is a good fit.</p><span class="meta">Free · book online below</span></li>
+          <li><h3>First session</h3><p>We go over your history, what's hard right now, and what you'd like to change, at your pace.</p><span class="meta">50 minutes · $250</span></li>
+          <li><h3>Ongoing sessions</h3><p>Usually weekly at first. We review regularly whether it's helping, and adjust.</p><span class="meta">50 minutes · $250 · superbill monthly</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5b. Couples: often how late diagnosis begins. -->
+    <section id="couples">
+      <div class="wrap couples">
+        <div>
+          <p class="label">Couples</p>
+          <h2>When you love each other, <em>but keep missing each other</em></h2>
+          <p class="intro" style="margin-bottom:1.2rem;">For many couples, a late diagnosis starts with the relationship: one partner feels unseen, the other feels criticized, and neither knows why the same argument keeps coming back.</p>
+          <p class="intro" style="margin-bottom:1.6rem;">Couples therapy with me helps each of you understand how the other is wired, and translate what goes unsaid: the tone, the silence, the meaning beneath the words. I work with neurodivergent couples, where one or both partners are autistic or ADHD, and with interracial and intercultural couples.</p>
+          <a class="btn ghost" href="couples.html">More about couples therapy</a>
+        </div>
+        <ul class="couple-list">
+          <li><h3>Different wiring, not bad intentions</h3><p>Understanding sensory needs, processing time, and communication styles, without blame.</p></li>
+          <li><h3>Repair after conflict</h3><p>Concrete ways to come back to each other after a shutdown, meltdown, or misunderstanding.</p></li>
+          <li><h3>Clear agreements</h3><p>Turning vague expectations into explicit ones, which often helps both partners relax.</p></li>
+          <li><h3>Sessions</h3><p>$275 per couples session, in person or online.</p></li>
         </ul>
-      </li>
-      <li><a href="#benefits">Fees</a></li>
-      <li><a href="zh.html">中文</a></li>
-    </ul>
-    <a href="#consult" class="nav-book">Book a consult</a>
-  </nav>
-
-  <!-- PHOTO HERO -->
-  <div class="photo-wash photo-wash-mountain">
-  <section class="photo-hero">
-    <p class="photo-hero-eyebrow">Somatic Psychotherapy · Brooklyn Heights &amp; Virtual in NY &amp; NJ</p>
-    <div class="photo-hero-head">
-      <h1 class="photo-hero-title">Start with an <em>Inhale</em></h1>
-      <div class="breath" aria-label="4-7-8 breathing: breathe in for 4, hold for 7, breathe out for 8">
-        <div class="breath-count" aria-hidden="true"></div>
-        <div class="breath-ring" aria-hidden="true"><div class="breath-dot"></div></div>
-        <div class="breath-label" aria-hidden="true">Breathe in</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-text">
-      <h2 class="hero-heading">
-        Inhabit a <em>steadier</em> body,<span class="hero-heading-sub">experiencing more moments of calm, rest, and quiet joy.</span>
-      </h2>
-      <p class="hero-sub">
-        Somatic therapy for late-diagnosed autistic adults, and anyone tired of keeping up. In Brooklyn Heights and online across New York and New Jersey.
-      </p>
-    </div>
-  </section>
-  </div>
-
-  <!-- FAMILIAR -->
-  <div class="photo-wash photo-wash-mist" data-lazy-bg>
-  <section id="familiar">
-    <p class="section-label">Does this sound familiar?</p>
-    <div class="divider"></div>
-    <h2 class="section-heading">You can keep up, <em>but it costs you</em></h2>
-    <ul class="familiar-list">
-      <li>You've learned to get through the day by watching, copying, and rehearsing.</li>
-      <li>Conversations take an effort other people don't seem to notice.</li>
-      <li>You hold it together at work, then have nothing left at home.</li>
-      <li>Noise, change, or a crowded room drains you more than it "should."</li>
-      <li>And underneath, you're tired in a way sleep doesn't fix.</li>
-    </ul>
-    <p class="familiar-close">Keeping up is how you got by. Therapy can be a place where you <em>don't</em> have to: where we understand how you're wired, and build a life that fits it.</p>
-  </section>
-    <blockquote class="wash-quote reveal">Less performing, more simply being.<cite>Lin Chen, LCSW</cite></blockquote>
-  </div>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-text" style="max-width: 760px;">
-        <p class="section-label" style="margin-bottom:1rem;">About</p>
-        <h2 class="about-greeting">Hi, I'm <em>Lin</em>.</h2>
-        <div class="about-photo" style="margin: 0.5rem 0 2.5rem;">
-          <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" loading="lazy" decoding="async" />
-        </div>
-        <p>
-          I'm a licensed clinical social worker (LCSW) in Brooklyn Heights, offering somatic psychotherapy in English and 普通话, in person and by telehealth across New York and New Jersey.
-        </p>
-        <p>
-          I'm especially drawn to late-diagnosed autistic adults, many in BIPOC communities. Before becoming a therapist, I worked in tech, so I know the pace and quiet politics of high-demand work from the inside.
-        </p>
-        <p class="about-sig">— Lin Chen, LCSW</p>
-    </div>
-  </section>
-
-  <!-- APPROACH CTA -->
-  <div class="about-cta" style="padding: 0 var(--h-pad) 4rem;">
-    <a href="https://calendar.app.google/A3UcyYXSC4vNYfcD8" target="_blank" class="btn-primary">Book a Free Consultation</a>
-    <p class="price-note">Free 20-minute consult &nbsp;·&nbsp; $250 per session &nbsp;·&nbsp; out-of-network</p>
-  </div>
-
-
-
-  <!-- SERVICES -->
-  <section id="services">
-    <p class="section-label">Areas of Specialization</p>
-    <div class="divider"></div>
-    <h2 class="section-heading">Who I <em>work with</em></h2>
-    <p class="section-body">
-      Three groups I know especially well. I also see adults for <a href="anxiety.html" style="color:var(--terra);">anxiety</a> and trauma, and my practice is LGBTQ+ and neurodivergent affirming.
-    </p>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-accent"></div>
-        <h3 class="who-title">C-PTSD &amp; the <em>Immigrant Family</em></h3>
-        <p class="who-desc">For those who grew up translating a world their parents couldn't fully navigate, and learned that love had to be earned.</p>
-        <div class="who-tags"><span>C-PTSD</span><span>Parentified Child</span><span>Intergenerational Trauma</span></div>
-        <div class="who-links"><a href="children-of-immigrants.html">Learn more &rarr;</a></div>
-      </div>
-      <div class="who-card">
-        <div class="who-accent"></div>
-        <h3 class="who-title">Late-Diagnosed <em>Autistic Adults</em></h3>
-        <p class="who-desc">For adults who learned they're autistic later in life, who look capable on the outside while quietly carrying the cost of masking, especially in BIPOC communities. Many of my clients are autistic men. I also work with ADHD and OCD.</p>
-        <div class="who-tags"><span>Late Diagnosis</span><span>Masking &amp; Burnout</span><span>BIPOC</span><span>ADHD</span><span>OCD</span></div>
-        <div class="who-links"><a href="autism.html">Autism &rarr;</a><a href="adhd.html">ADHD &rarr;</a><a href="ocd.html">OCD &rarr;</a></div>
-      </div>
-      <div class="who-card">
-        <div class="who-accent"></div>
-        <h3 class="who-title">Couples: <em>Neurodivergent &amp; Interracial</em></h3>
-        <p class="who-desc">For partners who love each other deeply but keep missing each other, across different minds, cultures, or races.</p>
-        <div class="who-tags"><span>Neurodivergent Couples</span><span>Interracial</span><span>Conflict &amp; Repair</span></div>
-        <div class="who-links"><a href="couples.html">Learn more &rarr;</a></div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- APPROACH -->
-  <div class="photo-wash photo-wash-grass" data-lazy-bg>
-    <blockquote class="wash-quote reveal">The body holds what the mind sometimes can't articulate.<cite>Lin Chen, LCSW</cite></blockquote>
-  <section id="approach">
-    <p class="section-label">My Approach</p>
-    <div class="divider"></div>
-    <h2 class="section-heading">How I <em>work</em></h2>
-    <p class="approach-intro">
-      I believe healing happens in the space between us. I listen to the body as much as to the words: the pauses, the breath, the feelings that don't have language yet. And I hold culture and history as part of the whole person, because being truly met is itself transformative.
-    </p>
-
-    <div class="services-grid therapy-grid">
-      <a class="service-card" href="experiential.html">
-        <div class="service-title">Psychodynamic &amp; Gestalt</div>
-        <p class="service-desc">Listening beneath the surface to the patterns that shape who you are.</p>
-        <span class="service-more">Learn more &rarr;</span>
-      </a>
-      <a class="service-card" href="emdr.html">
-        <div class="service-title">EMDR Therapy</div>
-        <p class="service-desc">Helping the brain finish processing stuck memories, without retelling every detail.</p>
-        <span class="service-more">Learn more &rarr;</span>
-      </a>
-      <a class="service-card" href="resourcing.html">
-        <div class="service-title">Somatic Therapy</div>
-        <p class="service-desc">Gently shifting what your nervous system holds, so insight is felt, not just thought.</p>
-        <span class="service-more">Learn more &rarr;</span>
-      </a>
-      <a class="service-card" href="somatic-ifs.html">
-        <div class="service-title">Somatic IFS &amp; Parts Work</div>
-        <p class="service-desc">Befriending the parts of you that push, criticize, or long to rest, and noticing where they live in the body.</p>
-        <span class="service-more">Learn more &rarr;</span>
-      </a>
-    </div>
-
-    <p class="training-line"><span>Training</span> Somatic Embodiment &amp; Regulation (SER) &nbsp;·&nbsp; EMDR, The Institute for Creative Mindfulness &nbsp;·&nbsp; Two-year Psychodynamic Gestalt training &nbsp;·&nbsp; LCSW, New York &amp; New Jersey</p>
-  </section>
-  </div>
-
-
-
-  <!-- INSURANCE / OUT-OF-NETWORK BENEFITS -->
-  <section id="benefits" style="background: radial-gradient(ellipse 70% 45% at 50% 22%, rgba(212,146,111,0.22), transparent 70%), linear-gradient(to bottom, rgba(234,210,193,0) 0, #ead2c1 14rem);">
-    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-      <p class="section-label">Fees &amp; Insurance</p>
-      <div class="divider" style="margin: 1.2rem auto;"></div>
-      <h2 class="section-heading">Use your <em>out-of-network</em> benefits</h2>
-      <p class="section-body" style="margin-left: auto; margin-right: auto;">
-        I'm an out-of-network provider. Each month you'll receive a superbill to submit to your insurer, and many PPO plans reimburse 50–80% once your deductible is met.
-      </p>
-      <div class="fee-row">
-        <div class="fee-item">
-          <p class="fee-value">$250</p>
-          <p class="fee-label">Per 50-minute individual session</p>
-        </div>
-        <div class="fee-item">
-          <p class="fee-value">$275</p>
-          <p class="fee-label">Per couples therapy session</p>
+    <!-- 6. About: credentials first, then the human. -->
+    <section id="about">
+      <div class="wrap about">
+        <img src="lin-headshot.jpg" alt="Lin Chen, LCSW" loading="lazy" />
+        <div>
+          <p class="label">About</p>
+          <h2>Hi, I'm <em>Lin</em>.</h2>
+          <p>I'm a licensed clinical social worker in Brooklyn Heights. Much of my practice is with autistic men who were diagnosed in adulthood: capable, often successful, and quietly worn out from years of keeping up.</p>
+          <p>Before becoming a therapist, I worked in tech, so I know high-demand work, and the unspoken politics of a team, from the inside. I offer therapy in English and 普通话, and I pay attention to how race, culture, and neurodivergence meet.</p>
+          <ul class="creds">
+            <li>Licensed Clinical Social Worker (LCSW) <span>New York &amp; New Jersey</span></li>
+            <li>EMDR Training <span>The Institute for Creative Mindfulness</span></li>
+            <li>Somatic Embodiment &amp; Regulation (SER) <span>Certificate</span></li>
+            <li>Psychodynamic Gestalt Training <span>Two-year post-graduate</span></li>
+          </ul>
         </div>
       </div>
-      <!-- Thrizer benefits-checker widget -->
-      <div style="margin-top: 2.2rem;">
-        <script
-          src="https://eligibility.thrizer.com/embed.js"
-          data-src="https://eligibility.thrizer.com/facility/thrizeriyn1p?type=iframe"
-          data-title="Check Your Insurance Benefits" async crossorigin="anonymous"></script>
-      </div>
-      <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--brown-light); letter-spacing: 0.04em;">
-        Powered by Thrizer · Secure &amp; takes about a minute
-      </p>
-      <p class="section-body" style="margin: 1.2rem auto 0; font-size: 0.92rem;">
-        With some plans, Thrizer can file claims for you, so you pay only your share upfront.
-      </p>
+    </section>
 
-      <details class="ins-questions">
-        <summary>Prefer to call? Questions to ask your insurance</summary>
-        <p class="ins-intro">Call the member services number on the back of your insurance card and ask about your <strong>out-of-network outpatient mental health</strong> benefits. It helps to have a pen ready.</p>
-        <ol>
-          <li>Do I have out-of-network benefits for outpatient mental health (psychotherapy)?</li>
-          <li>What is my out-of-network deductible, and how much of it have I already met this year?</li>
-          <li>After my deductible, what percentage of each session do you reimburse?</li>
-          <li>Is reimbursement based on the provider's fee, or on an &ldquo;allowed amount&rdquo;? What is the allowed amount for CPT code 90834 (individual psychotherapy)?</li>
-          <li>Is there a limit on the number of sessions per year?</li>
-          <li>Do I need pre-authorization or a referral?</li>
-          <li>Are telehealth (video) sessions covered at the same rate?</li>
-          <li>How do I submit a superbill, and how long does reimbursement usually take?</li>
-        </ol>
-        <p class="ins-tip">Tip: write down the date, the representative's name, and the call reference number, in case you need it later.</p>
-      </details>
+    <!-- 7. Fees: a table. Precise and complete. -->
+    <section class="tint" id="benefits">
+      <div class="wrap">
+        <p class="label">Fees &amp; insurance</p>
+        <h2>The cost, <em>stated plainly</em></h2>
+        <table class="fees">
+          <tr><th>Consultation call</th><td>Free, 20 minutes</td></tr>
+          <tr><th>Individual session</th><td>$250 · 50 minutes</td></tr>
+          <tr><th>Couples session</th><td>$275</td></tr>
+          <tr><th>Insurance</th><td>Out-of-network. I don't bill insurance directly.</td></tr>
+          <tr><th>Reimbursement</th><td>You get a monthly superbill. Many PPO plans reimburse 50–80% after your deductible.</td></tr>
+          <tr><th>Check your benefits</th><td>Through Thrizer, in about a minute, with no commitment.</td></tr>
+        </table>
+        <div class="checker">
+          <script src="https://eligibility.thrizer.com/embed.js" data-src="https://eligibility.thrizer.com/facility/thrizeriyn1p?type=iframe" data-title="Check Your Insurance Benefits" async crossorigin="anonymous"></script>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. FAQ: the questions people are afraid to ask on the phone. -->
+    <section id="faq">
+      <div class="wrap">
+        <p class="label">Questions</p>
+        <h2>Things people <em>often ask</em></h2>
+        <details><summary>Do I need a formal autism diagnosis?</summary><p>No. Many people come while they're still wondering, or after self-identifying. We can talk about whether a formal assessment would be useful for you.</p></details>
+        <details><summary>I'm not good at talking about feelings. Will this work?</summary><p>That's one of the most common reasons people come. We can start with the body, with practical problems, or with writing things down. Words can come later.</p></details>
+        <details><summary>Is this ABA or social skills training?</summary><p>No. This isn't about making you act less autistic. It's about understanding yourself, recovering from burnout, and living in a way that fits you.</p></details>
+        <details><summary>Can we meet online with the camera off?</summary><p>Yes, when that helps. Some people prefer camera off for part or all of a session.</p></details>
+        <details><summary>Do you work with partners too?</summary><p>Yes. I see couples, including neurodivergent and interracial couples. <a href="couples.html">More about couples therapy</a>.</p></details>
+        <details><summary>How often are sessions?</summary><p>Usually weekly at first. Some people move to every other week once things feel steadier.</p></details>
+      </div>
+    </section>
+
+    <!-- 9. Book: calendar plus every written alternative. -->
+    <section class="tint" id="consult">
+      <div class="wrap book">
+        <div>
+          <p class="label">Book</p>
+          <h2>Start with a <em>free 20-minute call</em></h2>
+          <p class="intro" style="margin-bottom:0;">Pick any open time. You'll get a confirmation email. If you'd rather not call, email works just as well.</p>
+          <ul class="contact">
+            <li>Email: <a href="mailto:lin@startwithaninhale.com">lin@startwithaninhale.com</a></li>
+            <li>Call or text: <a href="tel:+13477358420">(347) 735-8420</a></li>
+            <li>Office: Brooklyn Heights, Brooklyn, NY</li>
+          </ul>
+        </div>
+        <iframe loading="lazy" title="Book a free consultation" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3iudbcjlsQgKwpnzuX8VvSaVO1iOzvWIk82Znd-IP5XKvC84-5n6-SSpg_uKqINFKQpQnA47q5?gv=true"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer keeps the other specialties reachable without competing for attention -->
+  <footer id="more">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <strong style="color:var(--ink); font-family:var(--serif); font-weight:500; font-size:1.05rem;">Start with an Inhale Psychotherapy</strong>
+          <p style="margin-top:0.4rem;">Lin Chen, LCSW · Brooklyn Heights &amp; online in NY and NJ · English &amp; 普通话</p>
+        </div>
+        <div>
+          <h3>I also work with</h3>
+          <ul>
+            <li><a href="adhd.html">ADHD</a></li>
+            <li><a href="ocd.html">OCD</a></li>
+            <li><a href="anxiety.html">Anxiety</a></li>
+            <li><a href="couples.html">Couples</a></li>
+            <li><a href="children-of-immigrants.html">Children of immigrants</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul>
+            <li><a href="autism.html">Late-diagnosed autism</a></li>
+            <li><a href="emdr.html">EMDR</a></li>
+            <li><a href="somatic-ifs.html">Somatic IFS</a></li>
+            <li><a href="zh.html">中文心理咨询</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="crisis">If you're in crisis, call or text 988 (Suicide &amp; Crisis Lifeline) or call 911. This practice isn't an emergency service.</p>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="consult" data-lazy-bg>
-    <div class="consult-inner">
-      <div class="consult-intro">
-        <p class="cta-eyebrow">Ready to begin?</p>
-        <h2 class="cta-heading">Make some room for <em>yourself</em>.</h2>
-        <p style="color:rgba(255,255,255,0.65); font-size:0.95rem; line-height:1.8; margin-top:1rem;">
-          A free 20-minute consultation is a chance to see if we're a good fit, with no pressure or obligation.
-        </p>
-        <ol class="expect-steps">
-          <li><span>1</span><div><strong>Pick a time below.</strong> You'll get a confirmation email with the details.</div></li>
-          <li><span>2</span><div><strong>We talk for 20 minutes,</strong> by video or phone. You don't need to prepare anything, and "I'm not sure" is a perfectly good answer.</div></li>
-          <li><span>3</span><div><strong>If it feels right,</strong> we schedule a first session. If not, I'm happy to suggest other options.</div></li>
-        </ol>
-        <p class="expect-price">$250 per individual session · $275 per couples session · out-of-network, superbills provided</p>
-      </div>
-      <div class="consult-calendar">
-        <iframe loading="lazy" src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3iudbcjlsQgKwpnzuX8VvSaVO1iOzvWIk82Znd-IP5XKvC84-5n6-SSpg_uKqINFKQpQnA47q5?gv=true" frameborder="0" scrolling="yes"></iframe>
-      </div>
-      <div style="margin-top:2.5rem;">
-        <a href="tel:+13477358420" class="btn-light" style="display:inline-block;">Or Call/Text (347) 735-8420</a>
-        <p style="margin-top: 1.2rem; font-size: 0.9rem; color: rgba(255,255,255,0.65);">Prefer writing? Email <a href="mailto:lin@startwithaninhale.com" style="color: var(--terra-light);">lin@startwithaninhale.com</a></p>
-        <p style="margin-top: 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em;">
-          Brooklyn Heights · Virtual · NY &amp; NJ
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-name">Start with an Inhale Psychotherapy &nbsp;·&nbsp; Lin Chen, LCSW</span>
-    <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; 普通话 &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
-    <span>© 2026 · All rights reserved</span>
   </footer>
-
-  <script>
-    // Nav shadow on scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
-
-    // Mobile menu toggle
-    const navToggle = document.getElementById('navToggle');
-    if (navToggle) navToggle.addEventListener('click', () => nav.classList.toggle('open'));
-
-    // Dropdown toggle (tap on mobile; hover handled by CSS on desktop)
-    document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        btn.parentElement.classList.toggle('open');
-      });
-    });
-
-    // Close mobile menu after following a link
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => nav.classList.remove('open'));
-    });
-
-    // FAQ accordion
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.querySelector('.faq-q').addEventListener('click', () => {
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-
-    // Fade-in on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.section-heading, .about-greeting, .about-photo, .approach-item, .fee-item').forEach(el => el.classList.add('reveal'));
-    const revealer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealer.unobserve(e.target); } });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('.reveal').forEach(el => revealer.observe(el));
-
-    document.querySelectorAll('.service-card, .faq-item').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-
-    // load below-the-fold background photos only as they approach the screen
-    const lazyBg = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('bg-in'); lazyBg.unobserve(e.target); } });
-    }, { rootMargin: '600px 0px' });
-    document.querySelectorAll('[data-lazy-bg]').forEach(el => lazyBg.observe(el));
-
-    // 4-7-8 breathing: label and one dot per second, synced to the circle's 19s animation
-    (() => {
-      const dot = document.querySelector('.breath-dot');
-      const label = document.querySelector('.breath-label');
-      const count = document.querySelector('.breath-count');
-      if (!dot) return;
-      const phases = [['Breathe in', 4], ['Hold', 7], ['Breathe out', 8]];
-      const start = performance.now();
-      let current = -1;
-      const tick = () => {
-        const anim = dot.getAnimations()[0];
-        const ms = (anim && anim.currentTime != null ? anim.currentTime : performance.now() - start) % 19000;
-        let sec = Math.floor(ms / 1000), i = 0;
-        while (sec >= phases[i][1]) { sec -= phases[i][1]; i++; }
-        if (i !== current) {
-          current = i;
-          label.textContent = phases[i][0];
-          count.innerHTML = '<i></i>'.repeat(phases[i][1]);
-        }
-        [...count.children].forEach((d, n) => d.classList.toggle('on', n <= sec));
-      };
-      tick();
-      setInterval(tick, 200);
-    })();
-  </script>
 </body>
 </html>
