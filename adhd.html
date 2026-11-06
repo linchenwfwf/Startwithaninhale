@@ -22,7 +22,7 @@
       --sage:        #A0876E;
       --sage-light:  #C4B5A0;
       --sage-pale:   #F0E8DF;
-      --terra:       #B86B4A;
+      --terra:       #9E3A2C;
       --terra-light: #D4926F;
       --brown:       #3C2A1E;
       --brown-mid:   #6B4D38;
@@ -699,7 +699,7 @@
     }
 
     .service-card {
-      background: #F5EBE0;
+      background: transparent;
       padding: 2.5rem 2rem;
       border-radius: 4px;
       border-top: 3px solid var(--sage-light);
@@ -1172,40 +1172,40 @@
       nav { padding-left: 2.5rem; padding-right: 2.5rem; }
     }
   </style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Kaisei+Tokumin&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="ink.css" />
 </head>
 <body>
+<div class="mist" aria-hidden="true"></div>
+
   <!-- NAV -->
-  <nav id="nav">
-    <a href="index.html#hero" class="nav-name nav-logo" aria-label="Start with an Inhale Psychotherapy"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 10.2C29.6 16.4 27 25.4 18.4 27.6C10.4 29.6 3.8 23.8 4 16.2C4.2 9.2 9.8 4 16.6 4.2C20.4 4.3 23.2 5.8 25.1 8" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="16" cy="16.2" r="6" fill="currentColor" opacity="0.85"/></svg><span class="logo-text"><span>Start with an <em>Inhale</em></span><span class="logo-sub">Psychotherapy</span></span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links">
-      <li><a href="index.html#about">About</a></li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" style="color:var(--terra);" aria-expanded="false">Who I help <span class="nav-caret">&#9662;</span></button>
-        <ul class="nav-dropdown-menu">
-          <li><a href="autism.html">Late-Diagnosed Autism</a></li>
-          <li><a href="adhd.html" style="color:var(--terra);">ADHD</a></li>
-          <li><a href="ocd.html">OCD</a></li>
-          <li><a href="anxiety.html">Anxiety</a></li>
-          <li><a href="couples.html">Couples</a></li>
-          <li><a href="children-of-immigrants.html">Children of Immigrants</a></li>
-        </ul>
-      </li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" aria-expanded="false">Therapies <span class="nav-caret">&#9662;</span></button>
-        <ul class="nav-dropdown-menu">
-          <li><a href="emdr.html">EMDR Therapy</a></li>
-          <li><a href="somatic-ifs.html">Somatic IFS</a></li>
-          <li><a href="experiential.html">Experiential Therapy</a></li>
-        </ul>
-      </li>
-      <li><a href="index.html#benefits">Insurance</a></li>
-      <li><a href="zh.html">中文</a></li>
-    </ul>
-    <a href="index.html#consult" class="nav-book">Book a consult</a>
-  </nav>
+  <header>
+    <div class="wrap bar">
+      <a class="brand" href="index.html" aria-label="Start with an Inhale, home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 10.2C29.6 16.4 27 25.4 18.4 27.6C10.4 29.6 3.8 23.8 4 16.2C4.2 9.2 9.8 4 16.6 4.2C20.4 4.3 23.2 5.8 25.1 8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="16" cy="16.2" r="6" fill="currentColor" opacity="0.85"/></svg>
+        <span><strong>Start with an Inhale</strong><span>Lin Chen, LCSW · Brooklyn Heights</span></span>
+      </a>
+      <ul class="menu">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#approach">Approach</a></li>
+        <li><a href="couples.html">Couples</a></li>
+        <li><a href="index.html#benefits">Insurance</a></li>
+        <li>
+          <details class="drop">
+            <summary>Conjunctive</summary>
+            <ul>
+              <li><a href="adhd-skills.html">ADHD skills</a></li>
+              <li><a href="erp-ocd-ocpd.html">ERP for OCD &amp; OCPD</a></li>
+              <li><a href="dbt-skills.html">DBT skills</a></li>
+              <li><a href="emdr-conjunctive.html">EMDR</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+      <a class="btn small" href="index.html#consult">Book a consultation</a>
+    </div>
+  </header>
+  <span id="nav" hidden></span>
 
   <!-- ADHD -->
   <section id="adhd" style="padding-top: 9rem;">
@@ -1221,23 +1221,23 @@
     <div style="max-width: 780px; margin: 3.5rem auto 0;">
       <p class="section-label" style="text-align:left;">Therapy with me</p>
       <h2 style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.6rem,2.4vw,2.2rem); font-weight:400; color:var(--brown); margin:0.3rem 0 2rem;">Being heard <em style="font-style:italic; color:var(--terra);">exactly</em> as you mean it</h2>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; font-weight:400; color:var(--terra); margin-bottom:0.5rem;">Listening, all the way through</h3>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">Many people with ADHD know the feeling of needing to say every detail out loud, and needing to be understood exactly the right way, not roughly or almost. In our sessions there's room for the whole story, tangents included. I listen for what you actually mean, and I check that I've got it right.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; font-weight:400; color:var(--terra); margin-bottom:0.5rem;">Object impermanence: out of sight, out of mind</h3>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">When something isn't right in front of you, it can quietly slip away: the bill in the drawer, the project in a closed tab, the friend you meant to text back weeks ago. It isn't that you don't care. I understand how object impermanence can strain work and relationships, and how easily it turns into guilt. Together we find ways to keep what matters visible, without the shame.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; font-weight:400; color:var(--terra); margin-bottom:0.5rem;">The weight of rejection sensitivity</h3>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">Rejection sensitive dysphoria (RSD) can make a small comment, a slow reply, or a hint of criticism land with real force. That weight is often carried quietly, and it can make relationships, and even asking for help, feel risky. We make space to name it, notice where it lives in the body, and slowly loosen its grip.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; font-weight:400; color:var(--terra); margin-bottom:0.5rem;">The loneliness no one sees</h3>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">Many ADHD adults feel lonely even when surrounded by people: a little out of step, often misunderstood, tired of explaining themselves. Therapy can be one place where you don't have to translate yourself.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <h3 style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; font-weight:400; color:var(--terra); margin-bottom:0.5rem;">Two extremes, both true</h3>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">My ADHD work draws heavily on <em>ADHD 2.0</em> by Dr. Edward Hallowell and Dr. John Ratey, who describe ADHD traits as two sides of the same coin. The mind that can't start the dull task can dive into something fascinating for hours; restlessness sits beside energy, impulsivity beside creativity. ADHD often lives at two extremes, and you can be remarkably good at both ends. Our work is to understand both, lean into your strengths, and build gentle supports for the rest.</p>
       </div>
@@ -1246,7 +1246,7 @@
     <div style="max-width: 780px; margin: 3.5rem auto 0;">
       <p class="section-label" style="text-align:left;">Tools</p>
       <h3 style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.6rem,2.4vw,2.2rem); font-weight:400; color:var(--brown); margin:0.3rem 0 2rem;">Working with your ADHD, <em style="font-style:italic; color:var(--terra);">not against it</em></h3>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 2.4rem; border: none; margin-bottom: 1.5rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 2.4rem; border: none; margin-bottom: 1.5rem;">
         <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--terra); margin-bottom: 1rem;">When the task feels too big, shrink the time</p>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85; margin-bottom:1.5rem;">When something like getting up and showering feels impossible, you don't have to do the whole thing. Pick the smallest version that matches the energy you actually have right now:</p>
           <div style="display:flex; gap:1rem; align-items:baseline; margin-bottom:1rem;">
@@ -1267,7 +1267,7 @@
           </div>
         <p style="font-size:0.9rem; color:var(--brown-mid); line-height:1.8; margin-top:1.3rem; font-style:italic;">Each step counts as a win on its own. If all you manage today is the 30-second version, that still counts.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 2.4rem; border: none; margin-bottom: 1.5rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 2.4rem; border: none; margin-bottom: 1.5rem;">
         <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--terra); margin-bottom: 1rem;">Three routines for three kinds of days</p>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85; margin-bottom:1.5rem;">You don't have to run the same routine every day. Having a few versions ready means there's always one that fits the capacity you actually have, without the shame.</p>
           <div style="display:flex; gap:1rem; align-items:baseline; margin-bottom:1rem;">
@@ -1284,7 +1284,7 @@
           </div>
         <p style="font-size:0.9rem; color:var(--brown-mid); line-height:1.8; margin-top:1.3rem; font-style:italic;">The point isn't to hit the top tier every day. It's to meet yourself where you are, and then let go of the shame for not doing more.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 2.4rem; border: none; margin-bottom: 1.5rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 2.4rem; border: none; margin-bottom: 1.5rem;">
         <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--terra); margin-bottom: 1rem;">To-do lists &amp; priorities, ADHD-style</p>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85; margin-bottom:1.5rem;">Two small shifts that make lists actually work with your brain instead of against it:</p>
           <div style="display:flex; gap:1rem; align-items:baseline; margin-bottom:1rem;">
@@ -1302,15 +1302,15 @@
     <div style="max-width: 780px; margin: 3rem auto 0;">
       <p class="section-label" style="text-align:left;">A few more hacks worth trying</p>
       <h3 style="font-family:'Cormorant Garamond', serif; font-size:clamp(1.4rem,2vw,1.9rem); font-weight:400; color:var(--brown); margin:0.3rem 0 2rem;">Small shifts that make a <em style="font-style:italic; color:var(--terra);">big</em> difference</h3>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <p style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; color:var(--terra); margin-bottom:0.5rem;">Body doubling</p>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">Hard tasks get easier with quiet company. &ldquo;Body doubling&rdquo; means doing your task while someone else is simply present &mdash; a friend on a video call, someone at the next table, or even a &ldquo;work with me&rdquo; video. You're not asking for help; their presence just makes it easier for your brain to stay on track.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <p style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; color:var(--terra); margin-bottom:0.5rem;">Make time visible</p>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">ADHD often comes with &ldquo;time blindness,&rdquo; where time feels slippery and an hour vanishes without warning. Make it physical: a visual timer you can watch count down, alarms for transitions, and clocks you can actually see. When time is visible, it's far easier to trust and work with.</p>
       </div>
-      <div class="card" style="background: #F5EBE0; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
+      <div class="card" style="background: transparent; border-radius: 14px; padding: 1.8rem 2rem; border: none; margin-bottom: 1.2rem;">
         <p style="font-family:'Cormorant Garamond', serif; font-size:1.5rem; color:var(--terra); margin-bottom:0.5rem;">Pair the boring with the good</p>
         <p style="font-size:0.95rem; color:var(--cream-text); line-height:1.85;">Sometimes called temptation bundling: let yourself have a certain treat only while doing the task you avoid. The show you're hooked on plays only while you fold laundry; the fancy coffee comes out only while you answer emails. It gives a dopamine-driven brain a real reason to start.</p>
       </div>
@@ -1325,10 +1325,46 @@
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <span class="footer-name">Start with an Inhale Psychotherapy &nbsp;·&nbsp; Lin Chen, LCSW</span>
-    <span>Brooklyn Heights, NYC &nbsp;·&nbsp; English &amp; 普通话 &nbsp;·&nbsp; In-Person &amp; Telehealth</span>
-    <span>© 2026 · All rights reserved</span>
+  <footer id="more">
+    <div class="wrap">
+      <div class="foot">
+        <div>
+          <strong style="color:var(--ink); font-family:var(--serif); font-weight:500; font-size:1.05rem;">Start with an Inhale Psychotherapy</strong>
+          <p style="margin-top:0.4rem;">Lin Chen, LCSW · Brooklyn Heights &amp; online in NY and NJ · Trilingual in English, 普通话 &amp; Fuzhounese</p>
+        </div>
+        <div>
+          <h3>Conjunctive services</h3>
+          <ul>
+            <li><a href="adhd-skills.html">ADHD skills</a></li>
+            <li><a href="erp-ocd-ocpd.html">ERP for OCD &amp; OCPD</a></li>
+            <li><a href="dbt-skills.html">DBT skills</a></li>
+            <li><a href="emdr-conjunctive.html">EMDR</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>I also work with</h3>
+          <ul>
+            <li><a href="adhd.html">ADHD</a></li>
+            <li><a href="ocd.html">OCD</a></li>
+            <li><a href="anxiety.html">Anxiety</a></li>
+            <li><a href="couples.html">Couples</a></li>
+            <li><a href="children-of-immigrants.html">Children of immigrants</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>More</h3>
+          <ul>
+            <li><a href="neurodivergent.html">Neurodivergent adults</a></li>
+            <li><a href="emdr.html">EMDR</a></li>
+            <li><a href="somatic-ifs.html">Somatic IFS</a></li>
+            <li><a href="experiential.html">Experiential therapy</a></li>
+            <li><a href="resourcing.html">Resourcing</a></li>
+            <li><a href="zh.html">中文心理咨询</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="credits">Ink painting: Mi Youren, Cloudy Mountains, 1130. Cleveland Museum of Art.</p><p class="crisis">If you're in crisis, call or text 988 (Suicide &amp; Crisis Lifeline) or call 911. This practice isn't an emergency service.</p>
+    </div>
   </footer>
 
   <script>
@@ -1352,6 +1388,15 @@
     // Close mobile menu after following a link
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', () => nav.classList.remove('open'));
+    });
+  </script>
+  <script>
+    // Close the Conjunctive menu on an outside click or Escape.
+    document.addEventListener('click', function (e) {
+      document.querySelectorAll('details.drop[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') document.querySelectorAll('details.drop[open]').forEach(function (d) { d.removeAttribute('open'); });
     });
   </script>
 </body>

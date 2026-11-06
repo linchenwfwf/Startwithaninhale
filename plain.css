@@ -1,0 +1,112 @@
+/* Quiet, plain layer shared by the homepage, About, and conjunctive service pages:
+   one column of text, no color blocks, no cards, no buttons. */
+:root { --gutter: clamp(1.25rem, 5vw, 1.5rem); --wrap: 46rem; --paper: #FBF8F3; --paper-2: #FBF8F3; --card: #FBF8F3; --ink-2: #4F3B2D; --ink-3: #7D6556; --accent-dark: #8A4A2E; --sage: #7D6556; }
+
+/* header: logo, then a plain row of links that wraps on small screens */
+header { position: static; background: none; }
+header .wrap { max-width: var(--wrap); }
+.bar { display: block; min-height: 0; padding: 1.4rem var(--gutter) 1.1rem; }
+.brand { display: inline-flex; }
+.brand svg { width: 24px; height: 24px; }
+.menu, .bar .menu { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; width: auto; margin: 0.8rem 0 0; padding: 0; overflow: visible; white-space: normal; }
+.menu a, .bar .menu a { font-size: 0.92rem; }
+.bar .btn { display: none; }
+
+/* sections: same background throughout, separated by a thin line */
+section { padding: 2.6rem 0; }
+section.first, section.tint { background: none; }
+section.first { padding-top: 2.6rem; }
+section.tint .card, section.tint .note { background: none; }
+
+/* type: no colored italics or shouting labels */
+h1 { font-size: 2.1rem; line-height: 1.2; letter-spacing: 0; margin-bottom: 0.9rem; }
+h2 { font-size: 1.55rem; line-height: 1.25; margin-bottom: 0.8rem; max-width: none; }
+h1 em, h2 em { font-style: normal; color: inherit; }
+.label { font-size: 0.88rem; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-3); margin-bottom: 0.3rem; }
+.lede { font-family: var(--sans); font-size: 1.05rem; line-height: 1.65; color: var(--ink-2); margin-bottom: 1rem; }
+.prose { max-width: none; }
+.quote { margin-top: 1.4rem; padding-left: 0; border-left: 0; font-family: var(--sans); font-size: 1rem; line-height: 1.65; color: var(--ink-2); }
+
+/* calls to action become ordinary links */
+.btn, .btn.small { display: inline; background: none; color: var(--accent-dark); font-weight: 400; font-size: inherit; padding: 0; border-radius: 0; white-space: normal; text-decoration: underline; text-underline-offset: 3px; }
+.btn:hover { background: none; color: var(--ink); }
+.hero-actions, .actions { gap: 0.4rem 1.2rem; margin-top: 1.2rem; }
+
+/* cards become plain paragraphs */
+.cards { display: block; margin-top: 1rem; }
+.card { background: none; border: 0; border-radius: 0; padding: 0; margin-top: 1.1rem; }
+.card h3, .skill h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin-bottom: 0.15rem; }
+.card p, .skill p, .card ul { font-size: 1rem; }
+.note { padding: 0; border-left: 0; background: none; border-radius: 0; font-size: 1rem; }
+.chips { display: block; margin-top: 1rem; }
+.chips li { display: inline; }
+.chips li + li::before { content: " · "; color: var(--ink-3); }
+.chips a { display: inline; background: none; border: 0; border-radius: 0; padding: 0; font-size: 0.95rem; color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+.group > h3 { font-size: 1.3rem; }
+.group { padding-top: 1.8rem; scroll-margin-top: 10px; }
+.group + .group { margin-top: 1.4rem; }
+.skills { display: block; margin-top: 0.8rem; }
+.skill { border-top: 0; padding: 0.45rem 0; }
+.tag { color: var(--ink-3); font-size: 0.82rem; font-weight: 400; margin-top: 0.1rem; }
+.steps { list-style: decimal; margin: 1rem 0 0 1.3rem; max-width: none; }
+.steps li { padding: 0 0 0.6rem 0.2rem; }
+.steps li::before { content: none; }
+
+/* homepage */
+.intro { display: grid; grid-template-columns: 130px 1fr; gap: 1.5rem; align-items: start; }
+.intro img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center 20%; display: block; }
+.welcome { display: grid; grid-template-columns: 1fr 150px; gap: 1.8rem; align-items: center; margin-top: 1.8rem; padding: 1.7rem 1.9rem; background: #F5E7DA; border-radius: 12px; }
+.welcome-lead { font-family: var(--serif); font-size: 1.6rem; line-height: 1.25; color: var(--ink); margin-bottom: 0.6rem; }
+.welcome p + p { margin-top: 0; color: var(--ink-2); }
+.welcome svg { width: 100%; height: auto; display: block; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.box { background: #FFFDF9; border: 1px solid var(--line); border-radius: 12px; padding: 1.4rem 1.5rem; display: flex; flex-direction: column; scroll-margin-top: 10px; }
+.box h3 { font-family: var(--serif); font-weight: 500; font-size: 1.25rem; line-height: 1.25; margin-bottom: 0.5rem; }
+.box p { font-size: 0.97rem; color: var(--ink-2); }
+.box p:last-child { margin-top: auto; padding-top: 0.8rem; }
+.band { height: clamp(170px, 24vw, 280px); background: url('https://images.pexels.com/photos/34742289/pexels-photo-34742289/free-photo-of-serene-misty-mountains-at-sunrise.jpeg?auto=compress&cs=tinysrgb&w=2000') center 60% / cover no-repeat; }
+h3.sub { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; margin: 1.4rem 0 0.25rem; scroll-margin-top: 10px; }
+.text p { color: var(--ink-2); }
+.text ul { margin: 0.7rem 0 0 1.2rem; color: var(--ink-2); }
+.text li { margin-bottom: 0.35rem; }
+.room-photo { width: 100%; max-height: 340px; object-fit: cover; object-position: center 60%; display: block; margin: 1.3rem 0 0.8rem; }
+table.fees { width: 100%; border-collapse: collapse; margin-bottom: 1.4rem; }
+.fees th, .fees td { text-align: left; padding: 0.6rem 0.8rem 0.6rem 0; border-top: 1px solid var(--line); font-size: 0.97rem; vertical-align: top; }
+.fees th { font-weight: 500; width: 34%; color: var(--ink-2); }
+.fees tr:last-child th, .fees tr:last-child td { border-bottom: 1px solid var(--line); }
+.contact { list-style: none; margin: 1rem 0 1.4rem; color: var(--ink-2); }
+.contact li { padding: 0.15rem 0; }
+.book-frame { width: 100%; height: 620px; border: 1px solid var(--line); background: #fff; display: block; }
+
+/* About page */
+.about { grid-template-columns: 130px 1fr; gap: 1.5rem; }
+.about img { border-radius: 0; }
+
+/* footer: four small columns collapse to one on narrow screens */
+.foot { grid-template-columns: 1fr 1fr; }
+
+@media (max-width: 680px) {
+  h1 { font-size: 1.85rem; }
+  .intro { grid-template-columns: 100px 1fr; gap: 1rem; }
+  .welcome { grid-template-columns: 1fr 86px; gap: 1rem; padding: 1.3rem 1.25rem; }
+  .welcome-lead { font-size: 1.35rem; }
+  .two { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .about img { max-width: 130px; }
+}
+
+    /* Conjunctive dropdown in the top menu */
+    details.drop { position: relative; border: 0; margin: 0; padding: 0; }
+    details.drop summary { display: inline-block; cursor: pointer; color: var(--ink-2); font-family: inherit; font-size: 0.92rem; font-weight: 400; line-height: inherit; list-style: none; padding: 0; margin: 0; border: 0; }
+    .drop summary::-webkit-details-marker { display: none; }
+    details.drop summary::after { content: " \25BE"; position: static; float: none; margin: 0; font-size: 0.75em; color: inherit; }
+    details.drop summary:hover, details.drop[open] summary { color: var(--ink); text-decoration: underline; }
+    .drop summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    .drop ul { position: absolute; top: calc(100% + 0.6rem); right: 0; z-index: 30; list-style: none; min-width: 13rem; margin: 0; padding: 0.4rem 0; background: var(--paper); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 18px rgba(60,42,30,0.12); white-space: nowrap; }
+    .drop ul li { display: block; }
+    .drop ul a { display: block; padding: 0.5rem 1rem; }
+    @media (max-width: 1160px) {
+      .menu { overflow: visible; flex-wrap: wrap; white-space: normal; }
+      details.drop summary { font-size: 0.86rem; }
+      .drop ul { right: auto; left: 0; }
+    }
