@@ -46,6 +46,12 @@ footer a, footer span, footer li, footer p { color: var(--ink-3) !important; fon
 .bar .btn { background: var(--accent) !important; color: #fff !important; text-decoration: none !important; padding: 0.55rem 1rem !important; border: 0 !important; font-size: 0.88rem !important; }
 @media (min-width: 1161px) { .bar .menu { margin: 0 0 0 auto !important; width: auto !important; } .bar .btn { margin-left: 0 !important; } }
 
+/* Solid top bar so page text does not show through */
+header { background: #FFFEFC !important; }
+
+/* Book button stays at the far right, after the menu, on wide screens */
+@media (min-width: 1161px) { .bar .menu { order: 2 !important; } .bar .btn { order: 3 !important; } }
+
 .mist { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: url('ink/cloudy-mountains.jpg') 76% 50% / auto 125% no-repeat; mix-blend-mode: multiply; opacity: 0.11; filter: grayscale(1) sepia(0.35) contrast(2.2) brightness(2.05); }
 
 .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
