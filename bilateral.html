@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilateral Stimulation | Start with an Inhale</title>
+  <meta name="description" content="A simple bilateral stimulation tool for EMDR sessions with Lin Chen, LCSW: a moving light and optional left-right tones." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #F7F2E9;
+      --card: #FBF6EF;
+      --ink: #3C2A1E;
+      --ink-2: #6B4D38;
+      --ink-3: #9C7B68;
+      --line: #E6D6C6;
+      --accent: #B86B4A;
+      --accent-dark: #9A5537;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --stage: #F7F2E9;
+      --dot: #B86B4A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; overflow: hidden; }
+    button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    header { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 16px; border-bottom: 1px solid var(--line); }
+    header a { color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 1.05rem; }
+    header span { color: var(--ink-3); font-size: 0.85rem; }
+
+    #stage { position: relative; flex: 1; background: var(--stage); overflow: hidden; cursor: default; transition: background 0.3s; }
+    #dot { position: absolute; left: 0; top: 0; border-radius: 50%; background: var(--dot); will-change: transform; box-shadow: 0 0 24px color-mix(in srgb, var(--dot) 45%, transparent); }
+    #count { position: absolute; right: 16px; top: 12px; font-size: 0.85rem; color: var(--ink-3); }
+    #hint { position: absolute; left: 50%; top: 50%; transform: translate(-50%, 4.5rem); color: var(--ink-3); font-size: 0.9rem; text-align: center; padding: 0 16px; pointer-events: none; }
+
+    .panel { border-top: 1px solid var(--line); background: var(--card); padding: 0.9rem 16px 1rem; transition: opacity 0.3s; }
+    .row { display: flex; flex-wrap: wrap; gap: 0.9rem 1.4rem; align-items: end; max-width: 1100px; margin: 0 auto; }
+    label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.78rem; color: var(--ink-2); }
+    label output { color: var(--ink-3); }
+    input[type=range] { width: 130px; accent-color: var(--accent); }
+    select { font: inherit; font-size: 0.88rem; padding: 0.35rem 0.5rem; border: 1px solid var(--line); border-radius: 5px; background: #fff; color: var(--ink); }
+    .check { flex-direction: row; align-items: center; gap: 0.4rem; font-size: 0.85rem; padding-bottom: 0.35rem; }
+    .check input { accent-color: var(--accent); }
+    .btns { display: flex; gap: 0.6rem; margin-left: auto; }
+    .btn { font: inherit; font-size: 0.92rem; font-weight: 500; border-radius: 6px; padding: 0.6rem 1.2rem; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+    .btn:hover { background: var(--accent-dark); }
+    .btn.ghost { background: transparent; color: var(--accent-dark); }
+    .btn.ghost:hover { background: rgba(184,107,74,0.08); }
+
+    body.running.focus header, body.running.focus .panel { opacity: 0; pointer-events: none; }
+    body.running.focus #stage { cursor: none; }
+    body.running.focus header { position: absolute; }
+
+    @media (max-width: 640px) {
+      input[type=range] { width: 110px; }
+      .btns { margin-left: 0; width: 100%; }
+      .btns .btn { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">Start with an Inhale</a>
+    <span>Bilateral stimulation</span>
+  </header>
+
+  <main id="stage" aria-label="Moving light. Follow it with your eyes.">
+    <div id="dot"></div>
+    <div id="count" aria-live="polite"></div>
+    <p id="hint">Follow the light with your eyes. Press the space bar to start or stop.</p>
+  </main>
+
+  <section class="panel" aria-label="Settings">
+    <div class="row">
+      <label>Speed <output id="speedOut"></output>
+        <input id="speed" type="range" min="0.3" max="2.5" step="0.1" value="1" />
+      </label>
+      <label>Size <output id="sizeOut"></output>
+        <input id="size" type="range" min="16" max="90" step="2" value="40" />
+      </label>
+      <label>Movement
+        <select id="path">
+          <option value="h">Side to side</option>
+          <option value="d1">Diagonal ↗</option>
+          <option value="d2">Diagonal ↘</option>
+          <option value="inf">Figure eight</option>
+          <option value="jump">Left / right (no glide)</option>
+        </select>
+      </label>
+      <label>Colors
+        <select id="theme">
+          <option value="warm">Terracotta on cream</option>
+          <option value="dark">Soft light on dark</option>
+          <option value="blue">Blue on white</option>
+          <option value="green">Green on cream</option>
+        </select>
+      </label>
+      <label>Stop after
+        <select id="limit">
+          <option value="0">I press stop</option>
+          <option value="12">12 passes</option>
+          <option value="24" selected>24 passes</option>
+          <option value="36">36 passes</option>
+          <option value="48">48 passes</option>
+        </select>
+      </label>
+      <label class="check"><input id="sound" type="checkbox" /> Left / right tones</label>
+      <label class="check"><input id="focus" type="checkbox" checked /> Hide controls while running</label>
+      <div class="btns">
+        <button id="toggle" class="btn" type="button">Start</button>
+        <button id="full" class="btn ghost" type="button">Full screen</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var stage = $('stage'), dot = $('dot'), count = $('count'), hint = $('hint');
+    var speed = $('speed'), size = $('size'), path = $('path'), theme = $('theme'), limit = $('limit');
+    var sound = $('sound'), focusBox = $('focus'), toggle = $('toggle'), full = $('full');
+
+    var themes = {
+      warm:  { stage: '#F7F2E9', dot: '#B86B4A' },
+      dark:  { stage: '#1E1814', dot: '#F3E4D6' },
+      blue:  { stage: '#FFFFFF', dot: '#3E6A9E' },
+      green: { stage: '#F7F2E9', dot: '#5E7F5A' }
+    };
+
+    // settings remembered on this device only
+    var KEY = 'bls-settings';
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (saved) {
+        ['speed','size','path','theme','limit'].forEach(function (k) { if (saved[k] != null) $(k).value = saved[k]; });
+        sound.checked = !!saved.sound; focusBox.checked = saved.focus !== false;
+      }
+    } catch (e) {}
+    function save() {
+      try {
+        localStorage.setItem(KEY, JSON.stringify({ speed: speed.value, size: size.value, path: path.value, theme: theme.value, limit: limit.value, sound: sound.checked, focus: focusBox.checked }));
+      } catch (e) {}
+    }
+
+    function applyTheme() {
+      var t = themes[theme.value] || themes.warm;
+      document.documentElement.style.setProperty('--stage', t.stage);
+      document.documentElement.style.setProperty('--dot', t.dot);
+      hint.style.color = theme.value === 'dark' ? '#9C8B7E' : '';
+      count.style.color = hint.style.color;
+    }
+    function labels() {
+      $('speedOut').textContent = (+speed.value).toFixed(1) + ' passes/sec';
+      $('sizeOut').textContent = size.value + ' px';
+      dot.style.width = dot.style.height = size.value + 'px';
+    }
+
+    // audio: short soft tone panned left or right at each edge
+    var actx = null;
+    function tone(side) {
+      if (!sound.checked) return;
+      try {
+        actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+        var o = actx.createOscillator(), g = actx.createGain(), p = actx.createStereoPanner ? actx.createStereoPanner() : null;
+        o.type = 'sine'; o.frequency.value = 440;
+        var t = actx.currentTime;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(0.25, t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+        o.connect(g);
+        if (p) { p.pan.value = side; g.connect(p); p.connect(actx.destination); } else { g.connect(actx.destination); }
+        o.start(t); o.stop(t + 0.2);
+      } catch (e) {}
+    }
+
+    var running = false, phase = 0, last = 0, passes = 0, lastSide = 0, raf = 0;
+
+    // position for phase (0..1 is one full left->right->left cycle; each half is one pass)
+    function pos(ph) {
+      var w = stage.clientWidth, h = stage.clientHeight, s = +size.value;
+      var mx = 24, my = 24;
+      var x0 = mx, x1 = w - s - mx, y0 = my, y1 = h - s - my, cy = (h - s) / 2;
+      var u = (1 - Math.cos(ph * 2 * Math.PI)) / 2; // 0 at left, 1 at right, eased at edges
+      switch (path.value) {
+        case 'd1': return [x0 + (x1 - x0) * u, y1 - (y1 - y0) * u];
+        case 'd2': return [x0 + (x1 - x0) * u, y0 + (y1 - y0) * u];
+        case 'inf':
+          var a = ph * 2 * Math.PI;
+          return [x0 + (x1 - x0) * (1 - Math.cos(a)) / 2, cy + Math.sin(2 * a) * Math.min((y1 - y0) / 2, (x1 - x0) / 6)];
+        case 'jump': return [(ph % 1) < 0.5 ? x0 : x1, cy];
+        default: return [x0 + (x1 - x0) * u, cy];
+      }
+    }
+    function place(ph) {
+      var p = pos(ph);
+      dot.style.transform = 'translate(' + p[0] + 'px,' + p[1] + 'px)';
+    }
+
+    function frame(t) {
+      if (!running) return;
+      var dt = Math.min((t - last) / 1000, 0.1); last = t;
+      phase += dt * (+speed.value) / 2; // speed = passes per second
+      // edge detection: count a pass and play a tone when the light reaches a side
+      var halfIndex = Math.floor(phase * 2); // changes at each edge
+      if (halfIndex !== lastSide) {
+        lastSide = halfIndex;
+        passes = halfIndex;
+        tone(halfIndex % 2 === 1 ? 1 : -1);
+        count.textContent = passes ? passes + (+limit.value ? ' / ' + limit.value : '') : '';
+        if (+limit.value && passes >= +limit.value) { place(Math.round(phase * 2) / 2); stop(); return; }
+      }
+      place(phase);
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running) return;
+      if (sound.checked) { try { actx = actx || new (window.AudioContext || window.webkitAudioContext)(); actx.resume(); } catch (e) {} }
+      running = true; phase = 0; passes = 0; lastSide = 0; count.textContent = '';
+      hint.style.display = 'none';
+      document.body.classList.add('running');
+      document.body.classList.toggle('focus', focusBox.checked);
+      toggle.textContent = 'Stop';
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+    function stop() {
+      running = false; cancelAnimationFrame(raf);
+      document.body.classList.remove('running');
+      toggle.textContent = 'Start';
+      hint.style.display = '';
+      hint.textContent = passes ? 'Set finished. Take a breath. Press the space bar to begin another set.' : 'Follow the light with your eyes. Press the space bar to start or stop.';
+    }
+
+    toggle.addEventListener('click', function () { running ? stop() : start(); });
+    stage.addEventListener('click', function () { if (running) stop(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.code === 'Space' && !/INPUT|SELECT|BUTTON/.test(e.target.tagName)) { e.preventDefault(); running ? stop() : start(); }
+      if (e.key === 'Escape' && running) stop();
+    });
+    full.addEventListener('click', function () {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen();
+    });
+    document.addEventListener('fullscreenchange', function () { full.textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen'; });
+
+    [speed, size, path, theme, limit, sound, focusBox].forEach(function (el) {
+      el.addEventListener('input', function () { labels(); applyTheme(); if (!running) place(0); save(); });
+      el.addEventListener('change', save);
+    });
+    window.addEventListener('resize', function () { if (!running) place(0); });
+
+    labels(); applyTheme(); place(0);
+  })();
+  </script>
+</body>
+</html>
