@@ -244,6 +244,47 @@
       draw();
     });
   </script>
+  <script>
+    addEventListener('DOMContentLoaded', function () {
+      var box = document.querySelector('.breath');
+      if (!box) return;
+      var btn = box.querySelector('.breath-btn'), word = box.querySelector('.word'), count = box.querySelector('.count');
+      var line = box.querySelector('.breath-round'), say = box.querySelector('[role=status]'), ring = box.querySelector('.ring');
+      var phases = [['in', 'Breathe in', 4], ['hold', 'Hold', 7], ['out', 'Breathe out', 8]], cycle = 19, rounds = 4;
+      var began = 0, timer = null, last = '';
+      function stop(message) {
+        clearInterval(timer); timer = null; last = '';
+        box.dataset.phase = 'idle';
+        ring.style.strokeDashoffset = 100;
+        word.textContent = message ? 'Again' : 'Start';
+        count.textContent = '4-7-8 breathing';
+        line.textContent = message || 'In for 4, hold for 7, out for 8';
+        say.textContent = message || 'Stopped';
+        btn.setAttribute('aria-label', 'Start 4-7-8 breathing');
+      }
+      function tick() {
+        var t = (performance.now() - began) / 1000, round = Math.floor(t / cycle);
+        if (round >= rounds) return stop('Four rounds complete');
+        var s = t - round * cycle, i = s < 4 ? 0 : s < 11 ? 1 : 2, into = s - [0, 4, 11][i], key = round + '-' + i;
+        ring.style.strokeDashoffset = 100 - 100 * s / cycle;
+        count.textContent = Math.max(1, Math.ceil(phases[i][2] - into));
+        if (key === last) return;
+        last = key;
+        box.dataset.phase = phases[i][0];
+        word.textContent = phases[i][1];
+        line.textContent = 'Round ' + (round + 1) + ' of ' + rounds + ' · tap to stop';
+        say.textContent = phases[i][1] + ' for ' + phases[i][2];
+      }
+      btn.addEventListener('click', function () {
+        if (timer) return stop();
+        began = performance.now();
+        btn.setAttribute('aria-label', 'Stop breathing exercise');
+        timer = setInterval(tick, 100);
+        tick();
+      });
+      document.addEventListener('visibilitychange', function () { if (document.hidden && timer) stop(); });
+    });
+  </script>
   <link rel="stylesheet" href="ink-home.css" />
 </head>
 <body>
@@ -283,9 +324,18 @@
     <!-- 1. Hero: what, who, where, how much. Answered in five seconds. -->
     <div class="hero" id="hero">
       <div class="wrap hero-grid">
-        <div>
-          <p class="kicker">Individual and couples therapy in Brooklyn Heights and online</p>
-          <h1>You've always been the one adapting. <em>Here, you don't have to be.</em></h1>
+        <div class="hero-text">
+          <h1 class="kicker">Individual and couples therapy in Brooklyn Heights and online</h1>
+          <div class="breath" data-phase="idle">
+            <button type="button" class="breath-btn" aria-label="Start 4-7-8 breathing" aria-describedby="breath-note">
+              <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="track" cx="100" cy="100" r="96"/><circle class="ring" cx="100" cy="100" r="96" pathLength="100"/></svg>
+              <span class="orb" aria-hidden="true"></span>
+              <span class="cue" aria-hidden="true"><span class="word">Start</span><span class="count">4-7-8 breathing</span></span>
+            </button>
+            <p class="breath-round" aria-hidden="true">In for 4, hold for 7, out for 8</p>
+            <p class="breath-note" id="breath-note">Four rounds, a little over a minute. If you feel lightheaded, stop and breathe normally.</p>
+            <p class="sr" role="status"></p>
+          </div>
           <p class="lede">Psychodynamic meets Somatic Experiential work for adults and children living with burnout, depression, anxiety, and trauma. I work closely with neurodivergent adults and children, people who aren't sure of their neurotype, and immigrants and children of immigrants. In person in Brooklyn Heights, or online across New York and New Jersey. Trilingual in English, 普通话, and Fuzhounese.</p>
           <div class="actions">
             <a class="btn" href="#consult">Book a free 20-minute consultation</a>
@@ -311,32 +361,25 @@
           </dl>
         </aside>
       </div>
-      <div class="wrap paths">
-        <p>Who I work with</p>
-        <div class="grid-2">
-          <a class="path" href="#neurodivergent"><h3>Neurodivergent adults &amp; children</h3><p>Adults and children who identify as neurodivergent, anyone who isn't sure of their neurotype, and their partners.</p></a>
-          <a class="path" href="#immigrants"><h3>Immigrants &amp; children of immigrants</h3><p>Adults building a life between two cultures, or working through family-of-origin patterns, cultural and intergenerational expectations, and what got passed down without words.</p></a>
-        </div>
-        <p style="margin:1rem 0 0; color:var(--ink-2); font-size:1rem; font-weight:400; letter-spacing:0; text-transform:none;">I also work with adults and children living with burnout, depression, <a href="anxiety.html">anxiety</a>, and trauma.</p>
-      </div>
     </div>
 
-    <!-- a quiet pause: the character 静 (calm, stillness) in brush style -->
-    <figure class="band"><span lang="zh" role="img" aria-label="静, meaning calm or stillness">静</span></figure>
-
-    <!-- 2. Neurodivergent adults. -->
-    <section id="neurodivergent">
-      <div class="wrap">
-        <h2>Neurodivergent adults &amp; children</h2>
-        <p class="intro">Many neurodivergent adults learn early to observe and imitate the social world around them, a process often called masking. This adaptation can make a person appear capable while costing a great deal of energy, and it can leave them with less access to their own needs and feelings. In my work, I pay attention to how these adaptations formed, what they have protected, and what they have cost. I also work with adults and children who aren't sure of their neurotype. You don't need a diagnosis or a label to begin.</p>
-      </div>
-    </section>
-
-    <!-- 2b. Immigrants and children of immigrants. -->
-    <section class="tint" id="immigrants">
-      <div class="wrap">
-        <h2>Immigrants and children of immigrants</h2>
-        <p class="intro">Migration does not end with arrival. Families can carry loss, sacrifice, and ways of surviving across generations, often without speaking of them. Children of immigrants may take on adult roles early, such as translating for their parents or protecting them from further stress. In adult life, this can show up as guilt around boundaries, not feeling fully at home in either culture, or old family patterns returning at times of change. I work with these experiences in their cultural context. I'm an immigrant myself, and I work in English, 普通话, and Fuzhounese.</p>
+    <!-- 6. About: credentials first, then the human. -->
+    <section id="about">
+      <div class="wrap about">
+        <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" loading="lazy" />
+        <div>
+          <h2>About</h2>
+          <p>I am a trilingual psychotherapist licensed in New York and New Jersey, working in American English, Mandarin, and Fuzhounese. I have personally experienced and worked with issues related to acculturation, immigration, and identity, and I specialize in working with people from diverse backgrounds.</p>
+          <p>Before becoming a therapist, I had a career in tech consulting. I have integrated that background with my psychology training to create an analytical, yet compassionate space for my clients.</p>
+          <p>Many people come to therapy wanting to solve a problem. We can start there. We can work on what is practical and pressing, and also look at what keeps the problem coming back. Long-held patterns once made perfect sense: they protected you and helped you survive and adapt. Over time, they can become inflexible.</p>
+          <p>Therapy can help you become a more expansive version of yourself, with more room for your feelings, your needs, and who you are. I am an active presence in our work, and I pay attention to what happens between us. We change by becoming more solidly rooted in who we are.</p>
+          <ul class="creds">
+            <li>Licensed Clinical Social Worker (LCSW) <span>New York &amp; New Jersey</span></li>
+            <li>EMDR Training <span>The Institute for Creative Mindfulness</span></li>
+            <li>Somatic Embodiment &amp; Regulation (SER) <span>Certificate</span></li>
+            <li>Psychodynamic Gestalt Training <span>Gestalt Associates for Psychotherapy (GAP)</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -345,7 +388,7 @@
       <div class="wrap">
         <p class="label">The approach</p>
         <h2>Where psychodynamic work <em>meets the body</em></h2>
-        <p class="intro">My work is rooted in psychodynamic Gestalt therapy. Psychodynamic work helps us understand the patterns that shaped you and how they show up in your life now. Experiential somatic work brings that understanding into the room, through what you notice in your body and what happens between us. Insight alone doesn't always change how something feels. Depending on what you need, I bring in EMDR and Parts Work, especially when putting feelings into words is hard.</p>
+        <p class="intro">You, sitting across from me, are a collection of conditioning from everything that has happened to you. The words we say are unintentionally biased; your face, your voice, and your body can't be. My work is rooted in psychodynamic Gestalt therapy. Experiential somatic work brings that understanding into the room, through what you notice in your body and what happens between us. Make the unknown known; then, there is understanding. And understanding is essential to change. Depending on what you need, I bring in EMDR and Parts Work, especially when putting feelings into words is hard.</p>
         <div class="method core">
           <p class="tag">The foundation</p>
           <h3>Psychodynamic Gestalt</h3>
@@ -386,6 +429,51 @@
       </div>
     </section>
 
+    <!-- The room -->
+    <section id="room">
+      <div class="wrap about">
+        <div class="room" style="grid-column: 1 / -1; margin-top: 0;">
+          <img class="room-photo" src="office-room.jpg" alt="The therapy office: a sofa with warm cushions, a reading chair, a round rug, plants, and a large window with a city view" loading="lazy" />
+          <div>
+            <h2>The room</h2>
+            <p>This is where we meet: a quiet room on a high floor at 26 Court Street, with natural light, plants, and a few places to sit. Choose the sofa, the chair, or a floor cushion, whatever is comfortable. There's also a weighted blanket, if you'd like one.</p>
+            <p>If you'd rather start online, that works too, and you can visit later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- a quiet pause: the character 静 (calm, stillness) in brush style -->
+    <figure class="band"><span lang="zh" role="img" aria-label="静, meaning calm or stillness">静</span></figure>
+
+    <!-- Who I work with -->
+    <section id="who">
+      <div class="wrap paths">
+        <p>Who I work with</p>
+        <div class="grid-2">
+          <a class="path" href="#neurodivergent"><h3>Neurodivergent adults &amp; children</h3><p>Adults and children who identify as neurodivergent, anyone who isn't sure of their neurotype, and their partners.</p></a>
+          <a class="path" href="#immigrants"><h3>Immigrants &amp; children of immigrants</h3><p>Adults building a life between two cultures, or working through family-of-origin patterns, cultural and intergenerational expectations, and what got passed down without words.</p></a>
+        </div>
+        <p style="margin:1rem 0 0; color:var(--ink-2); font-size:1rem; font-weight:400; letter-spacing:0; text-transform:none;">I also work with adults and children living with burnout, depression, <a href="anxiety.html">anxiety</a>, and trauma.</p>
+      </div>
+    </section>
+
+    <!-- 2. Neurodivergent adults. -->
+    <section id="neurodivergent">
+      <div class="wrap">
+        <h2>Neurodivergent adults &amp; children</h2>
+        <p class="intro">Many neurodivergent adults learn early to observe and imitate the social world around them, a process often called masking. This adaptation can make a person appear capable while costing a great deal of energy, and it can leave them with less access to their own needs and feelings. In my work, I pay attention to how these adaptations formed, what they have protected, and what they have cost. I also work with adults and children who aren't sure of their neurotype. You don't need a diagnosis or a label to begin.</p>
+      </div>
+    </section>
+
+    <!-- 2b. Immigrants and children of immigrants. -->
+    <section class="tint" id="immigrants">
+      <div class="wrap">
+        <h2>Immigrants and children of immigrants</h2>
+        <p class="intro">Migration does not end with arrival. Families can carry loss, sacrifice, and ways of surviving across generations, often without speaking of them. Children of immigrants may take on adult roles early, such as translating for their parents or protecting them from further stress. In adult life, this can show up as guilt around boundaries, not feeling fully at home in either culture, or old family patterns returning at times of change. I work with these experiences in their cultural context. I'm an immigrant myself, and I work in English, 普通话, and Fuzhounese.</p>
+      </div>
+    </section>
+
     <!-- 4b. Conjunctive services: one focused piece of work alongside existing care. -->
     <section id="conjunctive">
       <div class="wrap">
@@ -396,34 +484,6 @@
           <a class="path" href="erp-ocd-ocpd.html"><h3>ERP for OCD &amp; OCPD</h3><p>Hands-on exposure practice with parts work.</p></a>
           <a class="path" href="dbt-skills.html"><h3>DBT skills</h3><p>One-on-one, DBT-informed skills for emotional regulation.</p></a>
           <a class="path" href="emdr-conjunctive.html"><h3>EMDR</h3><p>Focused EMDR alongside the therapy you already have.</p></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. About: credentials first, then the human. -->
-    <section id="about">
-      <div class="wrap about">
-        <img src="lin-portrait.jpg" alt="Lin Chen, LCSW" loading="lazy" />
-        <div>
-          <h2>About</h2>
-          <p>I am a trilingual psychotherapist licensed in New York and New Jersey, working in American English, Mandarin, and Fuzhounese. I have personally experienced and worked with issues related to acculturation, immigration, and identity, and I specialize in working with people from diverse backgrounds.</p>
-          <p>Before becoming a therapist, I had a career in tech consulting. I have integrated that background with my psychology training to create an analytical, yet compassionate space for my clients.</p>
-          <p>Many people come to therapy wanting to solve a problem. We can start there. We can work on what is practical and pressing, and also look at what keeps the problem coming back. Long-held patterns once made perfect sense: they protected you and helped you survive and adapt. Over time, they can become inflexible.</p>
-          <p>Therapy can help you become a more expansive version of yourself, with more room for your feelings, your needs, and who you are. I am an active presence in our work, and I pay attention to what happens between us. We change by becoming more solidly rooted in who we are.</p>
-          <ul class="creds">
-            <li>Licensed Clinical Social Worker (LCSW) <span>New York &amp; New Jersey</span></li>
-            <li>EMDR Training <span>The Institute for Creative Mindfulness</span></li>
-            <li>Somatic Embodiment &amp; Regulation (SER) <span>Certificate</span></li>
-            <li>Psychodynamic Gestalt Training <span>Gestalt Associates for Psychotherapy (GAP)</span></li>
-          </ul>
-        </div>
-        <div class="room" style="grid-column: 1 / -1;">
-          <img class="room-photo" src="office-room.jpg" alt="The therapy office: a sofa with warm cushions, a reading chair, a round rug, plants, and a large window with a city view" loading="lazy" />
-          <div>
-            <h3>The room</h3>
-            <p>This is where we meet: a quiet room on a high floor at 26 Court Street, with natural light, plants, and a few places to sit. Choose the sofa, the chair, or a floor cushion, whatever is comfortable. There's also a weighted blanket, if you'd like one.</p>
-            <p>If you'd rather start online, that works too, and you can visit later.</p>
-          </div>
         </div>
       </div>
     </section>

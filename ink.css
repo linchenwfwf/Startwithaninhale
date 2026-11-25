@@ -64,3 +64,24 @@ footer a { text-decoration: none; }
 footer a:hover { text-decoration: underline; }
 .crisis, .credits { margin-top: 1.4rem; font-size: 0.8rem !important; }
 @media (max-width: 680px) { .foot { grid-template-columns: 1fr; } }
+
+/* Warm orange colors and Georgia / plain sans fonts, matching the homepage */
+:root {
+  --paper: #F7F2E9; --paper-2: #F3E4D6;
+  --ink: #3C2A1E; --ink-2: #6B4D38; --ink-3: #9C7B68; --line: #E6D6C6;
+  --accent: #B86B4A; --accent-dark: #9A5537; --sage: #B86B4A; --terra: #B86B4A;
+  --serif: Georgia, 'Times New Roman', serif; --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+body { font-family: var(--sans) !important; font-size: 17px; line-height: 1.65; }
+header { background: #F7F2E9 !important; }
+h1, h2, .section-heading { font-family: var(--serif) !important; }
+h1 em, h2 em, .section-heading em { font-family: var(--serif) !important; font-style: italic !important; }
+main p, main li, section p, section li { font-family: var(--sans) !important; }
+.btn, .bar .btn, .btn-primary { border-radius: 6px !important; }
+.anx-definition { font-family: var(--serif) !important; }
+:lang(zh) h1 em, :lang(zh) h2 em, :lang(zh) .section-heading em { font-style: normal !important; }
+
+/* The orange gradient from the top of the homepage, held behind the whole page */
+body::before { content: "" !important; position: fixed; top: 0; left: 0; right: 0; height: 220vh; z-index: -1; pointer-events: none; opacity: 1; background: radial-gradient(ellipse 60% 70% at 80% 20%, rgba(212,146,111,0.22), transparent 70%), radial-gradient(ellipse 50% 60% at 10% 90%, rgba(184,107,74,0.1), transparent 70%); }
+.anx-definition { border-left-color: var(--accent) !important; }
+main svg text, section svg text { font-family: var(--sans) !important; }
